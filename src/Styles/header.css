@@ -1,7 +1,10 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: var(--fuente-principal);
+  padding: 2rem 5rem 2rem 5rem;
+  border-bottom: .1rem solid #000;
+  box-shadow: 0 0 1.2rem black;
 }
 
 .prueba {
