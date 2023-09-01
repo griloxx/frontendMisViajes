@@ -1,0 +1,20 @@
+:root {
+  --fuente-titulos: "Pacifico", sans-serif;
+  --fuente-principal: "Satisfy", cursive;
+  --fuente-comentarios: "Caveat", cursive;
+  --color-borders: #d622e6;
+  --color-botones: #d68bca;
+  --blanco: #fff;
+  --negro: #212121;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
