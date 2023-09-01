@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  font-family: var(--fuente-principal);
+}
+
+.prueba {
+  background-color: var(--negro);
+  width: 50px;
+}
