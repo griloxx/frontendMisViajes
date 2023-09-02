@@ -6,12 +6,7 @@ import { NavLinksMenuAuth } from "./NavlinksAuth";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 
-
 export function Header() {
-
-  const login = useContext(LoginContext)
-
-
   return (
     <>
       <header className="header">
