@@ -2,8 +2,10 @@
   --fuente-titulos: "Pacifico", sans-serif;
   --fuente-principal: "Satisfy", cursive;
   --fuente-comentarios: "Caveat", cursive;
-  --color-borders: #d622e6;
+  --color-bordes: #d622e6;
   --color-botones: #d68bca;
+  --color-botones-hover: #fb73e5;
+  --color-sombras: #a3a3a3;
   --blanco: #fff;
   --negro: #212121;
 }
@@ -20,3 +22,12 @@ html {
   box-sizing: inherit;
   margin: 0;
 }
+
+body {
+  font-family: var(--fuente-principal);
+}
+
+.main {
+  padding: 2rem 5rem 2rem 5rem;
+}
+

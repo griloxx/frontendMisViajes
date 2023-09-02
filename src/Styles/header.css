@@ -1,13 +1,14 @@
 .header {
   display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--blanco);
   justify-content: space-between;
-  font-family: var(--fuente-principal);
-  padding: 2rem 5rem 2rem 5rem;
+  width: 100%;
+  font-family: var(--fuente-titulos);
+  padding: 3rem 5rem 3rem 5rem;
   border-bottom: .1rem solid #000;
   box-shadow: 0 0 1.2rem black;
 }
 
-.prueba {
-  background-color: var(--negro);
-  width: 50px;
-}
+
