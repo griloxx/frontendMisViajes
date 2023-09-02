@@ -32,7 +32,3 @@
   text-decoration: none;
   color: var(--negro);
 }
-.iconoMenu {
-  border-color: var(--color-bordes);
-  background-color: var(--color-botones);
-}

@@ -12,7 +12,7 @@ export const RegistroUsuario = () => {
   const [avatar, setAvatar] = useState();
   const [error, setError] = useState();
 
-  const handleForm = async (e)={
+  const handleForm = async ({e})={
     e.preventDefault(),
     setError("");
     
@@ -76,7 +76,7 @@ export const RegistroUsuario = () => {
           name="avatar"
           onChange={(e) => setAvatar(e.target.value)}
         />
-        <button>Registro</button>
+        <button className="boton-simple">Registro</button>
       </form>
     </section>
   );

@@ -13,7 +13,7 @@ export function BotonMenu(menuAbierto) {
   };
 
   return (
-    <div className="iconoMenu">
+    <div className="botonMenu">
       <button onClick={handleClick}>
         <Icon
           name={menuAbierto ? "tsunami" : "sweep"}
