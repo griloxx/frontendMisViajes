@@ -11,4 +11,24 @@
   box-shadow: 0 0 1.2rem black;
 }
 
+.nav-menu {
+  position: fixed;
+  height: 100vh;
+  background-color: var(--blanco);
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: .5rem .5rem 1rem var(--negro);
+  padding: 0;
+}
 
+.li-link {
+  margin: 5rem auto;
+  font-size: x-large;
+  list-style: none;
+}
+.link {
+  text-decoration: none;
+  color: var(--negro);
+}

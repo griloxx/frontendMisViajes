@@ -1,0 +1,15 @@
+[
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Login",
+      "url": "/login"
+    },
+    {
+      "name": "Registro",
+      "url": "/registro"
+    }
+  ]
+  

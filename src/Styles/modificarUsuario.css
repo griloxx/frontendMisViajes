@@ -61,7 +61,7 @@
         grid-template-columns: repeat(2, 1fr);
         width: 60rem;
         height: 40rem;
-        font-size: xx-large;
+        font-size: x-large;
     }
     .div-form-inp {
         justify-content: center;

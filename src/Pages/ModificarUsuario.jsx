@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { BotonSimple } from "../Components/BotonSimple"
 import { Forms } from "../Components/Forms"
 import { Input } from "../Components/Input"
@@ -6,6 +7,7 @@ import avatar from "../imagenes/avatar.jpg"
 
 
 export function ModificarUsuario() {
+    const {password, setPassword} = useState(false)
 
 
     return(

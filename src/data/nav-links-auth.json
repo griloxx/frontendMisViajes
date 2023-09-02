@@ -1,0 +1,19 @@
+[
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Crear Entrada",
+      "url": "/entradas/crear"
+    },
+    {
+      "name": "Modificar Perfil",
+      "url": "/modificar-usuario"
+    },
+    {
+      "name": "Logout",
+      "url": "/logout"
+    }
+  ]
+  
