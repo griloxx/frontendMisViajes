@@ -4,9 +4,9 @@ export const servicioRegistroUsuario = async ({email, password})=>{
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/usuarios`),
     {
         method: "POST",
-        headers: {
+        headers= {
             "Content-Type": "application/json"
-        } 
+        },
         body: json.stringify({email, password}),
     });
     const json = await response.json();
