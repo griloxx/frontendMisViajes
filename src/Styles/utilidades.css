@@ -1,26 +1,27 @@
 .boton-simple {
   background-color: var(--color-botones);
-  border: .2rem solid var(--color-bordes);
+  border: 0.2rem solid var(--color-bordes);
   border-radius: 2rem;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   font-family: var(--fuente-principal);
-  box-shadow: 0 .3rem .5rem var(--color-sombras);
+  box-shadow: 0 0.3rem 0.5rem var(--color-sombras);
   cursor: pointer;
 }
 
 .boton-simple:hover {
-  background-color: var(--color-botones-hover) ;
-  box-shadow: 0 0 .8rem var(--color-bordes);
+  background-color: var(--color-botones-hover);
+  box-shadow: 0 0 0.8rem var(--color-bordes);
 }
 
 .input {
-  border: .15rem solid var(--color-bordes);
+  border: 0.15rem solid var(--color-bordes);
   outline: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
-.input:focus, .input:hover {
-  box-shadow: 0 0 .3rem var(--color-bordes);
+.input:focus,
+.input:hover {
+  box-shadow: 0 0 0.3rem var(--color-bordes);
 }
 
 .hidden {
@@ -28,10 +29,6 @@
 }
 
 .prueba {
-  background-color: var(--negro);
-  width: 50px;
-}
-.prueba2 {
   background-color: var(--negro);
   width: 50px;
 }
