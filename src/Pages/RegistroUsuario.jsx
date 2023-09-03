@@ -1,10 +1,11 @@
 import Joi from "joi";
 import { useNavigate } from "react-router-dom";
 import { servicioRegistroUsuario } from "../Api/servicioRegistroUsuario";
+import { Input } from "../Components/Input";
 
 const schema = Joi.object({
   name: Joi.string().required(),
-  email: Joi.sting().email().required(),
+  email: Joi.string().required(),
   password: Joi.string().required(),
   avatar: Joi.string(),
 });
@@ -12,7 +13,7 @@ const schema = Joi.object({
 export const RegistroUsuario = () => {
   const navigate = useNavigate();
 
-  async function enviarRegistro(requerirObjeto) {
+  async function enviarRegistro() {
     const resultado = await servicioRegistroUsuario(requerirObjeto);
     if (resultado.success) {
       navigate(`/validar-email?email=${requerirObjeto.email}`);
@@ -24,7 +25,8 @@ export const RegistroUsuario = () => {
   return (
     <section>
       <h1>Registro</h1>
-      <form schema={schema} onSubmit={onSubmit}>
+      <form onSubmit={enviarRegistro}>
+        <Input label={"Nombre:"} type={"text"} name={"name"} clase={"input"} />
         <label htmlFor="name">Nombre de ususario</label>
         <input type="text" id="name" name="name" />
         <label htmlFor="email">Email</label>

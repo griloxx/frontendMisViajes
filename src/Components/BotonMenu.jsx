@@ -3,14 +3,14 @@ import { Icon } from "./icons";
 
 export function BotonMenu() {
   const [icono, setIcono] = useState("tsunami");
-  
-  const onClick= () => {
+
+  const onClicks = () => {
     setIcono(icono === "tsunami" ? "sweep" : "tsunami");
   };
 
   return (
     <div className="botonMenu">
-      <Icon onClick={onClick}>
-      {icono === "tsunami" ? "sweep" : "tsunami"}
-      </Icon>
+      <Icon onClick={onClicks} icono={icono}></Icon>
     </div>
+  );
+}

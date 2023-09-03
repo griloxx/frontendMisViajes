@@ -1,7 +1,7 @@
-export function Icon({ name, style }) {
+export function Icon({ icono, onClick }) {
   return (
-    <span className="material-symbols-outlined" style={style}>
-      {name}
+    <span onClick={onClick} className="material-symbols-outlined">
+      {icono}
     </span>
   );
 }
