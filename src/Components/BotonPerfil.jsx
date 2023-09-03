@@ -1,3 +1,10 @@
+import React from "react";
+import avatar from "../imagenes/avatar.jpg";
+import { Link } from "react-router-dom";
 export function BotonPerfil() {
-  return <div className="prueba2"></div>;
+  return (
+    <Link to={"/modificar-usuario"} className="botone-perfil">
+      <img className="imagen-avatar" src={avatar} alt="avatar" />
+    </Link>
+  );
 }

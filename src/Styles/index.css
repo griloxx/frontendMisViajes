@@ -15,7 +15,6 @@ html {
   font-size: 62.5%;
 }
 
-
 *,
 *:before,
 *:after {
@@ -31,3 +30,12 @@ body {
   padding: 2rem 5rem 2rem 5rem;
 }
 
+.botone-perfil {
+  border-radius: 100%;
+  border: 0;
+  cursor: pointer;
+}
+.imagen-avatar {
+  width: 60px;
+  border-radius: 100%;
+}
