@@ -48,6 +48,9 @@
 .boton-menu .material-symbols-outlined {
   margin: 0;
   font-size: 60px;
+  color: var(--color-link);
+  background-color: var(--color-botones);
+  border-radius: 100%;
 }
 
 .link:hover {
