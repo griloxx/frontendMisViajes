@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <LoginContext.Provider value={{login, setLogin}}>
+      <LoginContext.Provider value={{ login, setLogin }}>
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path="/entradas/crear" element={<CrearEntrada />} />
           <Route path="/login" element={<Login />} />*/}
           <Route path="/registro" element={<RegistroUsuario />} />
-          {/*<Route path="/validar-registro" element={<ValidarRegistro />} /> */}
+          {/*<Route path="/validar-registro/:codigo" element={<ValidarRegistro />} /> */}
           <Route path="/modificar-usuario" element={<ModificarUsuario />} />
           {/* <Route path="/*" element={<PaginaNoEncontrada />} />  */}
         </Routes>
