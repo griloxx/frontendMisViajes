@@ -4,14 +4,18 @@ import App from "./App.jsx";
 import "./Styles/index.css";
 import "./Styles/utilidades.css";
 import { BrowserRouter } from "react-router-dom";
-import { LoginContext } from "./context/LoginContext.js";
+import { Icon } from "./Components/icons.jsx";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  
   <React.StrictMode>
     <BrowserRouter>
-      <LoginContext.Provider value={false}>
-        <App />
-      </LoginContext.Provider>
+      <Icon clase={"vuelo"} icono={"Flight"} />
+      <Icon clase={"vuelo2"} icono={"Flight"} />
+      <Icon clase={"vuelo3"} icono={"Flight"} />
+      <Icon clase={"vuelo4"} icono={"Flight"} />
+       <App />
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,19 +1,23 @@
 [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/",
+      "icono": "Home"
     },
     {
       "name": "Crear Entrada",
-      "url": "/entradas/crear"
+      "url": "/entradas/crear",
+      "icono": "Note_add"
     },
     {
       "name": "Modificar Perfil",
-      "url": "/modificar-usuario"
+      "url": "/modificar-usuario",
+      "icono": "Person"
     },
     {
       "name": "Logout",
-      "url": "/logout"
+      "url": "/logout",
+      "icono": "Logout"
     }
   ]
   

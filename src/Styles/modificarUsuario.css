@@ -19,6 +19,8 @@
     border-radius: 2rem;
     padding: 2rem 0;
     box-shadow: 0 .3rem 1rem var(--color-sombras);
+    background-color: white;
+    z-index: 1;
 }
 .div-form-inp {
     display: flex;

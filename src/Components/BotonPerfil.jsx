@@ -1,10 +1,10 @@
 import React from "react";
 import avatar from "../imagenes/avatar.jpg";
 import { Link } from "react-router-dom";
-export function BotonPerfil() {
+export function BotonPerfil({onClick}) {
   return (
     <Link to={"/modificar-usuario"} className="botone-perfil">
-      <img className="imagen-avatar" src={avatar} alt="avatar" />
+      <img onClick={onClick} className="imagen-avatar" src={avatar} alt="avatar" />
     </Link>
   );
 }
