@@ -1,0 +1,59 @@
+.crearRegistro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.formularioRegistro {
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tituloRegistro {
+  padding: 2rem;
+}
+
+.formRegistro {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 150rem;
+  min-width: 50rem;
+  margin: 2rem;
+  /* border: .2rem solid var(--color-bordes); */
+  border-radius: 2rem;
+  padding: 2rem 0;
+  box-shadow: 0 0.3rem 1rem var(--color-sombras);
+}
+.div-form-reg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.div-form-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.imagen-perfil {
+  margin-top: 2rem;
+  width: 10rem;
+  height: 10rem;
+  border: 0.2rem solid var(--color-bordes);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-form {
+  max-width: 10rem;
+  overflow: hidden;
+  background-size: cover;
+}

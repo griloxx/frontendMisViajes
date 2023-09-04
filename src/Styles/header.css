@@ -32,3 +32,9 @@
   text-decoration: none;
   color: var(--negro);
 }
+
+.botonMenu {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}

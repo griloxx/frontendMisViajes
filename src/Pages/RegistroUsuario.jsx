@@ -1,7 +1,11 @@
 import Joi from "joi";
 import { useNavigate } from "react-router-dom";
 import { servicioRegistroUsuario } from "../Api/servicioRegistroUsuario";
-import { Input } from "../Components/Input";
+import { Input } from "../Components/Input.jsx";
+import { BotonSimple } from "../Components/BotonSimple.jsx";
+import "../Styles/crearUsuario.css";
+import avatar from "../imagenes/avatar.jpg";
+import { useState } from "react";
 
 const schema = Joi.object({
   name: Joi.string().required(),
@@ -13,32 +17,80 @@ const schema = Joi.object({
 export const RegistroUsuario = () => {
   const navigate = useNavigate();
 
-  async function enviarRegistro() {
-    const resultado = await servicioRegistroUsuario(requerirObjeto);
-    if (resultado.success) {
+  const [requerirObjeto, setRequerirObjeto] = useState({});
+  const [errorReg, setErrorReg] = useState("");
+
+  const actualizarRequerirObjeto = (nuevoValor) => {
+    setRequerirObjeto((antiguoValor) => {
+      return {
+        ...antiguoValor,
+        ...nuevoValor,
+      };
+    });
+  };
+
+  const enviarRegistro = async (e) => {
+    e.preventDefault();
+
+    try {
+      const resultado = await servicioRegistroUsuario();
+
       navigate(`/validar-email?email=${requerirObjeto.email}`);
-    } else {
-      throw new Error(error.me);
+    } catch (error) {
+      setErrorReg(errorReg.message);
     }
-  }
+  };
 
   return (
-    <section>
-      <h1>Registro</h1>
-      <form onSubmit={enviarRegistro}>
-        <Input label={"Nombre:"} type={"text"} name={"name"} clase={"input"} />
-        <label htmlFor="name">Nombre de ususario</label>
-        <input type="text" id="name" name="name" />
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Contraseña</label>
-        <input type="password" id="password" name="password" />
-        <label htmlFor="avatar">Foto Avatar</label>
-        <input type="image" id="avatar" name="avatar" />
-        <button className="boton-simple" type="submit">
-          Registro
-        </button>
-      </form>
-    </section>
+    <main className="crearRegistro">
+      <section className="formularioRegistro">
+        <h2 className="tituloRegistro">Registro</h2>
+
+        <form className="formRegistro" onSubmit={enviarRegistro}>
+          <div className="div-form-reg">
+            <Input
+              label={"Nombre:"}
+              type={"text"}
+              name={"name"}
+              clase={"input"}
+            />
+            <Input
+              label={"Email:"}
+              type={"email"}
+              name={"email"}
+              clase={"input"}
+            />
+            <Input
+              label={"Password:"}
+              type={"password"}
+              name={"pasword"}
+              clase={"input"}
+              autocomplete={"off"}
+            />
+          </div>
+
+          <div className="div-form-avatar">
+            <Input
+              label={"Avatar:"}
+              type={"file"}
+              name={"avatar"}
+              clase={"hidden"}
+              autocomplete={"off"}
+            />
+            <BotonSimple clase={"boton-simple"}>
+              Seleccionar Archivo
+            </BotonSimple>
+            <div className="imagen-perfil">
+              <img className="avatar-form" src={avatar} alt="avatar" />
+            </div>
+          </div>
+        </form>
+        <div>
+          <button className="boton-simple" type="submit">
+            Registro
+          </button>
+        </div>
+      </section>
+    </main>
   );
 };
