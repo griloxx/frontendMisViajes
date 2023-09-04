@@ -47,9 +47,10 @@
 
 .boton-menu .material-symbols-outlined {
   margin: 0;
-  font-size: 60px;
-  color: var(--color-link);
-  background-color: var(--color-botones);
+  padding: 5px;
+  font-size: 50px;
+  color: var(--color-botones);
+  border: 2px solid var(--color-bordes);
   border-radius: 100%;
 }
 
