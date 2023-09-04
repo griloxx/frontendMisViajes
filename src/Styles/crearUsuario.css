@@ -18,15 +18,15 @@
 }
 
 .formRegistro {
-  display: flex;
-  justify-content: space-evenly;
   max-width: 150rem;
-  min-width: 50rem;
+  min-width: 28rem;
   margin: 2rem;
   /* border: .2rem solid var(--color-bordes); */
   border-radius: 2rem;
   padding: 2rem 0;
   box-shadow: 0 0.3rem 1rem var(--color-sombras);
+  z-index: 1;
+  background-color: white;
 }
 .div-form-reg {
   display: flex;
@@ -56,4 +56,13 @@
   max-width: 10rem;
   overflow: hidden;
   background-size: cover;
+}
+@media (min-width: 768px) {
+  .formRegistro {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .div-form-avatar {
+    padding: 20px;
+  }
 }

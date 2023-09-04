@@ -6,6 +6,7 @@ import { BotonSimple } from "../Components/BotonSimple.jsx";
 import "../Styles/crearUsuario.css";
 import avatar from "../imagenes/avatar.jpg";
 import { useState } from "react";
+import { FormContext } from "../context/FormContext";
 
 const schema = Joi.object({
   name: Joi.string().required(),
@@ -17,14 +18,20 @@ const schema = Joi.object({
 export const RegistroUsuario = () => {
   const navigate = useNavigate();
 
-  const [requerirObjeto, setRequerirObjeto] = useState({});
-  const [errorReg, setErrorReg] = useState("");
+  const [requerirObjeto, setRequerirObjeto] = useState({
+    isTouched: false,
+    isLoading: false,
+    formValue: {},
+  });
 
-  const actualizarRequerirObjeto = (nuevoValor) => {
+  const updateFormValue = (nuevoValor) => {
     setRequerirObjeto((antiguoValor) => {
       return {
         ...antiguoValor,
-        ...nuevoValor,
+        formValue: {
+          ...antiguoValor.formValue,
+          ...nuevoValor,
+        },
       };
     });
   };
@@ -32,61 +39,71 @@ export const RegistroUsuario = () => {
   const enviarRegistro = async (e) => {
     e.preventDefault();
 
-    try {
-      const resultado = await servicioRegistroUsuario();
+    setRequerirObjeto((antiguoValor) => {
+      return {
+        ...antiguoValor,
+        isTouched: true,
+        isLoading: true,
+      };
+    });
 
-      navigate(`/validar-email?email=${requerirObjeto.email}`);
-    } catch (error) {
-      setErrorReg(errorReg.message);
-    }
+    const resultado = await servicioRegistroUsuario(requerirObjeto.formValue);
+    setRequerirObjeto({
+      isTouched: false,
+      isLoading: false,
+      formValue: {},
+    });
+    console.log(resultado);
   };
 
   return (
     <main className="crearRegistro">
       <section className="formularioRegistro">
         <h2 className="tituloRegistro">Registro</h2>
-
-        <form className="formRegistro" onSubmit={enviarRegistro}>
-          <div className="div-form-reg">
-            <Input
-              label={"Nombre:"}
-              type={"text"}
-              name={"name"}
-              clase={"input"}
-            />
-            <Input
-              label={"Email:"}
-              type={"email"}
-              name={"email"}
-              clase={"input"}
-            />
-            <Input
-              label={"Password:"}
-              type={"password"}
-              name={"pasword"}
-              clase={"input"}
-              autocomplete={"off"}
-            />
-          </div>
-
-          <div className="div-form-avatar">
-            <Input
-              label={"Avatar:"}
-              type={"file"}
-              name={"avatar"}
-              clase={"hidden"}
-              autocomplete={"off"}
-            />
-            <BotonSimple clase={"boton-simple"}>
-              Seleccionar Archivo
-            </BotonSimple>
-            <div className="imagen-perfil">
-              <img className="avatar-form" src={avatar} alt="avatar" />
+        <FormContext.Provider value={{ ...requerirObjeto, updateFormValue }}>
+          <form className="formRegistro" onSubmit={enviarRegistro}>
+            <div className="div-form-reg">
+              <Input
+                label={"Nombre:"}
+                type={"text"}
+                name={"name"}
+                clase={"input"}
+              />
+              <Input
+                label={"Email:"}
+                type={"email"}
+                name={"email"}
+                clase={"input"}
+              />
+              <Input
+                label={"Password:"}
+                type={"password"}
+                name={"password"}
+                clase={"input"}
+                autocomplete={"off"}
+              />
             </div>
-          </div>
-        </form>
+
+            <div className="div-form-avatar">
+              <Input
+                label={"Avatar:"}
+                type={"file"}
+                name={"avatar"}
+                clase={"hidden"}
+                autocomplete={"off"}
+              />
+              <BotonSimple clase={"boton-simple"}>
+                Seleccionar Archivo
+              </BotonSimple>
+              <div className="imagen-perfil">
+                <img className="avatar-form" src={avatar} alt="avatar" />
+              </div>
+            </div>
+          </form>
+        </FormContext.Provider>
+
         <div>
-          <button className="boton-simple" type="submit">
+          <button className="boton-simple" onClick={enviarRegistro}>
             Registro
           </button>
         </div>
