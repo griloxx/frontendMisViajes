@@ -1,14 +1,14 @@
-import { useState } from "react"
 import { BotonSimple } from "../Components/BotonSimple"
 import { Forms } from "../Components/Forms"
 import { Input } from "../Components/Input"
 import "../Styles/ModificarUsuario.css"
 import avatar from "../imagenes/avatar.jpg"
+import { useGetLogin } from "../../Hooks/useGetLogin"
 
 
 export function ModificarUsuario() {
-    const {password, setPassword} = useState(false)
-
+    // useGetLogin();
+    
 
     return(
         <main className="main mod-u" >

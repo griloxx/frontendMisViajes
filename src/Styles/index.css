@@ -6,6 +6,7 @@
   --color-botones: #d68bca;
   --color-botones-hover: #fb73e5;
   --color-sombras: #a3a3a3;
+  --color-bg-detras: #00000093;
   --blanco: #fff;
   --negro: #212121;
 }
@@ -24,6 +25,7 @@ html {
 
 body {
   font-family: var(--fuente-principal);
+  overflow-x: hidden;
 }
 
 .main {
@@ -38,4 +40,111 @@ body {
 .imagen-avatar {
   width: 60px;
   border-radius: 100%;
+}
+.vuelo, .vuelo2, .vuelo3, .vuelo4 {
+  position: absolute;
+  z-index: 0;
+  color: rgba(249, 83, 255, 0)
+}
+.vuelo {
+  bottom: 1rem;
+  left: 15rem;
+  transform: rotate(45deg);
+  animation: volar 5s ease-in 2s infinite;
+}
+.vuelo2 {
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(-15deg);
+  animation: volar2 3s ease-in infinite;
+}
+.vuelo3 {
+  bottom: 45rem;
+  left: 1rem;
+  transform: rotate(100deg);
+  animation: volar3 6s ease-in 1s infinite;
+}
+.vuelo4 {
+  bottom: 55rem;
+  right: 1rem;
+  transform: rotate(250deg);
+  animation: volar4 5s ease-in 3s infinite;
+}
+
+@keyframes volar {
+  0% {
+    color: rgba(249, 83, 255, 0);
+  }
+  30% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  70% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  100% {
+    color: rgba(249, 83, 255, 0);
+    transform: translate(80vw, -80vw) rotate(45deg);
+  }
+}
+@keyframes volar2 {
+  0% {
+    color: rgba(249, 83, 255, 0);
+  }
+  30% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  70% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  100% {
+    color: rgba(249, 83, 255, 0);
+    transform: translate(-20vw, -80vw) rotate(-15deg);
+  }
+}
+@keyframes volar3 {
+  0% {
+    color: rgba(249, 83, 255, 0);
+  }
+  30% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  70% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  100% {
+    color: rgba(249, 83, 255, 0);
+    transform: translate(80vw, 20vw) rotate(100deg);
+  }
+}
+@keyframes volar4 {
+  0% {
+    color: rgba(249, 83, 255, 0);
+  }
+  30% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  70% {
+    color: rgba(249, 83, 255, 0.514);
+  }
+  100% {
+    color: rgba(249, 83, 255, 0);
+    transform: translate(-80vw, 20vw) rotate(250deg);
+  }
+}
+@media (min-width: 768px) {
+  .vuelo {
+    animation-duration: 10s;
+    animation-delay: 4s;
+  }
+  .vuelo2 {
+    animation-duration: 12s;
+  }
+  .vuelo3 {
+    animation-duration: 12s;
+    animation-delay: 6s;
+  }
+  .vuelo4 {
+    animation-duration: 10s;
+    animation-delay: 2s;
+  }
 }

@@ -11,7 +11,11 @@ export function NavLinksMenuAuth() {
                 {ListaLinksAuth.map((link, i) => {
                     return (
                         <li className="li-link" key={link.name+i}>
-                            <Link className="link" to={link.url}>{link.name}</Link>
+                            <div>
+                            <Link onClick={onClick} className="link" to={link.url}>{link.name}
+                                    <Icon icono={link.icono} />
+                                </Link>
+                            </div>
                         </li>
                     )
                 })}

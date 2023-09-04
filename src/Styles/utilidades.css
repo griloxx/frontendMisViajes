@@ -6,6 +6,8 @@
   font-family: var(--fuente-principal);
   box-shadow: 0 0.3rem 0.5rem var(--color-sombras);
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .boton-simple:hover {
