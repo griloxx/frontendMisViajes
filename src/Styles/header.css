@@ -8,7 +8,7 @@
   justify-content: space-between;
   width: 100%;
   font-family: var(--fuente-titulos);
-  padding: 3rem 5rem 3rem 5rem;
+  padding: 3rem 2rem 3rem 2rem;
   border-bottom: 0.1rem solid #000;
   box-shadow: 0 0 1.2rem var(--negro);
 }
