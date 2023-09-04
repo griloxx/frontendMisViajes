@@ -23,9 +23,8 @@ export const RegistroUsuario = () => {
     isLoading: false,
     formValue: {},
   });
-  const [errorReg, setErrorReg] = useState();
 
-  const actualizarRequerirObjeto = (nuevoValor) => {
+  const updateFormValue = (nuevoValor) => {
     setRequerirObjeto((antiguoValor) => {
       return {
         ...antiguoValor,
@@ -48,7 +47,12 @@ export const RegistroUsuario = () => {
       };
     });
 
-    const resultado = await servicioRegistroUsuario(requerirObjeto);
+    const resultado = await servicioRegistroUsuario(requerirObjeto.formValue);
+    setRequerirObjeto({
+      isTouched: false,
+      isLoading: false,
+      formValue: {},
+    });
     console.log(resultado);
   };
 
@@ -56,9 +60,7 @@ export const RegistroUsuario = () => {
     <main className="crearRegistro">
       <section className="formularioRegistro">
         <h2 className="tituloRegistro">Registro</h2>
-        <FormContext.Provider
-          value={{ ...requerirObjeto, actualizarRequerirObjeto }}
-        >
+        <FormContext.Provider value={{ ...requerirObjeto, updateFormValue }}>
           <form className="formRegistro" onSubmit={enviarRegistro}>
             <div className="div-form-reg">
               <Input
@@ -76,7 +78,7 @@ export const RegistroUsuario = () => {
               <Input
                 label={"Password:"}
                 type={"password"}
-                name={"pasword"}
+                name={"password"}
                 clase={"input"}
                 autocomplete={"off"}
               />
@@ -101,7 +103,7 @@ export const RegistroUsuario = () => {
         </FormContext.Provider>
 
         <div>
-          <button className="boton-simple" type="submit">
+          <button className="boton-simple" onClick={enviarRegistro}>
             Registro
           </button>
         </div>
