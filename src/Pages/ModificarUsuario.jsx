@@ -7,6 +7,7 @@ import { useGetLogin } from "../../Hooks/useGetLogin";
 import { useState } from "react";
 import { FormContext } from "../context/FormContext";
 import { servicioModificarUsuario } from "../Api/servicioModificarUsuario";
+import { CURRENT_USER_STORAGE } from "../../utils/constants";
 
 export function ModificarUsuario() {
   useGetLogin();
@@ -39,8 +40,17 @@ export function ModificarUsuario() {
       };
     });
 
-    const modificarUsuario = await servicioModificarUsuario(formState);
-    console.log(modificarUsuario);
+    const modificarUsuario = await servicioModificarUsuario(formState.formValue);
+
+    if (modificarUsuario.data) {
+        localStorage.setItem(CURRENT_USER_STORAGE, modificarUsuario.data)
+    }
+    setFormState({
+        isTouched: false,
+        isLoading: false,
+        formValue: {},
+    })
+
   }
 
   return (
