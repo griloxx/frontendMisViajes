@@ -27,6 +27,7 @@ html {
 body {
   font-family: var(--fuente-principal);
   overflow-x: hidden;
+  margin-bottom: 5rem;
 }
 
 .main {
