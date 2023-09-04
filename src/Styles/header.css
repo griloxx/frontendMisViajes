@@ -45,11 +45,11 @@
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
-.botonMenu {
-  display: flex;
-  justify-content: center;
+.boton-menu {
   margin: 0;
+  font-size: 60px;
 }
+
 .link:hover {
   text-shadow: 0 0 3rem var(--color-bordes);
   color: var(--color-bordes);
