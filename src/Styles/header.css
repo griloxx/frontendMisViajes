@@ -10,7 +10,7 @@
   font-family: var(--fuente-titulos);
   padding: 3rem 5rem 3rem 5rem;
   border-bottom: 0.1rem solid #000;
-  box-shadow: 0 0 1.2rem black;
+  box-shadow: 0 0 1.2rem var(--negro);
 }
 
 .nav-menu {
@@ -18,10 +18,10 @@
   z-index: 3;
   height: 100vh;
   background-color: var(--blanco);
-  width: 20rem;
+  width: 25rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   box-shadow: 0.5rem 0.5rem 1rem var(--negro);
   padding: 0;
 }
@@ -39,6 +39,10 @@
   flex-direction: row-reverse;
   gap: 2rem;
   color: var(--color-bordes);
+  border: .2rem solid var(--color-bordes);
+  padding: .2rem.8rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
 .link:hover {
@@ -48,7 +52,7 @@
 
 .link .material-symbols-outlined {
   font-size: 3rem;
-  color: #b522e6;
+  color: var(--color-link);
 }
 
 .bg-black {
@@ -72,7 +76,7 @@
     display: flex;
     width: 100%;
     flex-flow: row-reverse;
-    margin-right: 15rem;
+    margin-right: 8rem;
   }
 
   .nav-revert {
@@ -82,4 +86,9 @@
     height: 0;
   }
   
+  .link {
+    color: var(--color-link);
+    border: none;
+    box-shadow: none;
+  }
 }

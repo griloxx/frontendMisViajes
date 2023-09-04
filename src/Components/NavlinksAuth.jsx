@@ -1,8 +1,9 @@
 import  ListaLinksAuth  from "../data/nav-links-auth.json"
 import { Link } from "react-router-dom"
+import { Icon } from "./icons"
 
 
-export function NavLinksMenuAuth() {
+export function NavLinksMenuAuth({onClick}) {
 
 
     return (

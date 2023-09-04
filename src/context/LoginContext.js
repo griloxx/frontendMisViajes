@@ -10,7 +10,6 @@ export function LoginAuth() {
     const [ login, setLogin ] = useState(null);
 
     useEffect(() => {
-        
         setLogin(getToken());
 
         window.addEventListener("storage", (e) => {
