@@ -1,10 +1,10 @@
 
 
-export function Forms({clase, children}) {
+export function Forms({clase, children, onSubmit}) {
 
 
     return(
-        <form className={clase} >
+        <form onSubmit={onSubmit} className={clase} >
             {children}
         </form>
     )

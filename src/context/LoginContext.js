@@ -6,7 +6,6 @@ import { getToken } from "../../utils/getToken";
 export const LoginContext = createContext();
 
 export function LoginAuth() {
-
     const [ login, setLogin ] = useState(null);
 
     useEffect(() => {

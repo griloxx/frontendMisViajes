@@ -1,12 +1,30 @@
+import { useContext, useState } from "react";
+import { FormContext } from "../context/FormContext";
+
+
 export function Input({
   label,
   type,
   name,
   clase,
   autocomplete,
-  value,
-  onChange,
 }) {
+
+  const [ isTouched, setIsTouched ] = useState(false);
+  const formC = useContext(FormContext);
+
+  function updateRequest(value) {
+    if(!isTouched) {
+      setIsTouched(true);
+    }
+    
+    formC.updateFormValue({
+      [name]: value,
+    })
+  }
+
+
+
   return (
     <>
       <label htmlFor={name}>{label}</label>
@@ -15,8 +33,8 @@ export function Input({
         type={type}
         id={name}
         autoComplete={autocomplete ?? "on"}
-        value={value}
-        onChange={(e) => onChange}
+        value={formC.formValue[name] ?? ""}
+        onChange={(e) => updateRequest(e.target.value)}
       />
     </>
   );
