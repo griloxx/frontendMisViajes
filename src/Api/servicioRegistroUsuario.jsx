@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 
 export const servicioRegistroUsuario = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/usuarios`, {

@@ -1,9 +1,9 @@
 
 
-export function BotonSimple({clase, children}) {
+export function BotonSimple({clase, children, onClick}) {
 
 
     return(
-        <button className={clase}>{children}</button>
+        <button onClick={onClick}className={clase}>{children}</button>
     )
 }
