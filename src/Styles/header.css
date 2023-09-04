@@ -45,7 +45,7 @@
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
-.boton-menu {
+.boton-menu .material-symbols-outlined {
   margin: 0;
   font-size: 60px;
 }
