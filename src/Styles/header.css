@@ -39,12 +39,17 @@
   flex-direction: row-reverse;
   gap: 2rem;
   color: var(--color-bordes);
-  border: .2rem solid var(--color-bordes);
-  padding: .2rem.8rem;
+  border: 0.2rem solid var(--color-bordes);
+  padding: 0.2rem.8rem;
   border-radius: 1.5rem;
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
+.botonMenu {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
 .link:hover {
   text-shadow: 0 0 3rem var(--color-bordes);
   color: var(--color-bordes);
@@ -85,7 +90,7 @@
     gap: 4rem;
     height: 0;
   }
-  
+
   .link {
     color: var(--color-link);
     border: none;
