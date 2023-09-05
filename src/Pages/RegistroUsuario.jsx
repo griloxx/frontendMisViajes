@@ -2,7 +2,6 @@ import Joi from "joi";
 import { useNavigate } from "react-router-dom";
 import { servicioRegistroUsuario } from "../Api/servicioRegistroUsuario";
 import { Input } from "../Components/Input.jsx";
-import { BotonSimple } from "../Components/BotonSimple.jsx";
 import "../Styles/crearUsuario.css";
 import avatar from "../imagenes/avatar.jpg";
 import { useState } from "react";
@@ -92,9 +91,7 @@ export const RegistroUsuario = () => {
                 clase={"hidden"}
                 autocomplete={"off"}
               />
-              <BotonSimple clase={"boton-simple"}>
-                Seleccionar Archivo
-              </BotonSimple>
+              <button className="boton-simple">Seleccionar Archivo</button>
               <div className="imagen-perfil">
                 <img className="avatar-form" src={avatar} alt="avatar" />
               </div>
