@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <LoginContext.Provider value={{ login, setLogin }}>
+        
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />

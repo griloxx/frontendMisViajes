@@ -1,28 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
+export function useToast() {
+  const [toastData, setToastData] = useState(null);
+  
 
-export function useToast({tiempo, modelo, texto}) {
-    const [ visible, setVisible ] = useState(true)
+  const showToast = (tiempo, modelo, texto) => {
+    setToastData({ tiempo, modelo, texto });
 
+     const time = setTimeout(() => {
+      setToastData(null);
+    }, tiempo);
+     clearTimeout(time)
+  };
 
-    useEffect(() => {
-        const time = setTimeout(() => {
-        setVisible(false);
-        
-        }, tiempo);
-    return () => {
-        clearTimeout(timer);
-    }
-
-    }, [tiempo])
-
-    
-
-    return visible ? (
-        <div className="toast-div">
-            <p className="toast-titulo">{modelo === "error" ? "Error" : "Exito"}</p>
-            <p className={`toast ${modelo}`}>{texto}</p>
-        </div>
-    ) : null;
-
+  return { toastData, showToast  };
 }

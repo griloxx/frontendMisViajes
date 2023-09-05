@@ -47,6 +47,9 @@ body {
   position: absolute;
   z-index: 0;
   color: rgba(249, 83, 255, 0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .vuelo {
   bottom: 1rem;

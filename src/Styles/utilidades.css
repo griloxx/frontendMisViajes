@@ -34,3 +34,51 @@
   background-color: var(--negro);
   width: 50px;
 }
+
+.toast-fix {
+  position: fixed;
+  z-index: 3;
+  width: 30rem;
+  height: auto;
+}
+
+.toast-div {
+  position: relative;
+  background-color: var(--blanco);
+  border: .3rem solid var(--color-botones);
+  border-radius: 2rem;
+  box-shadow: 0 0 3rem var(--negro);
+  padding: 2rem;
+}
+.toast-div.error {
+  border: .3rem solid rgb(248, 0, 87);
+}
+
+.toast-titulo {
+  font-size: 2.3rem;
+  font-family: var(--fuente-titulos);
+}
+
+.toast {
+  font-size: 2.5rem;
+  overflow: hidden;   
+  text-overflow: ellipsis;
+}
+
+.toast-barra {
+  position: absolute;
+  bottom: 0;
+  width: 84%;
+  height: .5rem;
+  background-color: var(--color-sombras);
+  animation: time linear;
+}
+
+@keyframes time {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 84%;
+  }
+}
