@@ -38,16 +38,17 @@ export function FormularioImagenInput({ name, label }) {
     <div>
       <label htmlFor={name}>Avatar:</label>
       <div>
-        {selectFiles && (
+      <div className="imagen-perfil">
+        {selectFiles ? 
           <>
             <button onClick={() => onFileRemove(selectFiles[0])}>X</button>
-
-            <div className="imagen-perfil">
-              <img className="avatar-form" src={avatar} alt="avatar" />
-            </div>
+            <img className="avatar-form" src={URL.createObjectURL(selectFiles[0])} alt="avatar" />
+            
+            
           </>
-        )}
-
+        
+        : <img className="avatar-form" src={avatar} alt="avatar" />}
+        </div>
         <input
           ref={fileInputRef}
           name={name}
