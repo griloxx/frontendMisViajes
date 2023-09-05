@@ -11,6 +11,7 @@ import { LoginContext } from "../context/LoginContext";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
+import { FormularioImagenInput } from "../Components/CrearAvatar";
 
 
 
@@ -75,7 +76,6 @@ export function ModificarUsuario() {
       }
 
       
-    console.log(modificarUsuario)
 
   }
 
@@ -101,18 +101,7 @@ export function ModificarUsuario() {
               />
             </div>
             <div className="div-form-img">
-              <Input
-                name={"avatar"}
-                clase={"hidden"}
-                type={"file"}
-                label={"Imagen de Perfil:"}
-              />
-              <BotonSimple clase={"boton-simple"}>
-                Seleccionar Archivo
-              </BotonSimple>
-              <div className="imagen-perfil">
-                <img className="avatar-form" src={avatar} alt="avatar" />
-              </div>
+              <FormularioImagenInput name={"imagen"} label={"Imagen de Perfil:"}/>
             </div>
           </Forms>
         </FormContext.Provider>
