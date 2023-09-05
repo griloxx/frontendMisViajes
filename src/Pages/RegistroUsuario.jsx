@@ -6,6 +6,7 @@ import "../Styles/crearUsuario.css";
 import avatar from "../imagenes/avatar.jpg";
 import { useState } from "react";
 import { FormContext } from "../context/FormContext";
+import { FormularioImagenInput } from "../Components/CrearAvatar";
 
 const schema = Joi.object({
   name: Joi.string().required(),
@@ -84,17 +85,7 @@ export const RegistroUsuario = () => {
             </div>
 
             <div className="div-form-avatar">
-              <Input
-                label={"Avatar:"}
-                type={"file"}
-                name={"avatar"}
-                clase={"hidden"}
-                autocomplete={"off"}
-              />
-              <button className="boton-simple">Seleccionar Archivo</button>
-              <div className="imagen-perfil">
-                <img className="avatar-form" src={avatar} alt="avatar" />
-              </div>
+              <FormularioImagenInput />
             </div>
           </form>
         </FormContext.Provider>

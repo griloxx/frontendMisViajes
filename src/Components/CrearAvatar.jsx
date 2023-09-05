@@ -1,66 +1,65 @@
 import { useContext, useRef, useState } from "react";
 import { FormContext } from "../context/FormContext";
+import avatar from "../imagenes/avatar.jpg";
 
-export function FormularioImagenInput({name, label}){
-    //representa el estado de is se ha interactuado con input
-    const[isTouched, setIsTouched]= useState(false);
-    const[selectFiles, setSelectFiles]= useState([]);
-    const fileInputRef = useRef(null);
-    //Obtiene el estado del formulario
-    const formContext = useContext(FormContext);
+export function FormularioImagenInput({ name, label }) {
+  //representa el estado de is se ha interactuado con input
+  const [isTouched, setIsTouched] = useState(false);
+  const [selectFiles, setSelectFiles] = useState(null);
+  const fileInputRef = useRef(null);
+  //Obtiene el estado del formulario
+  const formContext = useContext(FormContext);
+  console.log(selectFiles);
+  console.log(avatar);
+  function updateRequest(newFiles) {
+    if (!isTouched) setIsTouched(true);
+    setSelectFiles(newFiles);
 
-    function updateRequest(newFiles) {
-        if(!isTouched) setIsTouched(true);
-        const newFilesArray=[...selectFiles,...newFiles];
-        setSelectFiles(newFilesArray);
-        //se actualizaa el estado del formulario
-        formContext.updateFormValue({
-            [name]: newFilesArray,
-        });
-    }
-
-
-    function onFileRemove(file){
-    const newFilesArray = selectFiles.filter((sF) => sF != file);
-
-    setSelectFiles(newFilesArray);
-    //se actiaza el estado del formulario
+    //se actualizaa el estado del formulario
     formContext.updateFormValue({
-        [name]: newFilesArray
+      [name]: newFiles,
+    });
+  }
+
+  function onFileRemove(file) {
+    setSelectFiles(null);
+    console.log(formContext.formValue);
+    //se actiaza el estado del formulario
+    /*     formContext.updateFormValue({
+      [name]: ,
     });
 
-    }
-    function onAddFile(){
-        fileInputRef.current.click();
+ */
+  }
+  function onAddFile() {
+    fileInputRef.current.click();
+  }
+  return (
+    <div>
+      <label htmlFor={name}>Avatar:</label>
+      <div>
+        {selectFiles && (
+          <>
+            <button onClick={() => onFileRemove(selectFiles[0])}>X</button>
 
-    }
-    return (
-        <div>
-            <label htmlFor={name}>{Seleccionar Archivo}</label>
-            <div>
-                {selectedFiles.map((file) => (
-                <>
-                 <button onClick={() => onFileRemove(file)}>
-                    <Icon name={"delete"} />
-                 </button>
-                 <img src={URL.createObjectURL(file)} />
-                </>
-                )                 
-                }
-                
-                <input
-                ref={fileInputRef} 
-                name={name}
-                type="file" 
-                onChange={(e)=> updateRequest(e.target.files)}
-                disabled={formContext.isLoading} />
-                <button onClick={onAddFile}>Seleccionar Archivo</button>
-                               
+            <div className="imagen-perfil">
+              <img className="avatar-form" src={avatar} alt="avatar" />
             </div>
-            {(formContext.IsTouched || IsTouched ) && formContext.errors && formContext.errors.[name] &&(
-                <p>{formContext.errors[name]}</p>
-            )} 
-        </div>
-    );
-                
+          </>
+        )}
+
+        <input
+          ref={fileInputRef}
+          name={name}
+          type="file"
+          className="hidden"
+          onChange={(e) => updateRequest(e.target.files)}
+          disabled={formContext.isLoading}
+        />
+        <button className="boton-simple" onClick={onAddFile}>
+          Seleccionar Archivo
+        </button>
+      </div>
+    </div>
+  );
 }
