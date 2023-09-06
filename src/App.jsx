@@ -17,8 +17,8 @@ function App() {
           <Route path="/" element={<ListarEntradas />} />
           {/*<Route path="/entradas/:id" element={<ConsultarEntrada />} />
           <Route path="/entradas/modificar" element={<ModificarEntrada />} />
-          <Route path="/entradas/crear" element={<CrearEntrada />} />
-          <Route path="/login" element={<Login />} />*/}
+          <Route path="/entradas/crear" element={<CrearEntrada />} />*/}
+          <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<RegistroUsuario />} />
           <Route
             path="/validar-registro/:codigo"
