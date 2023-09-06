@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { FormContext } from "../context/FormContext";
 
 
-export function BotonSimple({clase, children, onClick}) {
+export function BotonSimple({clase, disabled, children, onClick}) {
+    const formC = useContext(FormContext)
 
 
     return(
-        <button onClick={onClick}className={clase}>{children}</button>
+        <button onClick={onClick}className={clase} disabled={formC.isLoading} >{children}</button>
     )
 }
