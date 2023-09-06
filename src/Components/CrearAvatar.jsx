@@ -10,7 +10,6 @@ export function FormularioImagenInput({ name, label }) {
   //Obtiene el estado del formulario
   const formContext = useContext(FormContext);
 
-  
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
     setSelectFiles(newFiles);
@@ -32,20 +31,31 @@ export function FormularioImagenInput({ name, label }) {
  */
   }
   function onAddFile(e) {
-    e.preventDefault()
+    e.preventDefault();
     fileInputRef.current.click();
   }
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      <div>
-      <div className="imagen-perfil">
-        {selectFiles ? 
-          <>
-            <button onClick={() => onFileRemove(selectFiles[0])}>X</button>
-            <img className="avatar-form" src={URL.createObjectURL(selectFiles[0])} alt="avatar" />
-          </>
-        : <img className="avatar-form" src={avatar} alt="avatar" />}
+      <div className="crear-avatar">
+        <div className="imagen-perfil">
+          {selectFiles ? (
+            <>
+              <button
+                className="delete"
+                onClick={() => onFileRemove(selectFiles[0])}
+              >
+                X
+              </button>
+              <img
+                className="avatar-form"
+                src={URL.createObjectURL(selectFiles[0])}
+                alt="avatar"
+              />
+            </>
+          ) : (
+            <img className="avatar-form" src={avatar} alt="avatar" />
+          )}
         </div>
         <input
           ref={fileInputRef}

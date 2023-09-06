@@ -1,10 +1,13 @@
+export function ListarEntradas({user, setUser}) {
 
-
-export function ListarEntradas() {
-
+    const handleLogout = ()=> {
+        setUser([])
+    }
 
     return (
-        <>
-        </>
+        <div>
+            <h1>Bienvenid@</h1>
+            <button onClick={handleLogout}>Cerrar sesión</button>
+        </div>
     )
 }
