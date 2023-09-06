@@ -1,18 +1,17 @@
 [
-    {
-      "name": "Home",
-      "url": "/",
-      "icono": "Home"
-    },
-    {
-      "name": "Login",
-      "url": "/login",
-      "icono": "Login"
-    },
-    {
-      "name": "Registro",
-      "url": "/registro",
-      "icono": "How_to_reg"
-    }
-  ]
-  
+  {
+    "name": "Home",
+    "url": "/",
+    "icono": "Home"
+  },
+  {
+    "name": "Registro",
+    "url": "/registro",
+    "icono": "How_to_reg"
+  },
+  {
+    "name": "Login",
+    "url": "/login",
+    "icono": "Login"
+  }
+]

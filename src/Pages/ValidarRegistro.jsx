@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { servicioValidarUsuario } from "../Api/servicioValidarRegistro";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../Styles/ValidarRegistro.css";
 export function ValidarRegistro() {
   const [isValid, setIsValid] = useState({
@@ -8,7 +8,11 @@ export function ValidarRegistro() {
     valid: false,
   });
   const { codigo } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
+    if (!codigo) {
+      navigate("/");
+    }
     const peticionApi = async (codigo) => {
       const validarUsuario = await servicioValidarUsuario(codigo);
       if (validarUsuario.status === "ok") {
@@ -29,13 +33,15 @@ export function ValidarRegistro() {
     });
   }, []);
   return (
-    <main>
-      <h1>Validar registro</h1>
-      {isValid.valid ? (
-        <p className="validacion-correcta">La validación fue exitosa.</p>
-      ) : (
-        <p className="validar-error">Error en la validación.</p>
-      )}
+    <main className="main-validar">
+      <div className="div-caja">
+        <h1>Validar registro</h1>
+        {isValid.valid ? (
+          <p className="validacion-correcta">La validación fue exitosa.</p>
+        ) : (
+          <p className="validar-error">Error en la validación.</p>
+        )}
+      </div>
     </main>
   );
 }

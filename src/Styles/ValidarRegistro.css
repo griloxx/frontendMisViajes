@@ -1,1 +1,32 @@
-/* estilos  */
+h1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #d622e6;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+.div-caja {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  max-width: 400px;
+  margin: 0 auto;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.main-validar {
+  padding: 150px 20px;
+}
