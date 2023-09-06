@@ -75,6 +75,37 @@
 .nav {
   display: none;
 }
+.div-logo {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 0;
+}
+@media (min-width: 375px) {
+  .logo {
+    width: 6rem;
+    margin-left: -1rem;
+  }
+  .heading1 {
+    width: auto;
+    font-size: 2.4rem;
+  }
+  .div-logo {
+    gap: 0;
+  }
+ }
+@media (min-width: 768px) {
+
+  .heading1 {
+    width: 20rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+ }
+ .logo {
+  margin-left: 0;
+ }
 
 @media (min-width: 1024px) {
   .boton-menu {

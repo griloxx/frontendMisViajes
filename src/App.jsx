@@ -5,6 +5,7 @@ import { RegistroUsuario } from "./Pages/RegistroUsuario";
 import { LoginContext, LoginAuth } from "./context/LoginContext.js";
 import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
+import { LoginPage } from "./Pages/LoginPage";
 function App() {
   const { login, setLogin } = LoginAuth();
 
@@ -18,7 +19,7 @@ function App() {
           {/*<Route path="/entradas/:id" element={<ConsultarEntrada />} />
           <Route path="/entradas/modificar" element={<ModificarEntrada />} />
           <Route path="/entradas/crear" element={<CrearEntrada />} />*/}
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/registro" element={<RegistroUsuario />} />
           <Route
             path="/validar-registro/:codigo"

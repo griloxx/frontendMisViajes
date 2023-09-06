@@ -7,7 +7,7 @@ export function LoginPage() {
         evt.preventDefault();
 
         const response = await fetch("http://localhost:3000/usuarios/login", {
-            method: "post"
+            method: "post",
             headers: {
                 "Content-Type": "application/json",
             },
