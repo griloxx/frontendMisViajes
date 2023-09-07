@@ -2,7 +2,7 @@ import { BotonSimple } from "../Components/BotonSimple";
 import { Forms } from "../Components/Forms";
 import { Input } from "../Components/Input";
 import "../Styles/ModificarUsuario.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import { servicioModificarUsuario } from "../Api/servicioModificarUsuario";
 import { CURRENT_USER_STORAGE } from "../../utils/constants";
@@ -13,10 +13,12 @@ import { Toast } from "../Components/Toast";
 import { FormularioImagenInput } from "../Components/CrearAvatar";
 import Joi from "joi";
 import { validate } from "../../utils/validations";
+import { getToken } from "../../utils/getToken";
 
 const schema = Joi.object({
   name: Joi.string().max(50).required(),
-  password: Joi.string().min(6).max(100).required(),
+  password: Joi.string().min(6).max(100),
+  avatar: Joi.allow("")
 });
 
 
@@ -24,21 +26,23 @@ export function ModificarUsuario() {
   const navigate = useNavigate();
 
   const { login } = useContext(LoginContext);
-
+  const  {name, avatar}  = getToken();
+  
   const { toastData, showToast } = useToast();
 
   const [formState, setFormState] = useState({
     isTouched: false,
     isLoading: false,
-    formValue: {},
+    formValue: {name, avatar} || {},
   });
 
   const [,errors] = validate(schema, formState.formValue);
-  // useEffect(()=>{
-  //   if(!login) {
-  //     navigate("/");
-  //   }
-  // },[])
+
+  useEffect(()=>{
+    if(!login) {
+      navigate("/");
+    }
+  },[])
 
   function updateFormValue(newFormValue) {
     setFormState((oldFormState) => {
@@ -63,9 +67,8 @@ export function ModificarUsuario() {
       };
     });
     
-
     const [ isValid ] = validate(schema,formState.formValue);
-    
+
     if(!isValid) {
       return setFormState((oldFormState) => {
         return {
@@ -76,9 +79,11 @@ export function ModificarUsuario() {
       });
     }
     //Reiniciar la toast si no hay ningun error en campos
+    
     showToast(0, "", "");
+    const {name, password} = formState.formValue;
 
-    const modificarUsuario = await servicioModificarUsuario(formState.formValue);
+    const modificarUsuario = await servicioModificarUsuario({name, password});
 
     if (modificarUsuario.status == "ok") {
         localStorage.setItem(CURRENT_USER_STORAGE, modificarUsuario.data)
@@ -92,7 +97,7 @@ export function ModificarUsuario() {
       setFormState({
         isTouched: false,
         isLoading: false,
-        formValue: {},
+        formValue: {name,avatar},
     })
   }
 
@@ -118,7 +123,7 @@ export function ModificarUsuario() {
               />
             </div>
             <div className="div-form-img">
-              <FormularioImagenInput name={"imagen"} label={"Imagen de Perfil:"}/>
+              <FormularioImagenInput name={"avatar"} label={"Imagen de Perfil:"}/>
             </div>
           </Forms>
         

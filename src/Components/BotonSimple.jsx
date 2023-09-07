@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FormContext } from "../context/FormContext";
 
 
-export function BotonSimple({clase, disabled, children, onClick}) {
+export function BotonSimple({clase, children, onClick}) {
     const formC = useContext(FormContext)
 
 

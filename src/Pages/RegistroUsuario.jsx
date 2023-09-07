@@ -85,7 +85,7 @@ export const RegistroUsuario = () => {
             </div>
 
             <div className="div-form-avatar">
-              <FormularioImagenInput />
+              <FormularioImagenInput name={"imagen"} label={"Imagen de Perfil:"} />
             </div>
           </form>
         </FormContext.Provider>
