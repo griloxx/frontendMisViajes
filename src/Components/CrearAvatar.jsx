@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import avatar from "../imagenes/avatar.jpg";
+import { API_HOST } from "../../utils/constants";
 
 export function FormularioImagenInput({ name, label }) {
   //representa el estado de is se ha interactuado con input
@@ -12,23 +13,22 @@ export function FormularioImagenInput({ name, label }) {
 
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
-    setSelectFiles(newFiles);
+    if( newFiles?.length) {
+      setSelectFiles(newFiles);
 
     //se actualizaa el estado del formulario
     formContext.updateFormValue({
       [name]: newFiles,
     });
   }
-
-  function onFileRemove(file) {
+  }
+  function onFileRemove() {
     setSelectFiles(null);
-    console.log(formContext.formValue);
+    
     //se actiaza el estado del formulario
-    /*     formContext.updateFormValue({
-      [name]: ,
+    formContext.updateFormValue({
+      [name]: null,
     });
-
- */
   }
   function onAddFile(e) {
     e.preventDefault();
@@ -39,11 +39,11 @@ export function FormularioImagenInput({ name, label }) {
       <label htmlFor={name}>{label}</label>
       <div className="crear-avatar">
         <div className="imagen-perfil">
-          {selectFiles ? (
+          {selectFiles?.length ? (
             <>
               <button
                 className="delete"
-                onClick={() => onFileRemove(selectFiles[0])}
+                onClick={() => onFileRemove()}
               >
                 X
               </button>
@@ -52,9 +52,10 @@ export function FormularioImagenInput({ name, label }) {
                 src={URL.createObjectURL(selectFiles[0])}
                 alt="avatar"
               />
+              
             </>
           ) : (
-            <img className="avatar-form" src={avatar} alt="avatar" />
+            <img className="avatar-form" src={formContext.formValue?.avatar ? API_HOST + "/" + formContext.formValue.avatar : avatar} alt="avatar" />
           )}
         </div>
         <input
