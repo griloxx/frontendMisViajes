@@ -10,7 +10,11 @@ function App() {
 
   return (
     <>
+<<<<<<< HEAD
       <LoginAuthProvider >
+=======
+      <LoginContext.Provider value={{ login, setLogin }}>
+>>>>>>> d221263b88012201536f9a590f494b0a04060d58
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -24,7 +28,7 @@ function App() {
             element={<ValidarRegistro />}
           />
           <Route path="/modificar-usuario" element={<ModificarUsuario />} />
-          {/* <Route path="/*" element={<PaginaNoEncontrada />} />  */}
+          {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
         </Routes>
         {/* <Footer /> */}
       </LoginAuthProvider>

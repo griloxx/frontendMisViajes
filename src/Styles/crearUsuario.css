@@ -5,6 +5,7 @@
   align-items: center;
   gap: 1rem;
 }
+
 .formularioRegistro {
   text-align: center;
   font-size: 2rem;
@@ -81,6 +82,7 @@
   .formRegistro {
     display: flex;
     justify-content: space-evenly;
+    width: 50rem;
   }
   .div-form-avatar {
     padding: 20px;
