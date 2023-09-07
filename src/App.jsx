@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <LoginContext.Provider value={{ login, setLogin }}>
-        
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -26,7 +25,7 @@ function App() {
             element={<ValidarRegistro />}
           />
           <Route path="/modificar-usuario" element={<ModificarUsuario />} />
-          {/* <Route path="/*" element={<PaginaNoEncontrada />} />  */}
+          {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
         </Routes>
         {/* <Footer /> */}
       </LoginContext.Provider>
