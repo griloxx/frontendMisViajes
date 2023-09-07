@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { BotonSimple } from "./BotonSimple";
+import { validate } from "../../utils/validations";
+import { FormContext } from "../context/FormContext";
 
 export function Forms({ clase, children, onSubmit, schema, initialValue }) {
   const [formState, setFormState] = useState({
@@ -57,6 +60,11 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
       <form onSubmit={onFormSubmit} className={clase}>
         {children}
       </form>
+      <div>
+        <BotonSimple onClick={onFormSubmit} clase={"boton-simple"}>
+          Enviar
+        </BotonSimple>
+      </div>
     </FormContext.Provider>
   );
 }

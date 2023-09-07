@@ -7,14 +7,9 @@ import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
 import { LoginPage } from "./Pages/LoginPage";
 function App() {
-
   return (
     <>
-<<<<<<< HEAD
-      <LoginAuthProvider >
-=======
-      <LoginContext.Provider value={{ login, setLogin }}>
->>>>>>> d221263b88012201536f9a590f494b0a04060d58
+      <LoginAuthProvider>
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -27,7 +22,7 @@ function App() {
             path="/validar-registro/:codigo"
             element={<ValidarRegistro />}
           />
-          <Route path="/modificar-usuario" element={<ModificarUsuario />} />
+          {/* <Route path="/modificar-usuario" element={<ModificarUsuario />} /> */}
           {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
         </Routes>
         {/* <Footer /> */}
