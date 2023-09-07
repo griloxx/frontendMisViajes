@@ -56,8 +56,9 @@ export const RegistroUsuario = () => {
     });
 
     showToast(0, "", "");
-
-    const resultado = await servicioRegistroUsuario(requerirObjeto.formValue);
+    const { name, email, password, avatar } = FormData;
+    const resultado = await servicioRegistroUsuario({ name, email, password });
+    console.log(servicioRegistroUsuario());
 
     if (resultado.status == "ok") {
       localStorage.setItem(API_HOST, resultado.data);

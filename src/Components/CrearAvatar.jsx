@@ -13,18 +13,18 @@ export function FormularioImagenInput({ name, label }) {
 
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
-    if( newFiles?.length) {
+    if (newFiles?.length) {
       setSelectFiles(newFiles);
 
-    //se actualizaa el estado del formulario
-    formContext.updateFormValue({
-      [name]: newFiles,
-    });
-  }
+      //se actualizaa el estado del formulario
+      formContext.updateFormValue({
+        [name]: newFiles,
+      });
+    }
   }
   function onFileRemove() {
     setSelectFiles(null);
-    
+
     //se actiaza el estado del formulario
     formContext.updateFormValue({
       [name]: null,
@@ -41,10 +41,7 @@ export function FormularioImagenInput({ name, label }) {
         <div className="imagen-perfil">
           {selectFiles?.length ? (
             <>
-              <button
-                className="delete"
-                onClick={() => onFileRemove()}
-              >
+              <button className="delete" onClick={() => onFileRemove()}>
                 X
               </button>
               <img
@@ -52,10 +49,17 @@ export function FormularioImagenInput({ name, label }) {
                 src={URL.createObjectURL(selectFiles[0])}
                 alt="avatar"
               />
-              
             </>
           ) : (
-            <img className="avatar-form" src={formContext.formValue?.avatar ? API_HOST + "/" + formContext.formValue.avatar : avatar} alt="avatar" />
+            <img
+              className="avatar-form"
+              src={
+                formContext.formValue?.avatar
+                  ? API_HOST + "/" + formContext.formValue.avatar
+                  : avatar
+              }
+              alt="avatar"
+            />
           )}
         </div>
         <input
