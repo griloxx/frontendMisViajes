@@ -14,6 +14,8 @@ import { FormularioImagenInput } from "../Components/CrearAvatar";
 import Joi from "joi";
 import { validate } from "../../utils/validations";
 import { getToken } from "../../utils/getToken";
+import { useGetLogin } from "../../Hooks/useGetLogin";
+import { useLogin } from "../../Hooks/useLogin";
 
 const schema = Joi.object({
   name: Joi.string().max(50).required(),
@@ -23,11 +25,14 @@ const schema = Joi.object({
 
 
 export function ModificarUsuario() {
-  const navigate = useNavigate();
-
-  const { login } = useContext(LoginContext);
-  const  {name, avatar}  = getToken();
-  
+  useGetLogin();
+  const setlogin = useLogin();
+  const user = getToken();
+  let name, avatar;
+  if(user) {
+    name = user.name;
+    avatar = user.avatar;
+  }
   const { toastData, showToast } = useToast();
 
   const [formState, setFormState] = useState({
@@ -37,12 +42,6 @@ export function ModificarUsuario() {
   });
 
   const [,errors] = validate(schema, formState.formValue);
-
-  useEffect(()=>{
-    if(!login) {
-      navigate("/");
-    }
-  },[])
 
   function updateFormValue(newFormValue) {
     setFormState((oldFormState) => {
@@ -85,8 +84,10 @@ export function ModificarUsuario() {
 
     const modificarUsuario = await servicioModificarUsuario({name, password});
 
+    setlogin(modificarUsuario.data);
+
     if (modificarUsuario.status == "ok") {
-        localStorage.setItem(CURRENT_USER_STORAGE, modificarUsuario.data)
+        setlogin(modificarUsuario.data)
         showToast(3000, "exito", modificarUsuario.message);
       } else if(modificarUsuario.status) {
         showToast(3000, "error", modificarUsuario.message);
