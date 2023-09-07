@@ -2,17 +2,15 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./Components/Header";
 import { ModificarUsuario } from "./Pages/ModificarUsuario";
 import { RegistroUsuario } from "./Pages/RegistroUsuario";
-import { LoginContext, LoginAuth } from "./context/LoginContext.js";
+import { LoginAuthProvider } from "./context/LoginContext.jsx";
 import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
 import { LoginPage } from "./Pages/LoginPage";
 function App() {
-  const { login, setLogin } = LoginAuth();
 
   return (
     <>
-      <LoginContext.Provider value={{ login, setLogin }}>
-        
+      <LoginAuthProvider >
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -29,7 +27,7 @@ function App() {
           {/* <Route path="/*" element={<PaginaNoEncontrada />} />  */}
         </Routes>
         {/* <Footer /> */}
-      </LoginContext.Provider>
+      </LoginAuthProvider>
     </>
   );
 }

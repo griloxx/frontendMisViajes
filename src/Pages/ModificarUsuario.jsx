@@ -25,23 +25,30 @@ const schema = Joi.object({
 
 
 export function ModificarUsuario() {
-  useGetLogin();
-  const setlogin = useLogin();
-  const user = getToken();
-  let name, avatar;
-  if(user) {
-    name = user.name;
-    avatar = user.avatar;
-  }
-  const { toastData, showToast } = useToast();
+  // useGetLogin();
+  // const setlogin = useLogin();
+  // const user = getToken();
+  // let name, avatar;
+  // if(user) {
+  //   name = user.name;
+  //   avatar = user.avatar;
+  // }
 
+  const { login } = useContext(LoginContext);
+  
+  const { toastData, showToast } = useToast();
+  let initialValue;
   const [formState, setFormState] = useState({
     isTouched: false,
     isLoading: false,
-    formValue: {name, avatar} || {},
+    formValue: {},
   });
+  console.log(login)
 
   const [,errors] = validate(schema, formState.formValue);
+
+  useEffect(()=> {
+  }, [])
 
   function updateFormValue(newFormValue) {
     setFormState((oldFormState) => {
