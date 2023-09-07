@@ -7,6 +7,10 @@ import avatar from "../imagenes/avatar.jpg";
 import { useState } from "react";
 import { FormContext } from "../context/FormContext";
 import { FormularioImagenInput } from "../Components/CrearAvatar";
+import { useToast } from "../../Hooks/useToast";
+import { Toast } from "../Components/Toast";
+import { API_HOST } from "../../utils/constants";
+import { validate } from "../../utils/validations";
 
 const schema = Joi.object({
   name: Joi.string().required(),
@@ -18,11 +22,15 @@ const schema = Joi.object({
 export const RegistroUsuario = () => {
   const navigate = useNavigate();
 
+  const { toastData, showToast } = useToast();
+
   const [requerirObjeto, setRequerirObjeto] = useState({
     isTouched: false,
     isLoading: false,
     formValue: {},
   });
+
+  const [, errors] = validate(schema, requerirObjeto.formValue);
 
   const updateFormValue = (nuevoValor) => {
     setRequerirObjeto((antiguoValor) => {
@@ -47,7 +55,19 @@ export const RegistroUsuario = () => {
       };
     });
 
+    showToast(0, "", "");
+
     const resultado = await servicioRegistroUsuario(requerirObjeto.formValue);
+
+    if (resultado.status == "ok") {
+      localStorage.setItem(API_HOST, resultado.data);
+      showToast(3000, "exito", resultado.message);
+    } else if (resultado.status) {
+      showToast(3000, "error", resultado.message);
+    } else {
+      showToast(3000, "error", resultado.message);
+    }
+
     setRequerirObjeto({
       isTouched: false,
       isLoading: false,
@@ -60,7 +80,9 @@ export const RegistroUsuario = () => {
     <main className="crearRegistro">
       <section className="formularioRegistro">
         <h2 className="tituloRegistro">Registro</h2>
-        <FormContext.Provider value={{ ...requerirObjeto, updateFormValue }}>
+        <FormContext.Provider
+          value={{ ...requerirObjeto, errors, updateFormValue }}
+        >
           <form className="formRegistro" onSubmit={enviarRegistro}>
             <div className="div-form-reg">
               <Input
@@ -84,7 +106,7 @@ export const RegistroUsuario = () => {
               />
             </div>
 
-            <div className="div-form-avatar">
+            <div className="div-form-imguser">
               <FormularioImagenInput />
             </div>
           </form>
@@ -96,6 +118,7 @@ export const RegistroUsuario = () => {
           </button>
         </div>
       </section>
+      <Toast toastData={toastData} />
     </main>
   );
 };
