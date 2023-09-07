@@ -7,10 +7,9 @@ import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
 import { LoginPage } from "./Pages/LoginPage";
 function App() {
-
   return (
     <>
-      <LoginAuthProvider >
+      <LoginAuthProvider>
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
@@ -23,7 +22,7 @@ function App() {
             path="/validar-registro/:codigo"
             element={<ValidarRegistro />}
           />
-          <Route path="/modificar-usuario" element={<ModificarUsuario />} />
+          {/* <Route path="/modificar-usuario" element={<ModificarUsuario />} /> */}
           {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
         </Routes>
         {/* <Footer /> */}
