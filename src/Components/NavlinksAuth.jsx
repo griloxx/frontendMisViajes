@@ -13,7 +13,7 @@ export function NavLinksMenuAuth({onClick}) {
                     return (
                         <li className="li-link" key={link.name+i}>
                             <div>
-                            <Link onClick={onClick} className="link" to={link.url}>{link.name}
+                            <Link onClick={onClick} id={link.id} className="link" to={link.url}>{link.name}
                                     <Icon icono={link.icono} />
                                 </Link>
                             </div>

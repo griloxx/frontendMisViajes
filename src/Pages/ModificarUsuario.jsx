@@ -6,8 +6,10 @@ import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { FormularioImagenInput } from "../Components/CrearAvatar";
 import Joi from "joi";
-import { useGetLogin } from "../../Hooks/useGetLogin";
 import { useLogin } from "../../Hooks/useLogin";
+import { useContext } from "react";
+import { LoginContext } from "../context/LoginContext";
+import { useGetLogin } from "../../Hooks/useGetLogin";
 
 const schema = Joi.object({
   name: Joi.string().max(50).required(),
@@ -16,26 +18,27 @@ const schema = Joi.object({
 });
 
 export function ModificarUsuario() {
-  useGetLogin();
   const setlogin = useLogin();
-
+  const {login} = useContext(LoginContext);
+  const {name, avatar} = login || {};
   const { toastData, showToast } = useToast();
 
-  //Reiniciar la toast si no hay ningun error en campos
+  useGetLogin();
+
   async function onSubmit(formValue) {
     showToast(0, "", "");
-
     const modificarUsuario = await servicioModificarUsuario(formValue);
 
-    setlogin(modificarUsuario.data);
-
     if (modificarUsuario.status == "ok") {
+
       setlogin(modificarUsuario.data);
+
       showToast(3000, "exito", modificarUsuario.message);
-    } else if (modificarUsuario.status) {
-      showToast(3000, "error", modificarUsuario.message);
+
     } else {
+
       showToast(3000, "error", modificarUsuario.message);
+
     }
   }
 
@@ -43,7 +46,7 @@ export function ModificarUsuario() {
     <main className="main mod-u">
       <h2 className="heading2-mod-u">Modificar Perfil</h2>
 
-      <Forms clase={"form-mod-u"} onSubmit={onSubmit}>
+      <Forms clase={"form-mod-u"} onSubmit={onSubmit} initialValue={{name, avatar}} schema={schema}>
         <div className="div-form-inp">
           <Input
             name={"name"}

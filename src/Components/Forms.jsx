@@ -9,7 +9,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
     isLoading: false,
     formValue: initialValue || {},
   });
-
+  
   const [, errors] = validate(schema, formState.formValue);
 
   function updateFormValue(newFormValue) {
@@ -51,7 +51,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
     setFormState({
       isTouched: false,
       isLoading: false,
-      formValue: {},
+      formValue: initialValue || {},
     });
   }
 

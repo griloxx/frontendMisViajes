@@ -1,8 +1,35 @@
 import "../Styles/LoginPage.css"
 import { BotonSimple } from "../Components/BotonSimple"
-
+import { Input } from "../Components/Input";
+import { Forms } from "../Components/Forms";
+import { LoginContext } from "../context/LoginContext";
+import { useContext, useState } from "react";
 
 export function LoginPage() {
+    const { login } = useContext(LoginContext);
+
+    const { formState, setFormState } =useState ({
+        isTouched: false,
+        isLoading: false,
+        formValue: {
+            email: "",
+            password: "",
+        },
+    });
+
+    const { formValue } = formState;
+
+    const handleChange = (evt) => {
+        const {name, value } = evt.target;
+        setFormState({
+            ...formState,
+            formState: {
+                ...formValue,
+                [name]: value,
+            }
+        })
+    }
+
     async function onSubmit(evt) {
         evt.preventDefault();
 
@@ -12,12 +39,12 @@ export function LoginPage() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email: email.value,
-                password: password.value,
+                email: formValue.email,
+                password: formValue.password,
             }),
         });
         const result = await response.json();
-        if (result.sucess) {
+        if (result.success) {
             console.log(result.data.token);
         } else {
             console.log(result.error);
@@ -26,30 +53,41 @@ export function LoginPage() {
 
     return (
         <main className="loginUser">
-            <section className="loginSection">
-                <h1 className="loginTitle">Iniciar sesión</h1>
-
-                <form className="loginForm" onSubmit={onSubmit}>
-                    <div className="loginInput">
-                        <input type="email" name="Email" id="email" 
-                        value={Email}
-                        onChange={e => setEmail(e.target.value)}
+            <h2 className="loginTitle">Iniciar sesión</h2>
+                <Forms className="loginForm" onSubmit={onSubmit}>
+                    <div className="div-form-log">
+                        <Input
+                            name={"email"}
+                            clase={"input"}
+                            type={"email"}
+                            label={"Email:"}
+                            autocomplete={"on"}
+                            value={formValue.email}
+                            onChange={handleChange}
                         />
 
-                        <input type="password" name="Password" id="password" 
-                        value={Password}
-                        onChange={e => setPassword(e.target.value)}
+                        <Input
+                            name={"password"}
+                            clase={"input"}
+                            type={"password"}
+                            label={"Password:"}
+                            autocomplete={"off"}
+                            value={formValue.password}
+                            onChange={handleChange}
                         />
                     </div>
-                    <BotonSimple>Iniciar sesión</BotonSimple>
+                </Forms>
 
-                    <p>¿No tienes cuenta?.<a href="./RegistroUsuario.jsx">Regístrate</a>
-                    </p>
-                </form>
+                <div>
+                    <BotonSimple onClick={onSubmit} clase={"boton-simple"}>
+                        Iniciar sesión
+                    </BotonSimple>
+                </div>
 
-            
+                <p>¿No tienes cuenta?.<a href="./RegistroUsuario.jsx">Regístrate</a>
+                </p>
+
                 {error && <p>Todos los campos son obligatorios</p>}
-            </section>
         </main>
     );
 }

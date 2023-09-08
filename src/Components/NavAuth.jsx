@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import  ListaLinksAuth  from "../data/nav-links-auth.json"
 
 
-export function NavlinksAuth() {
+export function NavlinksAuth({onClick}) {
 
 
     return (
@@ -11,7 +11,7 @@ export function NavlinksAuth() {
                 {ListaLinksAuth.map((link, i) => {
                     return (
                         <li className="li-link" key={link.name+i}>
-                            <Link className="link" to={link.url}>{link.name}</Link>
+                            <Link onClick={onClick} id={link.id} className="link" to={link.url}>{link.name}</Link>
                         </li>
                     )
                 })}

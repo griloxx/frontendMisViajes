@@ -8,12 +8,18 @@ import { LoginContext } from "../context/LoginContext";
 import { NavLinks } from "./Nav";
 import { NavlinksAuth } from "./NavAuth";
 import logo from "../../favicon.svg"
+import { useLogout } from "../../Hooks/useLogout";
 
 export function Header() {
   const { login } = useContext(LoginContext);
   const [ menu, setMenu ] = useState(false);
+  const setLogout = useLogout();
 
-  function onClick() {
+  function onClick(e) {
+    if(e.target.id == "logout") {
+      e.preventDefault();
+      setLogout(null);
+    }
     setMenu(false);
   }
 
@@ -26,8 +32,8 @@ export function Header() {
         <h1 className="heading1">Mis Viajes</h1>
         </div>
         {!login && <NavLinks />}
-        {login && <NavlinksAuth />}
-        <BotonPerfil onClick={onClick} />
+        {login && <NavlinksAuth onClick={onClick} />}
+        <BotonPerfil onClick={onClick} avatarImg={login?.avatar && login.avatar} />
       </header>
       {menu && <div onClick={onClick} className="bg-black"></div>}
       
