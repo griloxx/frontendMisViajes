@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 2rem;
-  color: rgb(163, 14, 14);
+  color: rgb(11, 3, 3);
   font-family: cursive;
 }
 
@@ -14,23 +14,23 @@ p {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: rgb(163, 14, 14);
-  font-family: cursive;
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", Times, serif;
 }
 .page-div {
-  border: 3px solid rgb(163, 14, 14);
+  border: 3px solid div(--color-botones);
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: moccasin;
+  background-color: #a761ae;
   max-width: 400px;
   margin: 0 auto;
   min-width: 200px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .page-main {
   padding: 150px 20px;
-  background-color: darkslategray;
 }
