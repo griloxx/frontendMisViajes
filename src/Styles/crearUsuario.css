@@ -1,9 +1,9 @@
 .crearRegistro {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 20px 0;
 }
 
 .formularioRegistro {
@@ -41,6 +41,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -48,8 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative
-  margin: 5rem;
+  position: relative;
   gap: 2rem;
 }
 
@@ -62,7 +62,7 @@
   overflow: hidden;
 }
 
-.avatar-form {  
+.avatar-form {
   max-width: 10rem;
   overflow: hidden;
   background-size: cover;
