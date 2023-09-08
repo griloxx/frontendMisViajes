@@ -13,7 +13,10 @@ export function Header() {
   const { login } = useContext(LoginContext);
   const [ menu, setMenu ] = useState(false);
 
-  function onClick() {
+  function onClick(e) {
+    if(e == "http://localhost:5173/logout") {
+      console.log(e)
+    }
     setMenu(false);
   }
 
@@ -27,7 +30,7 @@ export function Header() {
         </div>
         {!login && <NavLinks />}
         {login && <NavlinksAuth />}
-        <BotonPerfil onClick={onClick} />
+        <BotonPerfil onClick={onClick} avatarImg={login?.avatar && login.avatar} />
       </header>
       {menu && <div onClick={onClick} className="bg-black"></div>}
       

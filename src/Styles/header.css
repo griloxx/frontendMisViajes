@@ -85,6 +85,17 @@
 .logo {
   width: 0;
 }
+.imagen-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--color-bordes);
+  object-fit: contain;
+}
+.botone-perfil {
+  display: flex;
+}
 @media (min-width: 375px) {
   .logo {
     width: 6rem;

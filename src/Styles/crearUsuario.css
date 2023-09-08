@@ -48,8 +48,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative
-  margin: 5rem;
+  position: relative;
   gap: 2rem;
 }
 
@@ -60,12 +59,13 @@
   border: 0.2rem solid var(--color-bordes);
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
 }
 
 .avatar-form {  
   max-width: 10rem;
   overflow: hidden;
-  background-size: cover;
+  object-fit: contain;
 }
 
 .delete {
@@ -76,6 +76,7 @@
   font-size: larger;
   border-color: var(--color-bordes);
   color: black;
+  background-color: white;
 }
 
 @media (min-width: 768px) {

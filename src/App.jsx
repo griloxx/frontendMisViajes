@@ -22,8 +22,8 @@ function App() {
             path="/validar-registro/:codigo"
             element={<ValidarRegistro />}
           />
-          {/* <Route path="/modificar-usuario" element={<ModificarUsuario />} /> */}
-          {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
+          <Route path="/modificar-usuario" element={<ModificarUsuario />} />
+           {/* <Route path="/*" element={<PaginaNoEncontrada />} /> */}
         </Routes>
         {/* <Footer /> */}
       </LoginAuthProvider>
