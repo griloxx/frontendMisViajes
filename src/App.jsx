@@ -6,6 +6,8 @@ import { LoginContext, LoginAuth } from "./context/LoginContext.js";
 import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
 import { LoginPage } from "./Pages/LoginPage";
+import { PaginaNoEncontrada } from "./Pages/PaginaNoEncontrada";
+
 function App() {
   const { login, setLogin } = LoginAuth();
 
@@ -25,7 +27,7 @@ function App() {
             element={<ValidarRegistro />}
           />
           <Route path="/modificar-usuario" element={<ModificarUsuario />} />
-          {/*  <Route path="/*" element={<PaginaNoEncontrada />} /> */}
+          <Route path="/*" element={<PaginaNoEncontrada />} />
         </Routes>
         {/* <Footer /> */}
       </LoginContext.Provider>
