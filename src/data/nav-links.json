@@ -2,16 +2,19 @@
   {
     "name": "Home",
     "url": "/",
-    "icono": "Home"
+    "icono": "Home",
+    "id": "home"
   },
   {
     "name": "Registro",
     "url": "/registro",
-    "icono": "How_to_reg"
+    "icono": "How_to_reg",
+    "id": "reg"
   },
   {
     "name": "Login",
     "url": "/login",
-    "icono": "Login"
+    "icono": "Login",
+    "id": "login"
   }
 ]

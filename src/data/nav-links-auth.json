@@ -2,22 +2,26 @@
     {
       "name": "Home",
       "url": "/",
-      "icono": "Home"
+      "icono": "Home",
+      "id": "home"
     },
     {
       "name": "Crear Entrada",
       "url": "/entradas/crear",
-      "icono": "Note_add"
+      "icono": "Note_add",
+      "id": "crear-ent"
     },
     {
       "name": "Modificar Perfil",
       "url": "/modificar-usuario",
-      "icono": "Person"
+      "icono": "Person",
+      "id": "mod-per"
     },
     {
       "name": "Logout",
       "url": "/logout",
-      "icono": "Logout"
+      "icono": "Logout",
+      "id": "logout"
     }
   ]
   
