@@ -1,20 +1,24 @@
 import { API_HOST } from "../../utils/constants";
 import { METHOD } from "../Api/sendApiRequest";
 
-export async function sendApiRequestAvatar({ name, email, password, avatar }) {
+export async function sendApiRequestAvatar(formValue) {
   const UPLOAD_URL = API_HOST + `/registro/avatar`;
 
-  const headers = {};
-  const { name, email, password, avatar } = requestObject;
-  const fetchPromises = uploadRegistroUsuario((requestObject) => {
-    formData.append(requestObject);
+  const { name, email, password, avatar } = formValue;
 
-    return fetch(UPLOAD_URL, {
-      method: METHOD.POST,
-      headers,
-      body: formData,
-    });
-  });
+  const fetchPromises = uploadRegistroUsuario.map(
+    ({ name, email, password, avatar }) => {
+      formData.append("avatar", avatar);
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+
+      return fetch(UPLOAD_URL, {
+        method: METHOD.POST,
+        body: formData,
+      });
+    }
+  );
 
   const fetchResponses = await Promise.all(fetchPromises);
 
