@@ -5,20 +5,24 @@ import { getToken } from "../../utils/getToken";
 
 export const LoginContext = createContext();
 
-export function LoginAuth() {
-    const [ login, setLogin ] = useState(null);
+export function LoginAuthProvider({children}) {
+    const user = getToken()
+    const [ login, setLogin ] = useState(user || null);
 
     useEffect(() => {
+        
         setLogin(getToken());
 
         window.addEventListener("storage", (e) => {
             if ( e.key == "userToken") {
-                setLogin(getToken);
+                setLogin(getToken());
             }
         })
     }, [])
 
-    return {login, setLogin}
-
-
+    return (
+        <LoginContext.Provider value={{ login, setLogin }}>
+            {children}
+        </LoginContext.Provider>
+    )
 }

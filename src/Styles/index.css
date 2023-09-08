@@ -34,12 +34,6 @@ body {
   padding: 2rem 5rem 2rem 5rem;
 }
 
-.imagen-avatar {
-  width: 60px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid var(--color-bordes);
-}
 .vuelo,
 .vuelo2,
 .vuelo3,
@@ -47,9 +41,6 @@ body {
   position: absolute;
   z-index: 0;
   color: rgba(249, 83, 255, 0);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .vuelo {
   bottom: 1rem;
@@ -88,7 +79,7 @@ body {
   }
   100% {
     color: rgba(249, 83, 255, 0);
-    transform: translate(80vw, -80vw) rotate(45deg);
+    transform: translate(40vw, -40vw) rotate(45deg);
   }
 }
 @keyframes volar2 {
@@ -118,7 +109,7 @@ body {
   }
   100% {
     color: rgba(249, 83, 255, 0);
-    transform: translate(80vw, 20vw) rotate(100deg);
+    transform: translate(50vw, 10vw) rotate(100deg);
   }
 }
 @keyframes volar4 {
