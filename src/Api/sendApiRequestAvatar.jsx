@@ -1,17 +1,17 @@
-import { API_HOST } from "../../utils/constants";
-import { METHOD } from "../Api/sendApiRequest";
 
-export async function sendApiRequestAvatar(formValue) {
-  const UPLOAD_URL = API_HOST + `/usuarios/registro`;
+
+export async function sendApiRequestAvatar(metodo, url, formValue) {
 
   const formData = new FormData();
   formData.append("name", formValue.name);
   formData.append("email", formValue.email);
   formData.append("password", formValue.password);
-  formData.append("avatar", formValue.avatar);
+  formData.append("avatar", formValue.avatar[0]);
 
-  return fetch(UPLOAD_URL, {
-    method: METHOD.POST,
+  const respuesta = await fetch(url, {
+    method: metodo,
     body: formData,
   });
+
+  return await respuesta.json();
 }
