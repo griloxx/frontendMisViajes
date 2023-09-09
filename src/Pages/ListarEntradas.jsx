@@ -1,13 +1,9 @@
-export function ListarEntradas({user, setUser}) {
+import { BotonBusqueda } from "../Components/BotonBusqueda";
 
-    const handleLogout = ()=> {
-        setUser([])
-    }
-
-    return (
-        <div>
-            <h1>Bienvenid@</h1>
-            <button onClick={handleLogout}>Cerrar sesión</button>
-        </div>
-    )
+export function ListarEntradas({ user, setUser }) {
+  return (
+    <main>
+      <BotonBusqueda />
+    </main>
+  );
 }
