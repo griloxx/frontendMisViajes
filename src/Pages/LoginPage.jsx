@@ -35,29 +35,29 @@ export function LoginPage() {
     }
 
     return (
-        <main className="loginUser">
-            <h2 className="loginTitle">Iniciar sesión</h2>
-            <Forms className="loginForm" onSubmit={onSubmit}>
-                <div className="div-form-log">
-                    <Input
-                        name={"email"}
-                        clase={"input"}
-                        type={"email"}
-                        label={"Email:"}
-                        autocomplete={"on"}                            
-                    />
+        <main className="log-u">
+            <section className="section-log-u">
+                <h2 className="heading2-log-u">Iniciar sesión</h2>
+                <Forms className="form-log-u" onSubmit={onSubmit}>
+                    <div className="div-form-log">
+                        <Input
+                            name={"email"}
+                            clase={"input"}
+                            type={"email"}
+                            label={"Email:"}
+                            autocomplete={"on"}                            
+                        />
 
-                    <Input
-                        name={"password"}
-                        clase={"input"}
-                        type={"password"}
-                        label={"Password:"}
-                        autocomplete={"off"}                            
-                    />
-
-                    <a href="./RegistroUsuario.jsx">Regístrate</a>
-                </div>
-            </Forms>
+                        <Input
+                            name={"password"}
+                            clase={"input"}
+                            type={"password"}
+                            label={"Password:"}
+                            autocomplete={"off"}                            
+                        />
+                    </div>
+                </Forms>
+            </section>
         </main>
     );
 }
