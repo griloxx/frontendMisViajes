@@ -20,7 +20,6 @@ export const RegistroUsuario = () => {
     showToast(0, "", "");
 
     const resultado = await servicioRegistroUsuario(formValue);
-    console.log(resultado);
 
     if (resultado.status == "ok") {
       showToast(6000, "exito", resultado.message);
