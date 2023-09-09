@@ -7,7 +7,8 @@
   font-size: 2rem;
 }
 
-p {
+.validacion-correcta,
+.validar-error {
   font-size: 2rem;
   display: flex;
   justify-content: center;
