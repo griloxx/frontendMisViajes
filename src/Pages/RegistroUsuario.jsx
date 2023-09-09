@@ -5,7 +5,6 @@ import "../Styles/crearUsuario.css";
 import { FormularioImagenInput } from "../Components/CrearAvatar";
 import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
-import { API_HOST } from "../../utils/constants";
 import { Forms } from "../Components/Forms";
 
 const schema = Joi.object({
@@ -17,7 +16,6 @@ const schema = Joi.object({
 
 export const RegistroUsuario = () => {
   const { toastData, showToast } = useToast();
-
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
 
