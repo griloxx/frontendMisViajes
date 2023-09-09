@@ -7,6 +7,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
   const [formState, setFormState] = useState({
     isTouched: false,
     isLoading: false,
+    resetImage: false,
     formValue: initialValue || {},
   });
   
@@ -47,10 +48,17 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
       });
     }
     await onSubmit(formState.formValue);
+    setFormState((oldFormState) => {
+      return {
+        ...oldFormState,
+        resetImage:true
+      };
+    });
 
     setFormState({
       isTouched: false,
       isLoading: false,
+      resetImage: false,
       formValue: initialValue || {},
     });
   }
