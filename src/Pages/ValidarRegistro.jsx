@@ -35,7 +35,7 @@ export function ValidarRegistro() {
   return (
     <main className="main-validar">
       <div className="div-caja">
-        <h1>Validar registro</h1>
+        <h1 className="h1-validar">Validar registro</h1>
         {isValid.valid ? (
           <p className="validacion-correcta">La validación fue exitosa.</p>
         ) : (
