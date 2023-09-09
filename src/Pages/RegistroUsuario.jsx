@@ -23,9 +23,9 @@ export const RegistroUsuario = () => {
     console.log(resultado);
 
     if (resultado.status == "ok") {
-      showToast(3000, "exito", resultado.message);
+      showToast(6000, "exito", resultado.message);
     } else {
-      showToast(3000, "error", resultado.message);
+      showToast(6000, "error", resultado.message);
     }
   };
 

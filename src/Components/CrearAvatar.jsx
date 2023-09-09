@@ -11,6 +11,10 @@ export function FormularioImagenInput({ name, label }) {
   //Obtiene el estado del formulario
   const formContext = useContext(FormContext);
 
+  if(formContext.formValue.resetImage) {
+    setSelectFiles(null);
+  }
+
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
     if (newFiles?.length) {
