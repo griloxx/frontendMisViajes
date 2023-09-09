@@ -5,7 +5,7 @@ export async function sendApiRequestAvatar({ name, email, password, avatar }) {
   const UPLOAD_URL = API_HOST + `/registro/avatar`;
 
   const headers = {};
-  const { name, email, password, avatar } = requestObject;
+  //const { name, email, password, avatar } = requestObject;
   const fetchPromises = uploadRegistroUsuario((requestObject) => {
     formData.append(requestObject);
 
