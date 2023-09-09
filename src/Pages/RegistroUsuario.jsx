@@ -25,7 +25,7 @@ export const RegistroUsuario = () => {
     console.log(resultado);
 
     if (resultado.status == "ok") {
-      localStorage.setItem(API_HOST, resultado.data);
+      localStorage.setItem(API_HOST, resultado.formdata);
       showToast(3000, "exito", resultado.message);
     } else if (resultado.status) {
       showToast(3000, "error", resultado.message);

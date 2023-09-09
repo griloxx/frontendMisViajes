@@ -1,8 +1,8 @@
 import { METHOD } from "./sendApiRequest";
 import { sendApiRequestAvatar } from "./sendApiRequestAvatar";
 
-export const servicioRegistroUsuario = async (requestObject) => {
-  console.log(requestObject);
+export const servicioRegistroUsuario = async (formValue) => {
+  console.log(formValue);
 
-  return sendApiRequestAvatar(METHOD.POST, "/usuario/registro", requestObject);
+  return sendApiRequestAvatar(METHOD.POST, "/usuario/registro", formValue);
 };
