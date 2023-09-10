@@ -47,13 +47,14 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
         };
       });
     }
+
     await onSubmit(formState.formValue);
-    setFormState((oldFormState) => {
-      return {
-        ...oldFormState,
-        resetImage:true
-      };
-    });
+    // setFormState((oldFormState) => {
+    //   return {
+    //     ...oldFormState,
+    //     resetImage:true
+    //   };
+    // });
 
     setFormState({
       isTouched: false,

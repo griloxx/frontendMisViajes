@@ -1,7 +1,8 @@
 import { useContext, useRef, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import avatar from "../imagenes/avatar.jpg";
-import { API_HOST } from "../../utils/constants";
+import { API_HOST, LOCAL_HOST } from "../../utils/constants";
+import { LoginContext } from "../context/LoginContext";
 
 export function FormularioImagenInput({ name, label }) {
   //representa el estado de is se ha interactuado con input
@@ -11,9 +12,12 @@ export function FormularioImagenInput({ name, label }) {
   //Obtiene el estado del formulario
   const formContext = useContext(FormContext);
 
-  if(formContext.formValue.resetImage) {
-    setSelectFiles(null);
-  }
+  const {login} = useContext(LoginContext)
+  console.log(formContext.formValue)
+
+  // if(formContext.resetImage) {
+  //   setSelectFiles(null);
+  // }
 
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
@@ -26,13 +30,25 @@ export function FormularioImagenInput({ name, label }) {
       });
     }
   }
-  function onFileRemove() {
+  function onFileRemove(e) {
+    e.preventDefault()
     setSelectFiles(null);
 
     //se actiaza el estado del formulario
     formContext.updateFormValue({
-      [name]: null,
+      [name]: "sinAvatar",
     });
+  }
+  function onFileRemoveUser(e) {
+    e.preventDefault();
+
+    setSelectFiles(null);
+
+    //se actiaza el estado del formulario
+    formContext.updateFormValue({
+      [name]: "sinAvatar",
+    
+    });    
   }
   function onAddFile(e) {
     e.preventDefault();
@@ -45,7 +61,7 @@ export function FormularioImagenInput({ name, label }) {
         <div className="imagen-perfil">
           {selectFiles?.length ? (
             <>
-              <button className="delete" onClick={() => onFileRemove()}>
+              <button className="delete" onClick={onFileRemove}>
                 X
               </button>
               <img
@@ -55,15 +71,21 @@ export function FormularioImagenInput({ name, label }) {
               />
             </>
           ) : (
-            <img
+            
+            <>
+              {login && <button className="delete" onClick={onFileRemoveUser}>
+                X
+              </button>}
+              <img
               className="avatar-form"
               src={
-                formContext.formValue?.avatar
+                formContext.formValue?.avatar && formContext.formValue?.avatar !== "sinAvatar" 
                   ? API_HOST + "/" + formContext.formValue.avatar
                   : avatar
               }
               alt="avatar"
             />
+            </>
           )}
         </div>
         <input
