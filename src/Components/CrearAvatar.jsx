@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import avatar from "../imagenes/avatar.jpg";
 import { API_HOST, LOCAL_HOST } from "../../utils/constants";
@@ -13,11 +13,23 @@ export function FormularioImagenInput({ name, label }) {
   const formContext = useContext(FormContext);
 
   const {login} = useContext(LoginContext)
-  console.log(formContext.formValue)
+  
+  
+ useEffect(()=> {
+  if(formContext.resetImage) {
+    setSelectFiles(null);
+  }
+ }, [formContext.resetImage])
 
-  // if(formContext.resetImage) {
-  //   setSelectFiles(null);
-  // }
+ const imageUrl = useMemo(() => {
+  if (selectFiles?.length) {
+    return URL.createObjectURL(selectFiles[0]);
+  } else {
+    return formContext.formValue?.avatar && formContext.formValue?.avatar !== "sinAvatar"
+      ? API_HOST + "/" + formContext.formValue.avatar
+      : avatar;
+  }
+}, [selectFiles, formContext.formValue?.avatar]);
 
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
@@ -39,17 +51,7 @@ export function FormularioImagenInput({ name, label }) {
       [name]: "sinAvatar",
     });
   }
-  function onFileRemoveUser(e) {
-    e.preventDefault();
-
-    setSelectFiles(null);
-
-    //se actiaza el estado del formulario
-    formContext.updateFormValue({
-      [name]: "sinAvatar",
-    
-    });    
-  }
+  
   function onAddFile(e) {
     e.preventDefault();
     fileInputRef.current.click();
@@ -59,34 +61,14 @@ export function FormularioImagenInput({ name, label }) {
       <label htmlFor={name}>{label}</label>
       <div className="crear-avatar">
         <div className="imagen-perfil">
-          {selectFiles?.length ? (
-            <>
-              <button className="delete" onClick={onFileRemove}>
-                X
-              </button>
-              <img
-                className="avatar-form"
-                src={URL.createObjectURL(selectFiles[0])}
-                alt="avatar"
-              />
-            </>
-          ) : (
-            
-            <>
-              {login && <button className="delete" onClick={onFileRemoveUser}>
-                X
-              </button>}
-              <img
-              className="avatar-form"
-              src={
-                formContext.formValue?.avatar && formContext.formValue?.avatar !== "sinAvatar" 
-                  ? API_HOST + "/" + formContext.formValue.avatar
-                  : avatar
-              }
-              alt="avatar"
-            />
-            </>
-          )}
+          <button className="delete" onClick={onFileRemove}>
+            X
+          </button>
+          <img
+            className="avatar-form"
+            src={imageUrl}
+            alt="avatar"
+          />
         </div>
         <input
           ref={fileInputRef}
