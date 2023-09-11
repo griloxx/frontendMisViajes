@@ -17,7 +17,9 @@ export async function sendApiRequestAvatar(metodo, url, formValue) {
   if (formValue.password) {
     formData.append("password", formValue.password);
   }
-  formData.append("name", formValue.name);
+  if (formValue.name) {
+    formData.append("name", formValue.name);
+  }
 
   const token = localStorage.getItem("userToken");
   if(token) {
