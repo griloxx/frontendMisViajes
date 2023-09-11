@@ -18,17 +18,14 @@
   padding: 2rem;
 }
 
-.form-log-u {
-  max-width: 100rem;
-  min-width: 28rem;
-  margin: 2rem;
-  /*border: .2rem solid var(--color-bordes); */
+.div-border-form {
   border-radius: 2rem;
   padding: 2rem 0;
   box-shadow: 0 .3rem 1rem var(--color-sombras);
   z-index: 1;
   background-color: white;
-  }
+}
+
 
 .div-form-log {
   display: flex;

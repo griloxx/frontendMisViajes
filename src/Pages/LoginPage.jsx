@@ -2,10 +2,10 @@ import Joi from "joi";
 import "../Styles/LoginPage.css"
 import { Input } from "../Components/Input";
 import { Forms } from "../Components/Forms";
-import { LoginContext } from "../context/LoginContext";
-import { useContext, useState } from "react";
 import { servicioLoginUsuario } from "../Api/servicioLoginUsuario";
 import { useToast } from "../../Hooks/useToast";
+import { Toast } from "../Components/Toast";
+import { useLogin } from "../../Hooks/useLogin";
 
 const schema = Joi.object({
     email: Joi.string().required(),
@@ -13,13 +13,14 @@ const schema = Joi.object({
 });
 
 export function LoginPage() {
-    const {login} = useContext(LoginContext);
-    const {email} = login || {};
+    const setlogin = useLogin()
     const { toastData, showToast } = useToast();
 
-    async function onSubmit(servicioLoginUsuario) { 
+    async function onSubmit(formValue) { 
         showToast(0, "", "");
     const loginUsuario = await servicioLoginUsuario(formValue);
+console.log(loginUsuario)
+
 
     if (loginUsuario.status == "ok") {
 
@@ -39,26 +40,29 @@ export function LoginPage() {
             <section className="section-log-u">
                 <h2 className="heading2-log-u">Iniciar sesión</h2>
                 
-                <Forms schema={schema} className="form-log-u" onSubmit={onSubmit} initialValue={email}>
-                    <div className="div-form-log">
-                        <Input
-                            name={"email"}
-                            clase={"input"}
-                            type={"email"}
-                            label={"Email:"}
-                            autocomplete={"on"}                            
-                        />
+                <div className="div-border-form">
+                    <Forms schema={schema} onSubmit={onSubmit}>
+                        <div className="div-form-log">
+                            <Input
+                                name={"email"}
+                                clase={"input"}
+                                type={"email"}
+                                label={"Email:"}
+                                autocomplete={"on"}                            
+                            />
 
-                        <Input
-                            name={"password"}
-                            clase={"input"}
-                            type={"password"}
-                            label={"Password:"}
-                            autocomplete={"off"}                            
-                        />
-                    </div>
-                </Forms>
+                            <Input
+                                name={"password"}
+                                clase={"input"}
+                                type={"password"}
+                                label={"Password:"}
+                                autocomplete={"off"}                            
+                            />
+                        </div>
+                    </Forms>
+                </div>
             </section>
+            <Toast toastData={toastData}/>
         </main>
     );
 };
