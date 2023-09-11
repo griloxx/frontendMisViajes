@@ -6,6 +6,7 @@ import { servicioLoginUsuario } from "../Api/servicioLoginUsuario";
 import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { useLogin } from "../../Hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 const schema = Joi.object({
     email: Joi.string().required(),
@@ -15,19 +16,22 @@ const schema = Joi.object({
 export function LoginPage() {
     const setlogin = useLogin()
     const { toastData, showToast } = useToast();
-
+    const navigate = useNavigate();
     async function onSubmit(formValue) { 
         showToast(0, "", "");
+        
     const loginUsuario = await servicioLoginUsuario(formValue);
-console.log(loginUsuario)
-
-
+    
     if (loginUsuario.status == "ok") {
 
-        setlogin(loginUsuario.data);
+        setlogin(loginUsuario.data.token);
 
         showToast(3000, "exito", loginUsuario.message);
-
+        
+        setTimeout(()=>{
+            navigate("/")
+        },3000);
+        
     } else {
 
         showToast(3000, "error", loginUsuario.message);
