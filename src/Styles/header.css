@@ -8,7 +8,7 @@
   justify-content: space-between;
   width: 100%;
   font-family: var(--fuente-titulos);
-  padding: 3rem 2rem 3rem 2rem;
+  padding: 1rem 2rem 1rem 2rem;
   border-bottom: 0.1rem solid #000;
   box-shadow: 0 0 1.2rem var(--negro);
 }
@@ -68,7 +68,7 @@
   background-color: var(--color-bg-detras);
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 2;
 }
@@ -121,6 +121,10 @@
 }
 
 @media (min-width: 1024px) {
+  .header {
+    padding: 3rem 2rem 3rem 2rem;
+
+  }
   .boton-menu {
     display: none;
   }

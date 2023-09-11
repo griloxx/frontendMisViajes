@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BotonBusqueda } from "../Components/BotonBusqueda";
+import { BotonIcono } from "../Components/BotonIcono";
 import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { Entrada } from "../Components/Entrada";
 import "../Styles/home.css";
@@ -24,16 +24,14 @@ export function ListarEntradas() {
 
   return (
     <main>
-      {!isLoading && (
         <>
-          <ul>
-            {entradas.map((entrada) => {
+          {!isLoading && (
+            entradas.map((entrada) => {
               return <Entrada key={entrada.id} entrada={entrada} />;
-            })}
-          </ul>
-          <BotonBusqueda />
+            }))}
+          <BotonIcono clase={"boton-busqueda"} icono={"travel_explore"} />
         </>
-      )}
+      
     </main>
   );
 }

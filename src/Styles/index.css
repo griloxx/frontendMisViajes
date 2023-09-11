@@ -29,6 +29,12 @@ body {
   overflow-x: hidden;
   margin-bottom: 5rem;
 }
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
 
 .main {
   padding: 2rem 5rem 2rem 5rem;
