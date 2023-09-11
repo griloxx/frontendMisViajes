@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BotonBusqueda } from "../Components/BotonBusqueda";
 import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { Entrada } from "../Components/Entrada";
+import "../Styles/home.css";
 
 export function ListarEntradas() {
   const [entradas, setEntradas] = useState([]);
@@ -10,8 +11,8 @@ export function ListarEntradas() {
   async function consultarEntradas() {
     const resultado = await servicioListarEntradas();
     setIsLoading(false);
-    if(resultado.data){
-      console.log(resultado.data)
+    if (resultado.data) {
+      console.log(resultado.data);
       setEntradas(resultado.data);
     } else {
       console.log(resultado.message);
@@ -19,22 +20,20 @@ export function ListarEntradas() {
   }
   useEffect(() => {
     consultarEntradas();
-  }, [])
-
+  }, []);
 
   return (
     <main>
-
-      {!isLoading &&
+      {!isLoading && (
         <>
           <ul>
             {entradas.map((entrada) => {
-              return <Entrada key={entrada.id} entrada={entrada} />
+              return <Entrada key={entrada.id} entrada={entrada} />;
             })}
           </ul>
           <BotonBusqueda />
-
-        </>}
+        </>
+      )}
     </main>
   );
 }
