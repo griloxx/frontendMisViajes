@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BotonSimple } from "./BotonSimple";
 import { validate } from "../../utils/validations";
 import { FormContext } from "../context/FormContext";
+import { getToken } from "../../utils/getToken";
 
 export function Forms({ clase, children, onSubmit, schema, initialValue }) {
   const [formState, setFormState] = useState({
@@ -33,6 +34,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
         ...oldFormState,
         isTouched: true,
         isLoading: true,
+        resetImage: false
       };
     });
 
@@ -49,17 +51,23 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
     }
 
     await onSubmit(formState.formValue);
-    // setFormState((oldFormState) => {
-    //   return {
-    //     ...oldFormState,
-    //     resetImage:true
-    //   };
-    // });
 
+    setFormState((oldFormState) => {
+      return {
+        ...oldFormState,
+        resetImage: true
+      };
+    });
+
+    if(initialValue) {
+      const user = getToken();
+      initialValue.avatar = user.avatar;
+      initialValue.name = user.name;
+    }
     setFormState({
       isTouched: false,
       isLoading: false,
-      resetImage: false,
+      resetImage: true,
       formValue: initialValue || {},
     });
   }

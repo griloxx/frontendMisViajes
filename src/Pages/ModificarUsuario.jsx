@@ -20,7 +20,7 @@ const schema = Joi.object({
 export function ModificarUsuario() {
   const setlogin = useLogin();
   const {login} = useContext(LoginContext);
-  const {name, avatar} = login || {};
+  let {name, avatar} = login || {};
   const { toastData, showToast } = useToast();
 
   useGetLogin();
@@ -33,7 +33,7 @@ export function ModificarUsuario() {
     if (modificarUsuario.status == "ok") {
 
       setlogin(modificarUsuario.data);
-
+      
       showToast(3000, "exito", modificarUsuario.message);
 
     } else {
