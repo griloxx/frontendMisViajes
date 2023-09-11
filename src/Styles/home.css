@@ -1,0 +1,17 @@
+.boton-busqueda {
+  background-color: white;
+  color: #b522e6;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 0 0.8rem var(--color-bordes);
+  position: absolute;
+  z-index: 1;
+  bottom: 4rem;
+  left: 4rem;
+}
+
+.boton-busqueda .material-symbols-outlined {
+  font-size: 4rem;
+}
