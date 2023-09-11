@@ -108,18 +108,17 @@
   .div-logo {
     gap: 0;
   }
- }
+}
 @media (min-width: 768px) {
-
   .heading1 {
     width: 20rem;
     font-size: 3rem;
     text-align: center;
   }
- }
- .logo {
+}
+.logo {
   margin-left: 0;
- }
+}
 
 @media (min-width: 1024px) {
   .boton-menu {
@@ -145,4 +144,19 @@
     border: none;
     box-shadow: none;
   }
+}
+
+.boton-busqueda {
+  background-color: transparent;
+  color: #b522e6;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  display: flex;
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 0 0 0.8rem var(--color-bordes);
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
