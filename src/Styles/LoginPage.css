@@ -19,15 +19,15 @@
 }
 
 .form-log-u {
-  max-width: 150rem;
+  max-width: 100rem;
   min-width: 28rem;
   margin: 2rem;
-  /* border: .2rem solid var(--color-bordes); */
+  /*border: .2rem solid var(--color-bordes); */
   border-radius: 2rem;
   padding: 2rem 0;
   box-shadow: 0 .3rem 1rem var(--color-sombras);
-  background-color: white;
   z-index: 1;
+  background-color: white;
   }
 
 .div-form-log {

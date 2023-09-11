@@ -38,7 +38,8 @@ export function LoginPage() {
         <main className="log-u">
             <section className="section-log-u">
                 <h2 className="heading2-log-u">Iniciar sesión</h2>
-                <Forms className="form-log-u" onSubmit={onSubmit}>
+                
+                <Forms schema={schema} className="form-log-u" onSubmit={onSubmit} initialValue={email}>
                     <div className="div-form-log">
                         <Input
                             name={"email"}
@@ -60,4 +61,4 @@ export function LoginPage() {
             </section>
         </main>
     );
-}
+};
