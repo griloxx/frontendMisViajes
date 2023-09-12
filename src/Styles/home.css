@@ -1,0 +1,98 @@
+.boton-busqueda {
+  background-color: white;
+  color: #b522e6;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 0 0.8rem var(--color-bordes);
+  position: fixed;
+  z-index: 1;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.boton-busqueda .material-symbols-outlined {
+  font-size: 4rem;
+}
+
+.entrada-lista {
+  width: 90%;
+  margin: 3rem auto;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: var(--blanco);
+  border: .1rem solid var(--color-botones);
+  box-shadow: 0 0 1.2rem var(--color-sombras);
+  position: relative;
+  z-index: 1;
+}
+.entrada-lista header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+.entrada-lista header h2 {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  color: var(--color-bordes);
+}
+.entrada-avatar {
+  width: 4rem;
+  border-radius: 50%;
+  border: .2rem solid var(--color-bordes);
+  position: absolute;
+}
+.entrada-lista footer {
+  display: flex;
+  padding: 1rem 0 0 0;
+  justify-content: space-around;
+}
+.entrada-lista footer div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.entrada-lista footer div p {
+  font-size: 1.5rem;
+  color: var(--color-bordes);
+}
+.corazon-phone, .comentarios-phone {
+  background-color: white;
+  border: none;
+  color: var(--color-bordes);
+}
+.corazon-phone.votado .material-symbols-outlined {
+  animation: votar .5s linear forwards;
+}
+
+@keyframes votar {
+  0% {
+    font-variation-settings: 'FILL' 0;
+    color: white;
+  }
+  15% {
+    transform: translateX(.2rem);
+    color: var(--color-bordes);
+    font-variation-settings: 'FILL' 1;
+  }
+  30% {
+    transform: translateX(.2rem) translateY(.2rem);
+  }
+  45% {
+    transform: translateX(-.2rem);
+  }
+  60% {
+    transform: translateX(.2rem) translateY(-.2rem);
+  }
+  75% {
+    transform: translateX(-.2rem);
+  }
+  100% {
+    color: var(--color-bordes);
+    font-variation-settings: 'FILL' 1;
+
+  }  
+}

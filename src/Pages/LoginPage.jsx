@@ -23,7 +23,6 @@ export function LoginPage() {
     const loginUsuario = await servicioLoginUsuario(formValue);
 
     if (loginUsuario.status == "ok") {
-      setlogin(loginUsuario.data);
 
       setlogin(loginUsuario.data.token);
 

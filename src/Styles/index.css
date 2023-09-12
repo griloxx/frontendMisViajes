@@ -29,6 +29,12 @@ body {
   overflow-x: hidden;
   margin-bottom: 5rem;
 }
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
 
 .main {
   padding: 2rem 5rem 2rem 5rem;
@@ -38,7 +44,7 @@ body {
 .vuelo2,
 .vuelo3,
 .vuelo4 {
-  position: absolute;
+  position: fixed;
   z-index: 0;
   color: rgba(249, 83, 255, 0);
 }
