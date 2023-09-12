@@ -40,8 +40,6 @@ export function ConsultarEntrada() {
           </header>
           <main className="consulta-main">
             <SliderPhone imagenes={entrada.fotos} />
-          </main>
-          <footer className="consulta-footer">
             <div>
               <BotonIcono
                 icono={"Favorite"}
@@ -54,6 +52,17 @@ export function ConsultarEntrada() {
               <p>{entrada.total_comments}</p>
               <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
             </div>
+          </main>
+          <footer className="consulta-footer">
+            <form>
+              <label htmlFor="comentarios">Comentario:</label>
+              <input
+                type="text"
+                id="comentarios"
+                name="comentarios"
+                clase="commets"
+              />
+            </form>
           </footer>
         </article>
       )}
