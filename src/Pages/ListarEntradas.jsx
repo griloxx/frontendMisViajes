@@ -3,6 +3,7 @@ import { Entrada } from "../Components/Entrada";
 import "../Styles/home.css";
 
 export function ListarEntradas() {
+ 
   
 
   return (

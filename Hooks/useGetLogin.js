@@ -8,7 +8,7 @@ export function useGetLogin() {
     const navigate = useNavigate();
     useEffect(() => {
       if(!login) {
-          navigate("/")
+          return navigate("/")
       }
     }, [login])
 }

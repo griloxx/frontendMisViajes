@@ -26,6 +26,10 @@ export function Entrada() {
     }
 
     useEffect(() => {
+      consultarEntradas()
+    }, [login])
+
+    useEffect(() => {
         consultarEntradas();
     }, [votos]);
 

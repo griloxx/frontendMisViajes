@@ -42,6 +42,7 @@ export function Header() {
     if(e.target.id == "logout") {
       e.preventDefault();
       setLogout(null);
+      setMenu(false)
     }
     setMenu(false);
   }
