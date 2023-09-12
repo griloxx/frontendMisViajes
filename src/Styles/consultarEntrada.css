@@ -1,0 +1,36 @@
+.consulta-entrada {
+  width: 90%;
+  margin: 3rem auto;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: var(--blanco);
+  border: 0.1rem solid var(--color-botones);
+  box-shadow: 0 0 1.2rem var(--color-sombras);
+  position: relative;
+  z-index: 1;
+}
+
+.consulta-entrada-header header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+.consulta-entrada-titulo header h2 {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  color: var(--color-bordes);
+}
+.consulta-entrada-avatar {
+  width: 4rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-bordes);
+  position: absolute;
+}
+
+.consulta-entrada-main main {
+}
+
+.consulta-entrada-footer footer {
+}
