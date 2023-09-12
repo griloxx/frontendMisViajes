@@ -34,7 +34,7 @@
 
 .li-link {
   margin: 5rem auto;
-  font-size: x-large;
+  font-size: 2rem;
   list-style: none;
 }
 
@@ -160,5 +160,10 @@
     color: var(--color-link);
     border: none;
     box-shadow: none;
+  }
+}
+@media (min-width: 1440px) {
+  .li-link {
+    font-size: 2.7rem;
   }
 }

@@ -5,6 +5,7 @@ import { BotonIcono } from "./BotonIcono";
 import { SliderPhone } from "./SliderPhone";
 import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { LoginContext } from "../context/LoginContext";
+import { SliderImg } from "./SliderImg";
 
 
 export function Entrada() {

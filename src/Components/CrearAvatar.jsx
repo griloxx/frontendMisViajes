@@ -58,7 +58,7 @@ export function FormularioImagenInput({ name, label }) {
   }
   return (
     <div>
-      <label htmlForm={name}>{label}</label>
+      <label>{label}</label>
       <div className="crear-avatar">
         <div className="imagen-perfil">
           <button className="delete" onClick={onFileRemove}>
@@ -69,6 +69,7 @@ export function FormularioImagenInput({ name, label }) {
         <input
           ref={fileInputRef}
           name={name}
+          id={name}
           type="file"
           className="hidden"
           onChange={(e) => updateRequest(e.target.files)}

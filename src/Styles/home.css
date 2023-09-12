@@ -117,11 +117,11 @@
 }
 @media (min-width: 1024px) {
   .entrada-lista {
-    width: 40%;
+    width: 50%;
     /* height: 40rem; */
   }
   .container {
-    height: 45rem;
+    height: 40rem;
   }
   .entrada-lista header {
     padding: 1.5rem 0;
