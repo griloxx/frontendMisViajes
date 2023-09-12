@@ -44,7 +44,7 @@ li {
 .vuelo2,
 .vuelo3,
 .vuelo4 {
-  position: absolute;
+  position: fixed;
   z-index: 0;
   color: rgba(249, 83, 255, 0);
 }

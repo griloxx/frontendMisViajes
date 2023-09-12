@@ -64,3 +64,35 @@
   border: none;
   color: var(--color-bordes);
 }
+.corazon-phone.votado .material-symbols-outlined {
+  animation: votar .5s linear forwards;
+}
+
+@keyframes votar {
+  0% {
+    font-variation-settings: 'FILL' 0;
+    color: white;
+  }
+  15% {
+    transform: translateX(.2rem);
+    color: var(--color-bordes);
+    font-variation-settings: 'FILL' 1;
+  }
+  30% {
+    transform: translateX(.2rem) translateY(.2rem);
+  }
+  45% {
+    transform: translateX(-.2rem);
+  }
+  60% {
+    transform: translateX(.2rem) translateY(-.2rem);
+  }
+  75% {
+    transform: translateX(-.2rem);
+  }
+  100% {
+    color: var(--color-bordes);
+    font-variation-settings: 'FILL' 1;
+
+  }  
+}
