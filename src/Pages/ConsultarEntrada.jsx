@@ -5,6 +5,7 @@ import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { BotonIcono } from "../Components/BotonIcono";
 import { SliderPhone } from "../Components/SliderPhone";
 import avatar from "../imagenes/avatar.jpg";
+import "../Styles/ConsultarEntrada.css";
 
 export function ConsultarEntrada() {
   const { id } = useParams();
@@ -28,16 +29,16 @@ export function ConsultarEntrada() {
   return (
     <>
       {!isLoading && (
-        <article className="consulta">
-          <header className="consulta-header">
+        <article className="consulta-entrada">
+          <header className="consulta-entrada-header">
             <img
-              className="entrada-avatar"
+              className="consulta-entrada-avatar"
               src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar}
-              alt="consulta-entrada"
+              alt="consulta-entrada-entrada"
             />
-            <h2>{entrada.titulo}</h2>
+            <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>
           </header>
-          <main className="consulta-main">
+          <main className="consulta-entrada-main">
             <SliderPhone imagenes={entrada.fotos} />
             <div>
               <BotonIcono
@@ -52,7 +53,7 @@ export function ConsultarEntrada() {
               <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
             </div>
           </main>
-          <footer className="consulta-footer">
+          <footer className="consulta-entrada-footer">
             <form>
               <label htmlFor="comentarios">Comentario:</label>
               <input
