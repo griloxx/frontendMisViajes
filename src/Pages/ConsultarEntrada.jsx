@@ -18,6 +18,7 @@ export function ConsultarEntrada() {
       const resultado = await servicioConsultaEntrada(id);
       setIsLoading(false);
       if (resultado) {
+        console.log(resultado);
         setEntrada(resultado);
       } else {
         console.log(resultado.message);
@@ -30,7 +31,7 @@ export function ConsultarEntrada() {
     <>
       {!isLoading && (
         <article className="consulta-entrada">
-          <header className="consulta-entrada-header">
+          <header className="consulta-entrada-h">
             <img
               className="consulta-entrada-avatar"
               src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar}
@@ -38,19 +39,21 @@ export function ConsultarEntrada() {
             />
             <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>
           </header>
-          <main className="consulta-entrada-main">
+          <main>
             <SliderPhone imagenes={entrada.fotos} />
-            <div>
-              <BotonIcono
-                icono={"Favorite"}
-                onClick={() => onClickCorazon(entrada.id)}
-                clase={"corazon-phone votado"}
-              />
-              <p>{entrada.total_votos}</p>
-            </div>
-            <div>
-              <p>{entrada.total_comments}</p>
-              <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
+            <div className="consulta-entrada-iconos">
+              <div className="consulta-entrada-likes">
+                <BotonIcono
+                  icono={"Favorite"}
+                  onClick={() => onClickCorazon(entrada.id)}
+                  clase={"corazon-phone votado"}
+                />
+                <p>{entrada.total_votos}</p>
+              </div>
+              <div className="consulta-entrada-comments">
+                <p>{entrada.total_comments}</p>
+                <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
+              </div>
             </div>
           </main>
           <footer className="consulta-entrada-footer">
@@ -60,7 +63,7 @@ export function ConsultarEntrada() {
                 type="text"
                 id="comentarios"
                 name="comentarios"
-                clase="commets"
+                clase="comments"
               />
             </form>
           </footer>

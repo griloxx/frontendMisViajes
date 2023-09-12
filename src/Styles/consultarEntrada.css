@@ -10,13 +10,13 @@
   z-index: 1;
 }
 
-.consulta-entrada-header header {
+.consulta-entrada-h {
   display: flex;
   align-items: center;
   padding: 1rem;
   position: relative;
 }
-.consulta-entrada-titulo header h2 {
+.consulta-entrada-titulo {
   font-size: 2rem;
   width: 100%;
   text-align: center;
@@ -29,8 +29,23 @@
   position: absolute;
 }
 
-.consulta-entrada-main main {
+.consulta-entrada-iconos {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
 }
 
-.consulta-entrada-footer footer {
+.consulta-entrada-likes {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.consulta-entrada-comments {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.consulta-entrada-footer {
 }
