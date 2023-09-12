@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_HOST } from "../../utils/constants";
 import { useParams } from "react-router-dom";
-import { servicioConsultaEntrada } from "../Api/servicioCansultaEntrada";
+import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { BotonIcono } from "../Components/BotonIcono";
 import { SliderPhone } from "../Components/SliderPhone";
 import avatar from "../imagenes/avatar.jpg";
@@ -17,7 +17,6 @@ export function ConsultarEntrada() {
       const resultado = await servicioConsultaEntrada(id);
       setIsLoading(false);
       if (resultado) {
-        console.log(resultado);
         setEntrada(resultado);
       } else {
         console.log(resultado.message);
