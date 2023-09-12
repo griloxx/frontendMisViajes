@@ -7,11 +7,17 @@ export function BotonMenu({menuOpen}) {
 
 
   const onClicks = () => {
-    !menu ? setMenu(true) : setMenu( false)
+    !menu ? setMenu(true) : setMenu(false)
   };
 
   useEffect(() => {
-    menu ? setIcono("sweep") : setIcono("tsunami");
+    if (menu) {
+      setIcono("sweep")
+      document.body.classList.add("no-overflow");
+    } else {
+      setIcono("tsunami");
+      document.body.classList.remove("no-overflow")
+    }
   }, [menu])
 
   return (

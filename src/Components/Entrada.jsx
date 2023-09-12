@@ -12,7 +12,6 @@ export function Entrada() {
     const [votos, setVotos] = useState(false);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     async function consultarEntradas() {
         
         const resultado = await servicioListarEntradas();
@@ -31,8 +30,8 @@ export function Entrada() {
 
     async function onClickCorazon(id) {
         if(login) {
-            const resultado = await servicioVotar(id);
-            resultado.data ? setVotos(true) : setVotos(false);
+            await servicioVotar(id);
+            !votos ? setVotos(true) : setVotos(false);
         }
       }
 
@@ -53,8 +52,8 @@ export function Entrada() {
                         </main>
                         <footer>
                             <div>
-                                <BotonIcono icono={"Favorite"} onClick={() => onClickCorazon(entrada.id)} clase={votos ? "corazon-phone votado" : "corazon-phone"}  />
-                                <p>{entrada.total_votos}</p>
+                                <BotonIcono icono={"Favorite"} onClick={() => onClickCorazon(entrada.id)} clase={entrada.yaVotado ? "corazon-phone votado" : "corazon-phone"}  />
+                                <p>{entrada.votos}</p>
                             </div>
                             <div>
                                 <p>{entrada.total_comments}</p>

@@ -64,6 +64,14 @@
   border: none;
   color: var(--color-bordes);
 }
+.corazon-phone:hover, .comentarios-phone:hover {
+  background-color: white;
+  border: none;
+  color: var(--color-bordes);
+  text-shadow: 0 0 1rem var(--color-bordes);
+  transform: scale(1.2);
+  cursor: pointer;
+}
 .corazon-phone.votado .material-symbols-outlined {
   animation: votar .5s linear forwards;
 }
@@ -95,4 +103,30 @@
     font-variation-settings: 'FILL' 1;
 
   }  
+}
+
+@media (min-width: 425px) {
+  .entrada-lista {
+    width: 80%;
+  }
+}
+@media (min-width: 768px) {
+  .entrada-lista {
+    width: 45%;
+  }
+}
+@media (min-width: 1024px) {
+  .entrada-lista {
+    width: 40%;
+    /* height: 40rem; */
+  }
+  .container {
+    height: 45rem;
+  }
+  .entrada-lista header {
+    padding: 1.5rem 0;
+  }
+  .entrada-lista footer {
+    padding: 1.5rem 0;
+  }
 }
