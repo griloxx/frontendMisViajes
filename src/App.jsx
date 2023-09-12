@@ -7,6 +7,7 @@ import { ListarEntradas } from "./Pages/ListarEntradas";
 import { ValidarRegistro } from "./Pages/ValidarRegistro";
 import { LoginPage } from "./Pages/LoginPage";
 import { PaginaNoEncontrada } from "./Pages/PaginaNoEncontrada";
+import { ConsultarEntrada } from "./Pages/ConsultarEntrada";
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<ListarEntradas />} />
-          {/*<Route path="/entradas/:id" element={<ConsultarEntrada />} />
-          <Route path="/entradas/modificar" element={<ModificarEntrada />} />
+          <Route path="/entradas/:id" element={<ConsultarEntrada />} />
+          {/*<Route path="/entradas/modificar" element={<ModificarEntrada />} />
           <Route path="/entradas/crear" element={<CrearEntrada />} />*/}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registro" element={<RegistroUsuario />} />
