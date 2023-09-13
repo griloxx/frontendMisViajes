@@ -12,8 +12,9 @@
   left: 2rem;
 }
 
-.boton-busqueda .material-symbols-outlined {
-  font-size: 4rem;
+.boton-busqueda:hover {
+  transition: box-shadow 0.3s ease;
+  transform: scale(1.2);
 }
 
 .entrada-lista {
@@ -22,7 +23,7 @@
   border-radius: 2rem;
   padding: 1rem;
   background-color: var(--blanco);
-  border: .1rem solid var(--color-botones);
+  border: 0.1rem solid var(--color-botones);
   box-shadow: 0 0 1.2rem var(--color-sombras);
   position: relative;
   z-index: 1;
@@ -42,7 +43,7 @@
 .entrada-avatar {
   width: 4rem;
   border-radius: 50%;
-  border: .2rem solid var(--color-bordes);
+  border: 0.2rem solid var(--color-bordes);
   position: absolute;
 }
 .entrada-lista footer {
@@ -59,40 +60,72 @@
   font-size: 1.5rem;
   color: var(--color-bordes);
 }
-.corazon-phone, .comentarios-phone {
+.corazon-phone,
+.comentarios-phone {
   background-color: white;
   border: none;
   color: var(--color-bordes);
 }
 .corazon-phone.votado .material-symbols-outlined {
-  animation: votar .5s linear forwards;
+  animation: votar 0.5s linear forwards;
 }
 
 @keyframes votar {
   0% {
-    font-variation-settings: 'FILL' 0;
+    font-variation-settings: "FILL" 0;
     color: white;
   }
   15% {
-    transform: translateX(.2rem);
+    transform: translateX(0.2rem);
     color: var(--color-bordes);
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
   }
   30% {
-    transform: translateX(.2rem) translateY(.2rem);
+    transform: translateX(0.2rem) translateY(0.2rem);
   }
   45% {
-    transform: translateX(-.2rem);
+    transform: translateX(-0.2rem);
   }
   60% {
-    transform: translateX(.2rem) translateY(-.2rem);
+    transform: translateX(0.2rem) translateY(-0.2rem);
   }
   75% {
-    transform: translateX(-.2rem);
+    transform: translateX(-0.2rem);
   }
   100% {
     color: var(--color-bordes);
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
+  }
+}
 
-  }  
+.form-busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(fuente-principal);
+  border-radius: 0 0 2rem 2rem;
+  box-shadow: 1rem 1rem 1rem var(--color-sombras);
+  z-index: 3;
+  background-color: white;
+  font-size: 1rem;
+  padding: 4rem 0 2rem 0;
+  margin-top: -1rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: fixed;
+}
+.div-form-busqueda .input {
+  max-width: 6rem;
+}
+.div-form-busqueda .boton-simple {
+  position: absolute;
+  z-index: 3;
+  right: 20rem;
+  top: 15rem;
+}
+
+.div-radio {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
