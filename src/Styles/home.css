@@ -108,6 +108,7 @@
 }
 .div-form-busqueda {
   transition: opacity .2s linear;
+  width: 100%;
   position: fixed;
   z-index: 3;
 }
@@ -123,10 +124,10 @@
   border-radius: 0 0 2rem 2rem;
   box-shadow: 1rem 1rem 1rem var(--color-sombras);
   background-color: white;
-  font-size: 1rem;
-  padding: 2rem 0 2rem 0;
+  font-size: 1.3rem;
+  padding: 2rem 1rem 2rem 1rem;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   margin-top: -3rem;
 }
@@ -153,19 +154,34 @@
   flex-direction: row;
   gap: 2rem;
 }
+.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
 
 @media (min-width: 425px) {
   .entrada-lista {
     width: 80%;
+  }
+  .form-busqueda {
+    font-size: 1.4rem;
+    gap: 2rem;
   }
 }
 @media (min-width: 768px) {
   .entrada-lista {
     width: 45%;
   }
+  .form-busqueda {
+    font-size: 1.7rem;
+  }
 }
 @media (min-width: 1024px) {
+  .boton-busqueda {
+    display: none;
+  }
   .entrada-lista {
+    margin-left: 35%;
     width: 50%;
     /* height: 40rem; */
   }
@@ -179,9 +195,37 @@
     padding: 1.5rem 0;
   }
   .div-form-busqueda {
-    display: none;
+    display: flex;
+    width: auto;
+    z-index: 5;
+  }
+  .form-busqueda {
+    flex-direction: column;
+    height: 100vh;
+    gap: 3rem;
+    justify-content: start;
+    padding: 3rem 5rem 0 5rem;
+    font-size: 2rem;
+    border-right: 1px solid black;
+  }
+  .div-radio {
+    flex-direction: column;
+    text-align: center;
+  }
+  .div-form-busqueda.display {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .oculto {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .div-form-busqueda .oculto-busqueda {
+    font-size: 2rem;
+    padding: .5rem 2rem;
+  }
+  .div-form-busqueda .input {
+    max-width: 12rem;
   }
 }
-.oculto {
-  display: none;
-}
+
