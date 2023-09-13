@@ -3,11 +3,15 @@ import "../Styles/PaginaNoEncontrada.css";
 export function PaginaNoEncontrada() {
   return (
     <main className="page-main">
-      <div className="page-div">
-        <h1 className="h1-404">ERROR 404 💀 </h1>
-
-        <p className="pagina-no-encontrada">!!!PAGINA NO ENCONTRADA!!!</p>
-      </div>
+      <section class="error-container">
+        <span>
+          <span>4</span>
+        </span>
+        <span>0</span>
+        <span>
+          <span>4</span>
+        </span>
+      </section>
     </main>
   );
 }
