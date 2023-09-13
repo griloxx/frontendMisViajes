@@ -5,10 +5,6 @@ import "../Styles/home.css";
 import { MenuBusqueda } from "../Components/MenuBusqueda";
 
 export function ListarEntradas() {
-  const [botonClickeado, setBotonClickeado] = useState(false);
-  const handleClick = () => {
-    botonClickeado ? setBotonClickeado(false) : setBotonClickeado(true);
-  };
   return (
     <main>
       <>

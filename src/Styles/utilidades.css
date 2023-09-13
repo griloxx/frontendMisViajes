@@ -35,6 +35,8 @@
   width: 50px;
 }
 
+/* zona toast */
+
 .toast-fix {
   position: fixed;
   z-index: 3;
@@ -83,6 +85,9 @@
     width: 84%;
   }
 }
+
+/* zona sliders */
+
 .slider {
   position: relative;
 }
@@ -126,4 +131,61 @@
 .mark {
   background-color: var(--color-botones);
   border-color: white;
+}
+.flechas {
+  display: none;
+}
+.div-small-img {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .foto {
+    padding: 3rem;
+  }
+  .puntos {
+    display: none;
+  }
+  .flechas {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+    top: 39%;
+  }
+  .phone .flechas {
+    top: 44%;
+  }
+  .flechas button {
+    background-color: transparent;
+    border: none;
+  }
+  .flecha {
+    cursor: pointer;
+  }
+  .flecha:hover {
+    filter: drop-shadow(0 0 1rem var(--color-bordes));
+  }
+
+  .div-small-img {
+    display: flex;
+    justify-content: center;
+  }
+  .small-img {
+    background-color: white;
+    border: none;
+    padding: .5rem;
+    cursor: pointer;
+  }
+  .small-img .mark{
+    filter: none;
+  }
+  .small-img img{
+    width: 5rem;
+    height: 5rem;
+    filter: opacity(0.5);
+  }
+  .small-img img:hover{
+    filter: none;
+  }
 }

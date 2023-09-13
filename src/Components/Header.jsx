@@ -3,7 +3,7 @@ import { BotonPerfil } from "./BotonPerfil";
 import "../styles/header.css";
 import { NavLinksMenu } from "./NavLinks";
 import { NavLinksMenuAuth } from "./NavlinksAuth";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { NavLinks } from "./Nav";
 import { NavlinksAuth } from "./NavAuth";
@@ -13,19 +13,43 @@ import { useLogout } from "../../Hooks/useLogout";
 export function Header() {
   const { login } = useContext(LoginContext);
   const [ menu, setMenu ] = useState(false);
+  const [ header, setHeader ] = useState(true);
   const setLogout = useLogout();
+
+  useEffect(() => {
+    let prevScroll = window.scrollY;
+    
+    function efectoScroll() {
+      const actualScroll = window.scrollY;
+
+      if (actualScroll < prevScroll) {
+        setHeader(true);
+      } else {
+        actualScroll > 80 && setHeader(false);
+      }
+     prevScroll = actualScroll;
+    };
+
+    window.addEventListener("scroll", efectoScroll);
+
+    return () => {
+      window.removeEventListener("scroll", efectoScroll);
+    };
+      
+  }, [])
 
   function onClick(e) {
     if(e.target.id == "logout") {
       e.preventDefault();
       setLogout(null);
+      setMenu(false)
     }
     setMenu(false);
   }
 
   return (
     <>
-      <header className="header">
+      <header className={header ? "header" : "header header-fix"}>
         <BotonMenu menuOpen={{menu, setMenu}} />
         <div className="div-logo">
         <img className="logo" src={logo} alt="Mis Viajes" />

@@ -12,24 +12,24 @@ export function FormularioImagenInput({ name, label }) {
   //Obtiene el estado del formulario
   const formContext = useContext(FormContext);
 
-  const {login} = useContext(LoginContext)
-  
-  
- useEffect(()=> {
-  if(formContext.resetImage) {
-    setSelectFiles(null);
-  }
- }, [formContext.resetImage])
+  const { login } = useContext(LoginContext);
 
- const imageUrl = useMemo(() => {
-  if (selectFiles?.length) {
-    return URL.createObjectURL(selectFiles[0]);
-  } else {
-    return formContext.formValue?.avatar && formContext.formValue?.avatar !== "sinAvatar"
-      ? API_HOST + "/" + formContext.formValue.avatar
-      : avatar;
-  }
-}, [selectFiles, formContext.formValue?.avatar]);
+  useEffect(() => {
+    if (formContext.resetImage) {
+      setSelectFiles(null);
+    }
+  }, [formContext.resetImage]);
+
+  const imageUrl = useMemo(() => {
+    if (selectFiles?.length) {
+      return URL.createObjectURL(selectFiles[0]);
+    } else {
+      return formContext.formValue?.avatar &&
+        formContext.formValue?.avatar !== "sinAvatar"
+        ? API_HOST + "/" + formContext.formValue.avatar
+        : avatar;
+    }
+  }, [selectFiles, formContext.formValue?.avatar]);
 
   function updateRequest(newFiles) {
     if (!isTouched) setIsTouched(true);
@@ -43,7 +43,7 @@ export function FormularioImagenInput({ name, label }) {
     }
   }
   function onFileRemove(e) {
-    e.preventDefault()
+    e.preventDefault();
     setSelectFiles(null);
 
     //se actiaza el estado del formulario
@@ -51,28 +51,25 @@ export function FormularioImagenInput({ name, label }) {
       [name]: "sinAvatar",
     });
   }
-  
+
   function onAddFile(e) {
     e.preventDefault();
     fileInputRef.current.click();
   }
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label>{label}</label>
       <div className="crear-avatar">
         <div className="imagen-perfil">
           <button className="delete" onClick={onFileRemove}>
             X
           </button>
-          <img
-            className="avatar-form"
-            src={imageUrl}
-            alt="avatar"
-          />
+          <img className="avatar-form" src={imageUrl} alt="avatar" />
         </div>
         <input
           ref={fileInputRef}
           name={name}
+          id={name}
           type="file"
           className="hidden"
           onChange={(e) => updateRequest(e.target.files)}

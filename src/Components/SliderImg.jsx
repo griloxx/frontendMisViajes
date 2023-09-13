@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { API_HOST } from '../../utils/constants';
-import flechaD from '../imagenes/flechaei.png'
-import flechaI from '../imagenes/flechae.png'
 
 
-export function SliderPhone({imagenes}) {
+export function SliderImg({imagenes}) {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,7 +29,6 @@ export function SliderPhone({imagenes}) {
     container.scrollLeft = index * imageWidth; 
     setActiveIndex(index);
   }
-
   function back() {
     const newIndex = Math.max(0, activeIndex - 1);
     onClick(newIndex);
@@ -41,9 +38,8 @@ export function SliderPhone({imagenes}) {
     const newIndex = Math.min(imagenes.length - 1, activeIndex + 1);
     onClick(newIndex);
   }
-
   return (
-    <div className='slider  phone'>
+    <div className='slider'>
       <div className='container' ref={containerRef}>
         {imagenes.map((imagen) => {
           return <img key={imagen.id} className='foto image' src={API_HOST + "/" + imagen.foto} alt='viaje' />
@@ -56,6 +52,17 @@ export function SliderPhone({imagenes}) {
             className={`punto ${index === activeIndex ? 'mark' : ''}`}
             onClick={()=> onClick(index)}
           ></button>
+        ))}
+      </div>
+      <div className='div-small-img'>
+        {imagenes.map((imagen, index) => (
+          <button
+            key={index}
+            className={`small-img`}
+            onClick={()=> onClick(index)}
+          >
+            <img className={` ${index === activeIndex ? 'mark' : ''}`} src={API_HOST + "/" + imagen.foto} alt='viaje miniatura'/>
+          </button>
         ))}
       </div>
       <div className='flechas'>

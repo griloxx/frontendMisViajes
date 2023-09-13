@@ -26,11 +26,11 @@ export function LoginPage() {
 
       setlogin(loginUsuario.data.token);
 
-      showToast(3000, "exito", loginUsuario.message);
+      showToast(1500, "exito", loginUsuario.message);
 
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 1500);
     } else {
       showToast(3000, "error", loginUsuario.message);
     }
