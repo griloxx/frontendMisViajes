@@ -1,9 +1,9 @@
 import { Forms } from "./Forms";
 import { Input } from "./Input";
 
-export function MenuBusqueda() {
+export function MenuBusqueda({ display, menu }) {
   return (
-    <div className="div-form-busqueda">
+    <div className={`${menu ? "div-form-busqueda" : "oculto"} ${display && "display"} `}>
       <Forms clase={"form-busqueda"} /* onSubmit={onSubmit} schema={schema} */>
         <Input
           name={"lugar"}

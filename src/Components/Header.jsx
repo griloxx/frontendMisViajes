@@ -7,8 +7,9 @@ import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { NavLinks } from "./Nav";
 import { NavlinksAuth } from "./NavAuth";
-import logo from "../../favicon.svg"
 import { useLogout } from "../../Hooks/useLogout";
+import imgLogo from "../imagenes/LogoImg.png";
+
 
 export function Header() {
   const { login } = useContext(LoginContext);
@@ -52,8 +53,7 @@ export function Header() {
       <header className={header ? "header" : "header header-fix"}>
         <BotonMenu menuOpen={{menu, setMenu}} />
         <div className="div-logo">
-        <img className="logo" src={logo} alt="Mis Viajes" />
-        <h1 className="heading1">Mis Viajes</h1>
+        <img className="logo-img" src={imgLogo} alt="Mis Viajes" />
         </div>
         {!login && <NavLinks />}
         {login && <NavlinksAuth onClick={onClick} />}
