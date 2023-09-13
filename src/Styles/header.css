@@ -88,6 +88,9 @@
   display: flex;
   align-items: center;
 }
+.logo-img {
+  width: 10rem;
+}
 .logo {
   width: 0;
 }
