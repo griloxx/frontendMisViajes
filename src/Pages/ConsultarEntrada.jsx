@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { API_HOST } from "../../utils/constants";
 import { useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
@@ -6,12 +6,15 @@ import { BotonIcono } from "../Components/BotonIcono";
 import { SliderPhone } from "../Components/SliderPhone";
 import avatar from "../imagenes/avatar.jpg";
 import "../Styles/ConsultarEntrada.css";
+import Comentarios from "../Components/Comentarios";
+import { LoginContext } from "../context/LoginContext";
 
 export function ConsultarEntrada() {
   const { id } = useParams();
-
+  const {login} = useContext(LoginContext);
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     const consulta = async (id) => {
@@ -58,13 +61,15 @@ export function ConsultarEntrada() {
           </main>
           <footer className="consulta-entrada-footer">
             <form>
+              <Comentarios comentarios={entrada.comments} />
+              {login && ( <>
               <label htmlFor="comentarios">Comentario:</label>
               <input
                 type="text"
                 id="comentarios"
                 name="comentarios"
                 clase="comments"
-              />
+              /></>)}
             </form>
           </footer>
         </article>
