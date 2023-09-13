@@ -4,7 +4,7 @@
   position: sticky;
   opacity: 1;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   background-color: var(--blanco);
   justify-content: space-between;
   width: 100%;
@@ -12,7 +12,7 @@
   padding: 1rem 2rem 1rem 2rem;
   border-bottom: 0.1rem solid #000;
   box-shadow: 0 0 1.2rem var(--negro);
-  transition: visbility 1s linear, opacity .2s linear;
+  transition: visbility 1s linear, opacity 0.2s linear;
 }
 .header.header-fix {
   opacity: 0;
@@ -21,7 +21,7 @@
 
 .nav-menu {
   position: fixed;
-  z-index: 3;
+  z-index: 5;
   height: 100vh;
   background-color: var(--blanco);
   width: 25rem;
@@ -76,7 +76,7 @@
   height: 100vh;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 4;
 }
 .nav {
   display: none;
@@ -132,7 +132,6 @@
 @media (min-width: 1024px) {
   .header {
     padding: 2rem 2rem 2rem 2rem;
-
   }
   .header.header-fix {
     opacity: 1;
