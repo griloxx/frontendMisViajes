@@ -3,18 +3,19 @@ import { API_HOST } from "../../utils/constants";
 import { useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { BotonIcono } from "../Components/BotonIcono";
-import { SliderPhone } from "../Components/SliderPhone";
 import avatar from "../imagenes/avatar.jpg";
 import "../Styles/ConsultarEntrada.css";
 import Comentarios from "../Components/Comentarios";
 import { LoginContext } from "../context/LoginContext";
+import { SliderImg } from "../Components/SliderImg";
+import { Forms } from "../Components/Forms";
+import { Input } from "../Components/Input";
 
 export function ConsultarEntrada() {
   const { id } = useParams();
-  const {login} = useContext(LoginContext);
+  const { login } = useContext(LoginContext);
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
 
   useEffect(() => {
     const consulta = async (id) => {
@@ -43,7 +44,7 @@ export function ConsultarEntrada() {
             <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>
           </header>
           <main>
-            <SliderPhone imagenes={entrada.fotos} />
+            <SliderImg imagenes={entrada.fotos} />
             <div className="consulta-entrada-iconos">
               <div className="consulta-entrada-likes">
                 <BotonIcono
@@ -58,19 +59,27 @@ export function ConsultarEntrada() {
                 <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
               </div>
             </div>
+
+            <div className="consulta-entrada-texto">
+              <p>{entrada.texto}</p>
+            </div>
           </main>
           <footer className="consulta-entrada-footer">
-            <form>
+            <Forms>
               <Comentarios comentarios={entrada.comments} />
-              {login && ( <>
-              <label htmlFor="comentarios">Comentario:</label>
-              <input
-                type="text"
-                id="comentarios"
-                name="comentarios"
-                clase="comments"
-              /></>)}
-            </form>
+              {login && (
+                <>
+                  <Input
+                    label={"Comentarios:"}
+                    type="text"
+                    id="comentarios"
+                    name="comentarios"
+                    clase="comments"
+                    autocomplete={"off"}
+                  />
+                </>
+              )}
+            </Forms>
           </footer>
         </article>
       )}
