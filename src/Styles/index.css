@@ -156,3 +156,6 @@ li {
   font-size: 1.5rem;
   position: absolute;
 }
+.oculto-busqueda {
+  display: none;
+}

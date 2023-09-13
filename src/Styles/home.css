@@ -106,7 +106,9 @@
     font-variation-settings: "FILL" 1;
   }
 }
-
+.div-form-busqueda {
+  margin-top: -3rem;
+}
 .form-busqueda {
   display: flex;
   justify-content: center;
@@ -117,20 +119,27 @@
   z-index: 3;
   background-color: white;
   font-size: 1rem;
-  padding: 4rem 0 2rem 0;
-  margin-top: -1rem;
+  padding: 2rem 0 2rem 0;
   flex-wrap: wrap;
   gap: 2rem;
   position: fixed;
+  width: 100%;
 }
 .div-form-busqueda .input {
   max-width: 6rem;
 }
 .div-form-busqueda .boton-simple {
-  position: absolute;
-  z-index: 3;
-  right: 20rem;
-  top: 15rem;
+  display: none;
+}
+.div-form-busqueda .oculto-busqueda {
+  display: block;
+  border-radius: 2rem;
+  font-family: var(--fuente-principal);
+  padding: .3rem .8rem;
+  background-color: var(--color-botones);
+  border: .2rem solid var(--color-bordes);
+  box-shadow: .5rem .5rem 1rem var(--color-sombras);
+  color: black;
 }
 
 .div-radio {
