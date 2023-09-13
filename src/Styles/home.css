@@ -106,7 +106,15 @@
     font-variation-settings: "FILL" 1;
   }
 }
-
+.div-form-busqueda {
+  transition: opacity .2s linear;
+  position: fixed;
+  z-index: 3;
+}
+.div-form-busqueda.display {
+  opacity: 0;
+  pointer-events: none;
+}
 .form-busqueda {
   display: flex;
   justify-content: center;
@@ -114,16 +122,15 @@
   font-family: var(fuente-principal);
   border-radius: 0 0 2rem 2rem;
   box-shadow: 1rem 1rem 1rem var(--color-sombras);
-  z-index: 3;
   background-color: white;
   font-size: 1rem;
   padding: 2rem 0 2rem 0;
   flex-wrap: wrap;
   gap: 2rem;
-  position: absolute;
   width: 100%;
   margin-top: -3rem;
 }
+
 .div-form-busqueda .input {
   max-width: 6rem;
 }
