@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { API_HOST } from '../../utils/constants';
-import flechaD from '../imagenes/flechaei.png'
-import flechaI from '../imagenes/flechae.png'
+
 
 
 export function SliderPhone({imagenes}) {
