@@ -66,6 +66,10 @@
   padding: 1rem;
 }
 
+div.caja-comentarios label {
+  font-size: large;
+}
+
 @media (min-width: 768px) {
   .consulta-entrada {
     width: 40%;
