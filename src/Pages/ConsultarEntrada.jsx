@@ -16,7 +16,7 @@ export function ConsultarEntrada() {
   const [isLoading, setIsLoading] = useState(true);
   const { toastData, showToast } = useToast();
 
-  const [estadoComentarios, setEstadoComentarios] = useState(false);
+  const [estadoComentarios, setEstadoComentarios] = useState(true);
 
   function alternarComentarios() {
     setEstadoComentarios(!estadoComentarios);

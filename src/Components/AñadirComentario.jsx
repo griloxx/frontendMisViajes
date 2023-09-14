@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { Toast } from "./Toast";
 import { servicioAñadirComentario } from "../Api/servicioAñadirComentario";
 import Joi from "joi";
 import { Forms } from "./Forms";
@@ -21,9 +20,9 @@ export function AñadirComentario({ entrada, showToast, estadoComentarios }) {
     const resultado = await servicioAñadirComentario(id, formValue);
 
     if (resultado.status == "ok") {
-      showToast(6000, "exito", resultado.message);
+      showToast(36000, "exito", resultado.message);
     } else {
-      showToast(6000, "error", resultado.message);
+      showToast(36000, "error", resultado.message);
     }
   }
 
