@@ -2,43 +2,61 @@ import { BotonIcono } from "../Components/BotonIcono";
 import { Entrada } from "../Components/Entrada";
 import "../Styles/home.css";
 import { MenuBusqueda } from "../Components/MenuBusqueda";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { HeaderContext } from "../context/HeaderContext";
+import { useSearchParams } from "react-router-dom";
 
 export function ListarEntradas() {
   const [menu, setMenu] = useState(false);
-  const [display, setDisplay] = useState(false);
+  const { setHeader } = useContext(HeaderContext);
+  const [searchParams, setSearchParams] = useSearchParams()
 
   function handleClick() {
     setMenu(!menu);
+    const actualScroll = window.scrollY;
+    if(actualScroll > 80) {
+      setHeader(true)
+      setMenu(!menu)
+    }
   }
-
+  
   useEffect(() => {
+
     let prevScroll = window.scrollY;
-    
+
     function efectoScroll() {
       const actualScroll = window.scrollY;
 
       if (actualScroll < prevScroll) {
-        setDisplay(false);
+        setMenu(false)
+
       } else {
-        actualScroll > 80 && setDisplay(true);
+        if(actualScroll > 80) {
+          setMenu(false)
+
+        }
       }
      prevScroll = actualScroll;
     };
 
     window.addEventListener("scroll", efectoScroll);
-
+    
     return () => {
       window.removeEventListener("scroll", efectoScroll);
     };
       
   }, [])
   
+  // setSearchParams(new URLSearchParams({nombre}))
+  async function onSubmit(formValue) {
+    setSearchParams( new URLSearchParams(formValue))
+  }
+  
   return (
-    <main>
+    <main className="main-listar-entradas">
       <>
-        <MenuBusqueda display={display} menu={menu} />
-        <Entrada />
+        <MenuBusqueda menu={menu} onSubmit={onSubmit}  />
+        <Entrada searchParams={searchParams}/>
         <BotonIcono
           clase={"boton-busqueda"}
           icono={"travel_explore"}
