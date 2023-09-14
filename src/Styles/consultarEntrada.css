@@ -66,6 +66,10 @@
   padding: 1rem;
 }
 
+.caja-comentarios.ocultar-comentarios {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .consulta-entrada {
     width: 40%;

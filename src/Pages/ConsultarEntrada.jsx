@@ -17,6 +17,15 @@ export function ConsultarEntrada() {
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
+const [estadoComentarios, setEstadoComentarios] = useState(false);
+
+function alternarComentarios() {
+    setEstadoComentarios(!estadoComentarios)
+}
+
+
+  
   useEffect(() => {
     const consulta = async (id) => {
       const resultado = await servicioConsultaEntrada(id);
@@ -56,7 +65,11 @@ export function ConsultarEntrada() {
               </div>
               <div className="consulta-entrada-comments">
                 <p>{entrada.total_comments}</p>
-                <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
+                <BotonIcono
+                  icono={"Chat"} 
+                  clase={"comentarios-phone"} 
+                  onClick={alternarComentarios}
+                />
               </div>
             </div>
 
@@ -65,21 +78,23 @@ export function ConsultarEntrada() {
             </div>
           </main>
           <footer className="consulta-entrada-footer">
-            <Forms>
-              <Comentarios comentarios={entrada.comments} />
-              {login && (
-                <>
-                  <Input
-                    label={"Comentarios:"}
-                    type="text"
-                    id="comentarios"
-                    name="comentarios"
-                    clase="comments"
-                    autocomplete={"off"}
-                  />
-                </>
-              )}
-            </Forms>
+            <div>
+              <Forms className="consulta-comentarios">
+                <Comentarios estadoComentarios={estadoComentarios} comentarios={entrada.comments} />
+                  {login && (
+                    <>
+                      <Input
+                        label={"Comentarios:"}
+                        Type="text"
+                        id="comentarios"
+                        name="comentarios"
+                        clase="comments"
+                        autocomplete={"off"}
+                      />
+                  </>
+                  )}
+              </Forms>
+            </div>
           </footer>
         </article>
       )}
