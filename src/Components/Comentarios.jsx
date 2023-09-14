@@ -1,7 +1,7 @@
-const Comentarios = ({ comentarios }) => {
+const Comentarios = ({ comentarios, estadoComentarios }) => {
     
 return (
-        <div className="caja-comentarios">
+        <div className={estadoComentarios?"caja-comentarios ocultar-comentarios":"caja-comentarios"}>
             <div className="comentarios">
                 {comentarios.map((comentario, index) => (
                     <div key={index} className="comentario">

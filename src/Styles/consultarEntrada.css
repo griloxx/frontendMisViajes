@@ -77,6 +77,8 @@
   padding: 1rem;
 }
 
+.caja-comentarios.ocultar-comentarios {
+  display: none;
 div.caja-comentarios label {
   font-size: large;
 }

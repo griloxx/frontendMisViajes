@@ -16,6 +16,15 @@ export function ConsultarEntrada() {
   const [isLoading, setIsLoading] = useState(true);
   const { toastData, showToast } = useToast();
 
+
+const [estadoComentarios, setEstadoComentarios] = useState(false);
+
+function alternarComentarios() {
+    setEstadoComentarios(!estadoComentarios)
+}
+
+
+  
   useEffect(() => {
     const consulta = async (id) => {
       const resultado = await servicioConsultaEntrada(id);
@@ -55,7 +64,11 @@ export function ConsultarEntrada() {
               </div>
               <div className="consulta-entrada-comments">
                 <p>{entrada.total_comments}</p>
-                <BotonIcono icono={"Chat"} clase={"comentarios-phone"} />
+                <BotonIcono
+                  icono={"Chat"} 
+                  clase={"comentarios-phone"} 
+                  onClick={alternarComentarios}
+                />
               </div>
             </div>
 
