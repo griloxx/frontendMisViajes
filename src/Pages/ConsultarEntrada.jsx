@@ -39,55 +39,58 @@ export function ConsultarEntrada() {
   return (
     <main className="consulta-entrada-main">
       {!isLoading && (
-        <article className="consulta-entrada">
-          <header className="consulta-entrada-h">
-            <img
-              className="consulta-entrada-avatar"
-              src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar}
-              alt="consulta-entrada-entrada"
-            />
-            <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>
-          </header>
-          <main>
-            <SliderImg imagenes={entrada.fotos} />
-            <div className="consulta-entrada-iconos">
-              <div className="consulta-entrada-likes">
-                <BotonIcono
-                  icono={"Favorite"}
-                  onClick={() => onClickCorazon(entrada.id)}
-                  clase={"corazon-phone votado"}
-                />
-                <p>{entrada.total_votos}</p>
-              </div>
-              <div className="consulta-entrada-comments">
-                <p>{entrada.total_comments}</p>
-                <BotonIcono
-                  icono={"Chat"}
-                  clase={"comentarios-phone"}
-                  onClick={alternarComentarios}
-                />
-              </div>
-            </div>
+        <>
+          <AñadirComentario
+            clase={"consulta-comentarios-desktop"}
+            estadoComentarios={estadoComentarios}
+            showToast={showToast}
+            entrada={entrada}
+          />
 
-            <div className="consulta-entrada-texto">
-              <p>{entrada.texto}</p>
-            </div>
-          </main>
-          <footer className="consulta-entrada-footer">
-            <AñadirComentario
-              clase={"consulta-comentarios"}
-              estadoComentarios={estadoComentarios}
-              showToast={showToast}
-              entrada={entrada}
-            />
-            <AñadirComentario
-              clase={"consulta-comentarios-desktop"}
-              estadoComentarios={estadoComentarios}
-              showToast={showToast}
-              entrada={entrada}
-            />
-          </footer>
-        </article>
+          <article className="consulta-entrada">
+            <header className="consulta-entrada-h">
+              <img
+                className="consulta-entrada-avatar"
+                src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar}
+                alt="consulta-entrada-entrada"
+              />
+              <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>
+            </header>
+            <main>
+              <SliderImg imagenes={entrada.fotos} />
+              <div className="consulta-entrada-iconos">
+                <div className="consulta-entrada-likes">
+                  <BotonIcono
+                    icono={"Favorite"}
+                    onClick={() => onClickCorazon(entrada.id)}
+                    clase={"corazon-phone votado"}
+                  />
+                  <p>{entrada.total_votos}</p>
+                </div>
+                <div className="consulta-entrada-comments">
+                  <p>{entrada.total_comments}</p>
+                  <BotonIcono
+                    icono={"Chat"}
+                    clase={"comentarios-phone"}
+                    onClick={alternarComentarios}
+                  />
+                </div>
+              </div>
+
+              <div className="consulta-entrada-texto">
+                <p>{entrada.texto}</p>
+              </div>
+            </main>
+            <footer className="consulta-entrada-footer">
+              <AñadirComentario
+                clase={"consulta-comentarios"}
+                estadoComentarios={estadoComentarios}
+                showToast={showToast}
+                entrada={entrada}
+              />
+            </footer>
+          </article>
+        </>
       )}
       <Toast toastData={toastData} />
     </main>

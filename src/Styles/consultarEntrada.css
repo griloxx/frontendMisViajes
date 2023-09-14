@@ -123,7 +123,7 @@ img.imagen-comentarios {
   display: none;
 }
 
-.consulta-comentarios-desktop ~ .boton-simple {
+.consulta-comentarios-desktop ~ div {
   display: none;
 }
 
@@ -138,7 +138,7 @@ img.imagen-comentarios {
     display: none;
   }
 
-  .consulta-entrada-footer .boton-simple {
+  .consulta-comentarios ~ div {
     display: none;
   }
 
@@ -146,7 +146,15 @@ img.imagen-comentarios {
     display: block;
   }
 
-  .consulta-comentarios-desktop ~ .boton-simple {
+  .consulta-comentarios-desktop ~ div {
+    display: block;
+  }
+
+  .consulta-comentarios-desktop .comentarios {
+    display: block;
+  }
+
+  .caja-comentarios.ocultar-comentarios {
     display: block;
   }
 }
