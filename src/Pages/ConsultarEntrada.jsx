@@ -75,6 +75,13 @@ export function ConsultarEntrada() {
           </main>
           <footer className="consulta-entrada-footer">
             <AñadirComentario
+              clase={"consulta-comentarios"}
+              estadoComentarios={estadoComentarios}
+              showToast={showToast}
+              entrada={entrada}
+            />
+            <AñadirComentario
+              clase={"consulta-comentarios-desktop"}
               estadoComentarios={estadoComentarios}
               showToast={showToast}
               entrada={entrada}

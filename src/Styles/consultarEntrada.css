@@ -105,24 +105,48 @@ img.imagen-comentarios {
   border: 0.2rem solid var(--color-bordes);
   margin: 1rem;
 }
-/* .caja-comentarios {
+.caja-comentarios {
   transition: opacity 0.2s linear;
   width: 100%;
   position: fixed;
   z-index: 3;
 }
-.caja-comentarios .ocultar-comentarios {
+.caja-comentarios.ocultar-comentarios {
   display: none;
   transition: opacity 0.2s linear;
   width: 100%;
   position: fixed;
   z-index: 3;
-} */
+}
+
+.consulta-comentarios-desktop {
+  display: none;
+}
+
+.consulta-comentarios-desktop ~ .boton-simple {
+  display: none;
+}
 
 @media (min-width: 768px) {
   .consulta-entrada {
     width: 40%;
     margin: 5rem;
     float: right;
+  }
+
+  .consulta-comentarios {
+    display: none;
+  }
+
+  .consulta-entrada-footer .boton-simple {
+    display: none;
+  }
+
+  .consulta-comentarios-desktop {
+    display: block;
+  }
+
+  .consulta-comentarios-desktop ~ .boton-simple {
+    display: block;
   }
 }

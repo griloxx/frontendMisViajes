@@ -10,7 +10,12 @@ import { LoginContext } from "../context/LoginContext";
 const schema = Joi.object({
   comentario: Joi.string().required(),
 });
-export function AñadirComentario({ entrada, showToast, estadoComentarios }) {
+export function AñadirComentario({
+  entrada,
+  showToast,
+  estadoComentarios,
+  clase,
+}) {
   const { id } = useParams();
   const { login } = useContext(LoginContext);
 
@@ -28,7 +33,7 @@ export function AñadirComentario({ entrada, showToast, estadoComentarios }) {
 
   return (
     <>
-      <Forms onSubmit={onSubmit} schema={schema} clase={"consulta-comentarios"}>
+      <Forms onSubmit={onSubmit} schema={schema} clase={clase}>
         <Comentarios
           estadoComentarios={estadoComentarios}
           comentarios={entrada.comments}
