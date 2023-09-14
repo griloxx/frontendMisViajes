@@ -68,6 +68,8 @@
 
 .caja-comentarios.ocultar-comentarios {
   display: none;
+div.caja-comentarios label {
+  font-size: large;
 }
 
 @media (min-width: 768px) {

@@ -1,49 +1,42 @@
 import { useContext, useEffect, useState } from "react";
 import { API_HOST } from "../../utils/constants";
-import { servicioVotar } from "../Api/servicioVotar";
 import { BotonIcono } from "./BotonIcono";
 import { SliderPhone } from "./SliderPhone";
 import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { LoginContext } from "../context/LoginContext";
-import { SliderImg } from "./SliderImg";
+import { servicioConsultaBusqueda } from "../Api/servicioConsultaBusqueda";
+import { BotonIconoLike } from "./BotonIconoLike";
 
 
-export function Entrada() {
+export function Entrada({searchParams}) {
     const {login} = useContext(LoginContext);
-    const [votos, setVotos] = useState(false);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
     async function consultarEntradas() {
-        
-        const resultado = await servicioListarEntradas();
+        let resultado;
+        if(searchParams.size > 0 ) {
+            resultado = await servicioConsultaBusqueda(searchParams.toString())
+        } else {
+            resultado = await servicioListarEntradas();
+        } 
         setIsLoading(false);
-        if (resultado.data) {
-        console.log(resultado.data);
+        if (resultado.data > 0) {
         setEntradas(resultado.data);
         } else {
-        console.log(resultado.message);
+            resultado = await servicioListarEntradas();
         }
     }
 
     useEffect(() => {
-      consultarEntradas()
-    }, [login])
 
-    useEffect(() => {
         consultarEntradas();
-    }, [votos]);
 
-    async function onClickCorazon(id) {
-        if(login) {
-            await servicioVotar(id);
-            !votos ? setVotos(true) : setVotos(false);
-        }
-      }
-
+    }, [login, searchParams])
 
     return (
         <ul>
-        {!isLoading && (
+        {!isLoading && entradas ? (
             entradas.map((entrada) => {
               return (
                 <li key={entrada.id}>
@@ -57,8 +50,7 @@ export function Entrada() {
                         </main>
                         <footer>
                             <div>
-                                <BotonIcono icono={"Favorite"} onClick={() => onClickCorazon(entrada.id)} clase={entrada.yaVotado ? "corazon-phone votado" : "corazon-phone"}  />
-                                <p>{entrada.votos}</p>
+                                <BotonIconoLike icono={"Favorite"} entrada={entrada} />
                             </div>
                             <div>
                                 <p>{entrada.total_comments}</p>
@@ -67,7 +59,13 @@ export function Entrada() {
                         </footer>
                     </article>
                 </li>
-            )}))}
+            )}))
+            : (
+                <div>
+                    <p></p>
+                </div>
+            )
+            }
         </ul>
     )
 }

@@ -6,16 +6,18 @@ import { BotonIcono } from "../Components/BotonIcono";
 import avatar from "../imagenes/avatar.jpg";
 import "../Styles/ConsultarEntrada.css";
 import Comentarios from "../Components/Comentarios";
-import { LoginContext } from "../context/LoginContext";
 import { SliderImg } from "../Components/SliderImg";
 import { Forms } from "../Components/Forms";
 import { Input } from "../Components/Input";
+import { AñadirComentario } from "../Components/AñadirComentario";
+import { Toast } from "../Components/Toast";
+import { useToast } from "../../Hooks/useToast";
 
 export function ConsultarEntrada() {
   const { id } = useParams();
-  const { login } = useContext(LoginContext);
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const {toastData, showToast} = useToast();
 
 
 const [estadoComentarios, setEstadoComentarios] = useState(false);
@@ -41,7 +43,7 @@ function alternarComentarios() {
   }, [id]);
 
   return (
-    <>
+    <main>
       {!isLoading && (
         <article className="consulta-entrada">
           <header className="consulta-entrada-h">
@@ -78,26 +80,12 @@ function alternarComentarios() {
             </div>
           </main>
           <footer className="consulta-entrada-footer">
-            <div>
-              <Forms className="consulta-comentarios">
-                <Comentarios estadoComentarios={estadoComentarios} comentarios={entrada.comments} />
-                  {login && (
-                    <>
-                      <Input
-                        label={"Comentarios:"}
-                        Type="text"
-                        id="comentarios"
-                        name="comentarios"
-                        clase="comments"
-                        autocomplete={"off"}
-                      />
-                  </>
-                  )}
-              </Forms>
-            </div>
+            <AñadirComentario showToast={showToast} entrada={entrada} />
+            
           </footer>
         </article>
       )}
-    </>
+      <Toast toastData={toastData}  />
+    </main>
   );
 }

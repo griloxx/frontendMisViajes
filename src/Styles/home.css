@@ -1,3 +1,7 @@
+.main-listar-entradas {
+  margin-top: 3rem;
+}
+
 .boton-busqueda {
   background-color: white;
   color: #b522e6;
@@ -19,7 +23,7 @@
 
 .entrada-lista {
   width: 90%;
-  margin: 3rem auto;
+  margin: 0 auto;
   border-radius: 2rem;
   padding: 1rem;
   background-color: var(--blanco);
