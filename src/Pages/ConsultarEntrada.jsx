@@ -1,14 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { API_HOST } from "../../utils/constants";
 import { useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { BotonIcono } from "../Components/BotonIcono";
 import avatar from "../imagenes/avatar.jpg";
 import "../Styles/ConsultarEntrada.css";
-import Comentarios from "../Components/Comentarios";
 import { SliderImg } from "../Components/SliderImg";
-import { Forms } from "../Components/Forms";
-import { Input } from "../Components/Input";
 import { AñadirComentario } from "../Components/AñadirComentario";
 import { Toast } from "../Components/Toast";
 import { useToast } from "../../Hooks/useToast";
@@ -17,7 +14,7 @@ export function ConsultarEntrada() {
   const { id } = useParams();
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const {toastData, showToast} = useToast();
+  const { toastData, showToast } = useToast();
 
   useEffect(() => {
     const consulta = async (id) => {
@@ -34,7 +31,7 @@ export function ConsultarEntrada() {
   }, [id]);
 
   return (
-    <main>
+    <main className="consulta-entrada-main">
       {!isLoading && (
         <article className="consulta-entrada">
           <header className="consulta-entrada-h">
@@ -68,11 +65,10 @@ export function ConsultarEntrada() {
           </main>
           <footer className="consulta-entrada-footer">
             <AñadirComentario showToast={showToast} entrada={entrada} />
-            
           </footer>
         </article>
       )}
-      <Toast toastData={toastData}  />
+      <Toast toastData={toastData} />
     </main>
   );
 }

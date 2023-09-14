@@ -1,3 +1,7 @@
+.connsulta-entrada-main {
+  display: flex;
+  justify-content: center;
+}
 .consulta-entrada {
   width: 90%;
   height: auto;
@@ -50,14 +54,21 @@
 
 .consulta-entrada-texto {
   display: flex;
-  border: 0.3rem solid var(--color-botones);
-  margin: 3rem auto;
-  padding: 1rem;
+  border: 2px solid var(--color-botones);
+  margin: 1px;
+  padding: 1px;
 }
 
 .consulta-entrada-footer {
   display: flex;
   flex-direction: column;
+}
+
+.form-comentarios {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  align-items: center;
 }
 
 .comments {

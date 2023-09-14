@@ -11,25 +11,25 @@ import { LoginContext } from "../context/LoginContext";
 const schema = Joi.object({
   comentario: Joi.string().required(),
 });
-export function AñadirComentario({entrada, showToast}) {
+export function AñadirComentario({ entrada, showToast }) {
   const { id } = useParams();
-  const {login} = useContext(LoginContext);
+  const { login } = useContext(LoginContext);
 
   async function onSubmit(formValue) {
     showToast(0, "", "");
 
     const resultado = await servicioAñadirComentario(id, formValue);
-    
+
     if (resultado.status == "ok") {
-      showToast(36000, "exito", resultado.message);
+      showToast(6000, "exito", resultado.message);
     } else {
-      showToast(36000, "error", resultado.message);
+      showToast(6000, "error", resultado.message);
     }
   }
 
   return (
     <>
-      <Forms onSubmit={onSubmit} schema={schema}>
+      <Forms onSubmit={onSubmit} schema={schema} clase={"form-comentarios"}>
         <Comentarios comentarios={entrada.comments} />
         {login && (
           <>
