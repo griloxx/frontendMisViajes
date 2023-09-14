@@ -9,7 +9,8 @@ import { useSearchParams } from "react-router-dom";
 export function ListarEntradas() {
   const [menu, setMenu] = useState(false);
   const { setHeader } = useContext(HeaderContext);
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [lastSearch, setLastSearch] = useState(false);
 
   function handleClick() {
     setMenu(!menu);
@@ -48,15 +49,19 @@ export function ListarEntradas() {
   }, [])
   
   // setSearchParams(new URLSearchParams({nombre}))
-  async function onSubmit(formValue) {
-    setSearchParams( new URLSearchParams(formValue))
-  }
   
+  async function onSubmit(formValue) {
+    
+      setSearchParams(new URLSearchParams(formValue));
+      setLastSearch(!lastSearch);
+    
+  }
+
   return (
     <main className="main-listar-entradas">
       <>
-        <MenuBusqueda menu={menu} onSubmit={onSubmit}  />
-        <Entrada searchParams={searchParams}/>
+        <MenuBusqueda  menu={menu} onSubmit={onSubmit}  />
+        <Entrada searchParams={searchParams} lastSearch={lastSearch}/>
         <BotonIcono
           clase={"boton-busqueda"}
           icono={"travel_explore"}

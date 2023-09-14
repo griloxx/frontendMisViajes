@@ -64,6 +64,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
       initialValue.avatar = user.avatar;
       initialValue.name = user.name;
     }
+    if (formState.formValue.lugar || formState.formValue.categoria || formState.formValue.votos) {
+      initialValue = formState.formValue;
+    }
     setFormState({
       isTouched: false,
       isLoading: false,
