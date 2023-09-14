@@ -70,7 +70,7 @@ export function ConsultarEntrada() {
               {login && (
                 <>
                   <Input
-                    label={"Comentarios:"}
+                    label={"Añadir Comentario:"}
                     type="text"
                     id="comentarios"
                     name="comentarios"
