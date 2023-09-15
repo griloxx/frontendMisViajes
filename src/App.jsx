@@ -9,6 +9,7 @@ import { LoginPage } from "./Pages/LoginPage";
 import { PaginaNoEncontrada } from "./Pages/PaginaNoEncontrada";
 import { ConsultarEntrada } from "./Pages/ConsultarEntrada";
 import { HeaderProvider } from "./context/HeaderContext";
+import { Perfil } from "./Pages/Perfil";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               path="/validar-registro/:codigo"
               element={<ValidarRegistro />}
             />
+            <Route path="/perfil" element={<Perfil />} />
             <Route path="/modificar-usuario" element={<ModificarUsuario />} />
             <Route path="/*" element={<PaginaNoEncontrada />} />
           </Routes>

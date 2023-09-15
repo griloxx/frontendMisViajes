@@ -34,6 +34,7 @@ export function AñadirComentario({
   return (
     <>
       <Forms onSubmit={onSubmit} schema={schema} clase={clase}>
+        <div className="caja-comentarios-desktop">
         <Comentarios
           estadoComentarios={estadoComentarios}
           comentarios={entrada.comments}
@@ -50,6 +51,7 @@ export function AñadirComentario({
             />
           </>
         )}
+       </div>
       </Forms>
     </>
   );

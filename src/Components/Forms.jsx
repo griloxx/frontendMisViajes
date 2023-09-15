@@ -79,7 +79,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
     <FormContext.Provider value={{ ...formState, errors, updateFormValue }}>
       <form onSubmit={onFormSubmit} className={clase}>
         {children}
-        <BotonSimple children={"Buscar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
+        <BotonSimple children={"Enviar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
       </form>
       <div>
         <BotonSimple onClick={onFormSubmit} clase={"boton-simple"}>

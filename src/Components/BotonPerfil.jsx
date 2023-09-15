@@ -8,7 +8,7 @@ export function BotonPerfil({onClick, avatarImg}) {
 
 
   return (
-    <Link to={"/modificar-usuario"} className="botone-perfil">
+    <Link to={"/perfil"} className="botone-perfil">
       <img key={rutaImagen} onClick={onClick} className="imagen-avatar" src={avatarImg ? rutaImagen : avatar} alt="avatar" />
     </Link>
   );
