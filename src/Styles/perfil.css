@@ -3,3 +3,18 @@
     flex-direction: column;
     margin-top: 3rem
 }
+.contenedor-perfil {
+    width: 90%;
+    margin:  auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.img-perfil{
+    border: .2rem solid var(--color-bordes);
+    border-radius: 50%;
+    object-fit: cover;
+    width: 10.4rem;
+    height: 10.4rem;
+}
+
