@@ -169,6 +169,11 @@ img.imagen-comentarios {
   width: 30rem;
   margin: 0 auto;
 }
+.consulta-corazon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 @media (min-width: 375px) {
   .consulta-entrada {
