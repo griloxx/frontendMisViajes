@@ -1,26 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 
-
-export function Input({
-  label,
-  type,
-  name,
-  clase,
-  autocomplete,
-}) {
-
-  const [ isTouched, setIsTouched ] = useState(false);
+export function Input({ label, type, name, clase, autocomplete, disabled }) {
+  const [isTouched, setIsTouched] = useState(false);
   const formC = useContext(FormContext);
 
   function updateRequest(value) {
-    if(!isTouched) {
+    if (!isTouched) {
       setIsTouched(true);
     }
-    
+
     formC.updateFormValue({
       [name]: value,
-    })
+    });
   }
   useEffect(() => {
     if (!formC.isTouched) {
@@ -28,24 +20,25 @@ export function Input({
     }
   }, [formC.isTouched]);
 
-
-
   return (
     <>
       <label htmlFor={name}>{label}</label>
       <div>
-      <input
-        disabled={formC.isLoading}
-        className={clase}
-        type={type}
-        id={name}
-        autoComplete={autocomplete ?? "on"}
-        value={formC.formValue[name] ?? ""}
-        onChange={(e) => updateRequest(e.target.value)}
-      />
-      {(formC.isTouched || isTouched) && formC.errors && formC.errors[name] && !formC.isLoading && (
-        <p className="error-form">{formC.errors[name]}</p>
-      )}
+        <input
+          disabled={formC.isLoading || disabled}
+          className={clase}
+          type={type}
+          id={name}
+          autoComplete={autocomplete ?? "on"}
+          value={formC.formValue[name] ?? ""}
+          onChange={(e) => updateRequest(e.target.value)}
+        />
+        {(formC.isTouched || isTouched) &&
+          formC.errors &&
+          formC.errors[name] &&
+          !formC.isLoading && (
+            <p className="error-form">{formC.errors[name]}</p>
+          )}
       </div>
     </>
   );

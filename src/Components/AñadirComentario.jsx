@@ -45,18 +45,16 @@ export function AñadirComentario({
               estadoComentarios={estadoComentarios}
               comentarios={entrada.comments}
             />
-            {login && (
-              <>
-                <Input
-                  label={"Añadir Comentario:"}
-                  type="text"
-                  id="comentarios"
-                  name="comentario"
-                  clase="comments"
-                  autocomplete={"off"}
-                />
-              </>
-            )}
+
+            <Input
+              disabled={!login ? "true" : "false"}
+              label={"Añadir Comentario:"}
+              type="text"
+              id="comentarios"
+              name="comentario"
+              clase="comments"
+              autocomplete={"off"}
+            />
           </div>
         </div>
       </Forms>

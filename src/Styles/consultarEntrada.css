@@ -34,6 +34,10 @@
   position: absolute;
 }
 
+.consulta-entrada-main .container {
+  height: 34rem;
+}
+
 .consulta-entrada-iconos {
   display: flex;
   gap: 1rem;
@@ -158,10 +162,14 @@ img.imagen-comentarios {
   display: none;
 }
 
-@media (min-width: 321px) {
+@media (min-width: 375px) {
   .consulta-entrada {
     height: 66rem;
   }
+  .consulta-entrada-main .container {
+    height: 42rem;
+  }
+
   .caja-comentarios-desktop label {
     margin: 2rem;
   }
@@ -170,15 +178,21 @@ img.imagen-comentarios {
   }
 }
 
-@media (min-width: 376px) {
+@media (min-width: 425px) {
   .consulta-entrada {
     height: 70rem;
+  }
+  .consulta-entrada-main .container {
+    height: 48rem;
   }
 }
 
 @media (min-width: 768px) {
   .consulta-entrada {
     height: 68rem;
+  }
+  .consulta-entrada-main .container {
+    height: 43rem;
   }
 
   .consulta-comentarios {
@@ -282,5 +296,8 @@ img.imagen-comentarios {
   .consulta-entrada-texto {
     margin-top: 1rem;
     height: 10rem;
+  }
+  .consulta-entrada-main .container {
+    height: 40rem;
   }
 }
