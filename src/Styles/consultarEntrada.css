@@ -42,6 +42,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-around;
+  margin: 0.3rem 0;
 }
 
 .consulta-entrada-likes {
@@ -69,6 +70,15 @@
   position: relative;
   z-index: 3;
   width: 100%;
+}
+.consulta-entrada-texto::-webkit-scrollbar {
+  background-color: transparent;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.consulta-entrada-texto::-webkit-scrollbar-thumb {
+  background-color: var(--color-botones);
+  border-radius: 2rem;
 }
 
 .form-comentarios {
@@ -130,7 +140,7 @@
 
 .comments {
   width: 60%;
-  height: 4rem;
+  height: 3rem;
   margin: 0;
   border: 1px solid var(--color-bordes);
   overflow: auto;
@@ -168,6 +178,11 @@ img.imagen-comentarios {
 .consulta-entrada-main .toast-fix .toast-div {
   width: 30rem;
   margin: 0 auto;
+}
+.consulta-corazon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media (min-width: 375px) {
@@ -307,6 +322,7 @@ img.imagen-comentarios {
     height: 9rem;
     margin: 2rem auto;
     border: 1px solid var(--color-bordes);
+    border-radius: 2rem;
     overflow: auto;
   }
   .comments:hover {
