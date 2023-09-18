@@ -27,10 +27,9 @@ export function ConsultarEntrada() {
       const resultado = await servicioConsultaEntrada(id);
       setIsLoading(false);
       if (resultado) {
-        console.log(resultado);
         setEntrada(resultado);
       } else {
-        console.log(resultado.message);
+        showToast(3000, "error", resultado.message);
       }
     };
     consulta(id);
@@ -65,10 +64,10 @@ export function ConsultarEntrada() {
                     onClick={() => onClickCorazon(entrada.id)}
                     clase={"corazon-phone votado"}
                   />
-                  <p>{entrada.total_votos}</p>
+                  <p>{entrada.votos}</p>
                 </div>
                 <div className="consulta-entrada-comments">
-                  <p>{entrada.total_comments}</p>
+                  <p>{entrada.comments.length}</p>
                   <BotonIcono
                     icono={"Chat"}
                     clase={"comentarios-phone"}
