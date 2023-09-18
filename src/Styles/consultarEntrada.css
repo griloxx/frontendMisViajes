@@ -63,9 +63,9 @@
   font-family: cursive;
   border: 2px solid var(--color-botones);
   border-radius: 2rem;
-  margin: 1rem auto;
+  margin: 0;
   padding: 1rem;
-  height: 10rem;
+  height: 5rem;
   position: relative;
   z-index: 3;
   width: 100%;
@@ -100,7 +100,7 @@
   background-color: white;
   border: 1px solid var(--color-bordes);
   border-radius: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   position: absolute;
   bottom: 0rem;
   width: 100%;
@@ -130,7 +130,7 @@
 
 .comments {
   width: 60%;
-  height: 6rem;
+  height: 4rem;
   margin: 0;
   border: 1px solid var(--color-bordes);
   overflow: auto;
@@ -169,6 +169,15 @@ img.imagen-comentarios {
   .consulta-entrada-main .container {
     height: 42rem;
   }
+  .consulta-entrada-texto {
+    height: 4rem;
+  }
+  .div-caja-comentarios {
+    height: 11rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 1rem;
+  }
 
   .caja-comentarios-desktop label {
     margin: 2rem;
@@ -184,6 +193,19 @@ img.imagen-comentarios {
   }
   .consulta-entrada-main .container {
     height: 48rem;
+  }
+  .consulta-entrada-texto {
+    height: 3.5rem;
+  }
+  .div-caja-comentarios {
+    height: 10rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 0;
+  }
+  .comments {
+    margin-left: 0.2rem;
+    width: 65%;
   }
 }
 
