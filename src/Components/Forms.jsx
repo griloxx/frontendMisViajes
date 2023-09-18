@@ -81,7 +81,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
         {children}
         <BotonSimple children={"Enviar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
       </form>
-      <div>
+      <div className="div-boton-simple">
         <BotonSimple onClick={onFormSubmit} clase={"boton-simple"}>
           Enviar
         </BotonSimple>

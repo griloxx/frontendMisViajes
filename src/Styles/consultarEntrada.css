@@ -158,8 +158,16 @@ img.imagen-comentarios {
   display: none;
 }
 
-.consulta-comentarios-desktop ~ div {
+.consulta-comentarios-desktop ~ .div-boton-simple {
   display: none;
+}
+.consulta-entrada-main .toast-fix{
+  top: 12rem;
+  width: 100%;
+}
+.consulta-entrada-main .toast-fix .toast-div{
+  width: 30rem;
+  margin: 0 auto;
 }
 
 @media (min-width: 375px) {
@@ -233,7 +241,7 @@ img.imagen-comentarios {
     margin-top: -4.6rem;
   }
 
-  .consulta-comentarios-desktop ~ div {
+  .consulta-comentarios-desktop ~ .div-boton-simple {
     display: hidden;
   }
 

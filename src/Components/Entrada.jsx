@@ -55,7 +55,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                                     </Link>
                                 </h2>
                                 {listaEntradas && (
-                                    <Link className="perfil-editar" to={"/entradas/modificar"}>
+                                    <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
                                         <Icon icono={"Edit"} />
                                     </Link>
                                 )}

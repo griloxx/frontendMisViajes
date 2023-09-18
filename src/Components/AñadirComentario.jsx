@@ -47,7 +47,7 @@ export function AñadirComentario({
             />
 
             <Input
-              disabled={!login ? "true" : "false"}
+              disabled={!login ? true : false}
               label={"Añadir Comentario:"}
               type="text"
               id="comentarios"
