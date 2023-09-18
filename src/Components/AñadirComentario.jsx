@@ -15,6 +15,7 @@ export function AñadirComentario({
   showToast,
   estadoComentarios,
   clase,
+  alternarComentarios,
 }) {
   const { id } = useParams();
   const { login } = useContext(LoginContext);
@@ -34,24 +35,30 @@ export function AñadirComentario({
   return (
     <>
       <Forms onSubmit={onSubmit} schema={schema} clase={clase}>
-        <div className="caja-comentarios-desktop">
-        <Comentarios
-          estadoComentarios={estadoComentarios}
-          comentarios={entrada.comments}
-        />
-        {login && (
-          <>
-            <Input
-              label={"Añadir Comentario:"}
-              type="text"
-              id="comentarios"
-              name="comentario"
-              clase="comments"
-              autocomplete={"off"}
+        <div className="div-caja-comentarios">
+          <div
+            className={estadoComentarios ? "" : "div-cierre-comentarios"}
+            onClick={alternarComentarios}
+          ></div>
+          <div className="caja-comentarios-desktop">
+            <Comentarios
+              estadoComentarios={estadoComentarios}
+              comentarios={entrada.comments}
             />
-          </>
-        )}
-       </div>
+            {login && (
+              <>
+                <Input
+                  label={"Añadir Comentario:"}
+                  type="text"
+                  id="comentarios"
+                  name="comentario"
+                  clase="comments"
+                  autocomplete={"off"}
+                />
+              </>
+            )}
+          </div>
+        </div>
       </Forms>
     </>
   );
