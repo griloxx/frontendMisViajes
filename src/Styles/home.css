@@ -43,7 +43,14 @@
   font-size: 2rem;
   width: 100%;
   text-align: center;
+}
+
+.entrada-heading {
   color: var(--color-bordes);
+  text-decoration: none;
+}
+.entrada-heading:hover {
+  text-shadow: 0 0 2rem var(--color-bordes);
 }
 .entrada-avatar {
   width: 4rem;
@@ -218,7 +225,7 @@
   }
   .entrada-lista {
     margin-left: 35%;
-    width: 50%;
+    width: min(50%, 80rem);
     /* height: 40rem; */
   }
   .container {
