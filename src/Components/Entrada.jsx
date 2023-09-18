@@ -8,6 +8,7 @@ import { servicioConsultaBusqueda } from "../Api/servicioConsultaBusqueda";
 import { BotonIconoLike } from "./BotonIconoLike";
 import { Link } from "react-router-dom";
 import { Icon } from "./icons";
+import avatar from "../imagenes/avatar.jpg"
 
 
 export function Entrada({searchParams, lastSearch, listaEntradas}) {
@@ -47,7 +48,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                     <li key={entrada.id}>
                         <article className="entrada-lista">
                             <header>
-                                <img className="entrada-avatar" src={API_HOST + "/" + entrada.avatar} alt="usuario" />
+                                <img className="entrada-avatar" src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar} alt="usuario" />
                                 <h2>
                                     <Link className="entrada-heading" to={`/entradas/${entrada.id}`}  >
                                         {entrada.titulo}
