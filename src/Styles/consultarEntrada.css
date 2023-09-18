@@ -55,8 +55,8 @@
 .consulta-entrada-texto {
   display: flex;
   border: 2px solid var(--color-botones);
-  margin: 1px;
-  padding: 1px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .form-comentarios {
@@ -71,6 +71,7 @@
 .caja-comentarios-desktop {
   background-color: white;
   border: 1px solid black;
+  border-radius: 2rem;
   padding: 1rem;
   position: absolute;
   bottom: -13rem;
@@ -83,7 +84,7 @@
   overflow: auto;
   margin-bottom: 1rem;
 }
-.caja-comentarios-desktop label{
+.caja-comentarios-desktop label {
   font-size: 1.8rem;
   margin: 2rem;
 }
@@ -96,10 +97,6 @@
   margin: 1rem auto 0 auto;
   border: 1px solid var(--color-bordes);
 }
-
-
-
-
 
 .comentario {
   display: flex;
@@ -133,7 +130,7 @@ img.imagen-comentarios {
   }
 
   .consulta-comentarios {
-    display: none;
+    display: ;
   }
 
   .consulta-comentarios ~ div {
@@ -142,7 +139,6 @@ img.imagen-comentarios {
   .consulta-entrada-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-   
   }
 
   .consulta-comentarios-desktop {
@@ -150,11 +146,11 @@ img.imagen-comentarios {
     flex-direction: column;
   }
   .consulta-comentarios-desktop .oculto-busqueda {
-    display: block ;
+    display: block;
     background-color: var(--color-botones);
-    border: .2rem solid var(--color-bordes);
+    border: 0.2rem solid var(--color-bordes);
     width: 7rem;
-    padding: .5rem .5rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 2rem;
     margin-top: -4.6rem;
     margin-left: 4rem;
@@ -163,22 +159,20 @@ img.imagen-comentarios {
 
   .consulta-comentarios-desktop ~ div {
     display: hidden;
-
   }
 
   .consulta-comentarios-desktop .comentarios {
     display: block;
     width: 40%;
     height: 35vh;
-    position:initial;
+    position: initial;
     margin-top: 0;
   }
 
   .caja-comentarios.ocultar-comentarios {
     display: block;
-    
   }
-  .caja-comentarios-desktop{
+  .caja-comentarios-desktop {
     width: 95%;
     background-color: white;
     height: 62rem;
@@ -195,21 +189,20 @@ img.imagen-comentarios {
     overflow: auto;
     height: 45rem;
     margin-bottom: 1rem;
-    
   }
   .caja-comentarios::-webkit-scrollbar {
     background-color: transparent;
-    width: .8rem;
-    
-
+    width: 0.8rem;
   }
   .caja-comentarios::-webkit-scrollbar-thumb {
-    background-color: var(--color-botones); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
+    background-color: var(
+      --color-botones
+    ); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
     border-radius: 2rem;
   }
-  .caja-comentarios-desktop label{
+  .caja-comentarios-desktop label {
     font-size: 2rem;
-    margin: 2rem; 
+    margin: 2rem;
   }
   .comments {
     width: 100%;
@@ -218,7 +211,6 @@ img.imagen-comentarios {
     border: 1px solid var(--color-bordes);
   }
   .comments:hover {
-    box-shadow: 0 0 .5rem var(--color-botones);
+    box-shadow: 0 0 0.5rem var(--color-botones);
   }
-  
 }
