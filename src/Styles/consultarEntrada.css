@@ -4,7 +4,7 @@
 }
 .consulta-entrada {
   width: 90%;
-  height: 61rem;
+  height: 70rem;
   margin: 3rem auto;
   border-radius: 2rem;
   padding: 1rem;
@@ -34,6 +34,10 @@
   position: absolute;
 }
 
+.consulta-entrada-main .container {
+  height: 34rem;
+}
+
 .consulta-entrada-iconos {
   display: flex;
   gap: 1rem;
@@ -59,9 +63,9 @@
   font-family: cursive;
   border: 2px solid var(--color-botones);
   border-radius: 2rem;
-  margin: 1rem auto;
+  margin: 0;
   padding: 1rem;
-  height: 10rem;
+  height: 15rem;
   position: relative;
   z-index: 3;
   width: 100%;
@@ -79,7 +83,7 @@
 .div-caja-comentarios {
   position: relative;
   width: 100%;
-  height: 13rem;
+  height: 12rem;
 }
 
 .div-cierre-comentarios {
@@ -96,7 +100,7 @@
   background-color: white;
   border: 1px solid var(--color-bordes);
   border-radius: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   position: absolute;
   bottom: 0rem;
   width: 100%;
@@ -126,7 +130,7 @@
 
 .comments {
   width: 60%;
-  height: 6rem;
+  height: 4rem;
   margin: 0;
   border: 1px solid var(--color-bordes);
   overflow: auto;
@@ -154,14 +158,32 @@ img.imagen-comentarios {
   display: none;
 }
 
-.consulta-comentarios-desktop ~ div {
+.consulta-comentarios-desktop ~ .div-boton-simple {
   display: none;
 }
+.consulta-entrada-main .toast-fix {
+  top: 12rem;
+  width: 100%;
+}
+.consulta-entrada-main .toast-fix .toast-div {
+  width: 30rem;
+  margin: 0 auto;
+}
 
-@media (min-width: 321px) {
-  .consulta-entrada {
-    height: 66rem;
+@media (min-width: 375px) {
+  .consulta-entrada-main .container {
+    height: 42rem;
   }
+  .consulta-entrada-texto {
+    height: 8rem;
+  }
+  .div-caja-comentarios {
+    height: 11rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 1rem;
+  }
+
   .caja-comentarios-desktop label {
     margin: 2rem;
   }
@@ -170,15 +192,28 @@ img.imagen-comentarios {
   }
 }
 
-@media (min-width: 376px) {
-  .consulta-entrada {
-    height: 70rem;
+@media (min-width: 425px) {
+  .consulta-entrada-texto {
+    height: 9rem;
+  }
+  .div-caja-comentarios {
+    height: 10rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 0;
+  }
+  .comments {
+    margin-left: 0.2rem;
+    width: 65%;
   }
 }
 
 @media (min-width: 768px) {
   .consulta-entrada {
     height: 68rem;
+  }
+  .consulta-entrada-main .container {
+    height: 43rem;
   }
 
   .consulta-comentarios {
@@ -194,8 +229,8 @@ img.imagen-comentarios {
   }
 
   .consulta-entrada-texto {
-    margin-top: 5rem;
-    height: 17rem;
+    margin-top: 1rem;
+    height: 14rem;
   }
   .consulta-comentarios-desktop {
     display: flex;
@@ -217,9 +252,10 @@ img.imagen-comentarios {
     margin-left: 4rem;
     z-index: 4;
     margin-top: -4.6rem;
+    margin-left: 75%;
   }
 
-  .consulta-comentarios-desktop ~ div {
+  .consulta-comentarios-desktop ~ .div-boton-simple {
     display: hidden;
   }
 
@@ -268,7 +304,7 @@ img.imagen-comentarios {
   }
   .comments {
     width: 100%;
-    height: 5rem;
+    height: 9rem;
     margin: 2rem auto;
     border: 1px solid var(--color-bordes);
     overflow: auto;
@@ -282,5 +318,11 @@ img.imagen-comentarios {
   .consulta-entrada-texto {
     margin-top: 1rem;
     height: 10rem;
+  }
+  .consulta-entrada-main .container {
+    height: 40rem;
+  }
+  .consulta-comentarios-desktop .oculto-busqueda {
+    margin-left: 80%;
   }
 }

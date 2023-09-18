@@ -26,9 +26,9 @@ export function AñadirComentario({
     const resultado = await servicioAñadirComentario(id, formValue);
 
     if (resultado.status == "ok") {
-      showToast(36000, "exito", resultado.message);
+      showToast(3000, "exito", resultado.message);
     } else {
-      showToast(36000, "error", resultado.message);
+      showToast(3000, "error", resultado.message);
     }
   }
 
@@ -45,18 +45,16 @@ export function AñadirComentario({
               estadoComentarios={estadoComentarios}
               comentarios={entrada.comments}
             />
-            {login && (
-              <>
-                <Input
-                  label={"Añadir Comentario:"}
-                  type="text"
-                  id="comentarios"
-                  name="comentario"
-                  clase="comments"
-                  autocomplete={"off"}
-                />
-              </>
-            )}
+
+            <Input
+              disabled={!login ? true : false}
+              label={"Añadir Comentario:"}
+              type="text"
+              id="comentarios"
+              name="comentario"
+              clase="comments"
+              autocomplete={"off"}
+            />
           </div>
         </div>
       </Forms>
