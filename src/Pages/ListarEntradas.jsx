@@ -14,7 +14,7 @@ export function ListarEntradas() {
 
   useEffect(() => {
     let prevScroll = window.scrollY;
-    
+
     function efectoScroll() {
       const actualScroll = window.scrollY;
 
@@ -23,17 +23,16 @@ export function ListarEntradas() {
       } else {
         actualScroll > 80 && setDisplay(true);
       }
-     prevScroll = actualScroll;
-    };
+      prevScroll = actualScroll;
+    }
 
     window.addEventListener("scroll", efectoScroll);
 
     return () => {
       window.removeEventListener("scroll", efectoScroll);
     };
-      
-  }, [])
-  
+  }, []);
+
   return (
     <main>
       <>
