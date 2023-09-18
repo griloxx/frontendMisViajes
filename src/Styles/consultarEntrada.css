@@ -4,7 +4,7 @@
 }
 .consulta-entrada {
   width: 90%;
-  height: 61rem;
+  height: 70rem;
   margin: 3rem auto;
   border-radius: 2rem;
   padding: 1rem;
@@ -65,7 +65,7 @@
   border-radius: 2rem;
   margin: 0;
   padding: 1rem;
-  height: 5rem;
+  height: 15rem;
   position: relative;
   z-index: 3;
   width: 100%;
@@ -83,7 +83,7 @@
 .div-caja-comentarios {
   position: relative;
   width: 100%;
-  height: 13rem;
+  height: 12rem;
 }
 
 .div-cierre-comentarios {
@@ -161,11 +161,11 @@ img.imagen-comentarios {
 .consulta-comentarios-desktop ~ .div-boton-simple {
   display: none;
 }
-.consulta-entrada-main .toast-fix{
+.consulta-entrada-main .toast-fix {
   top: 12rem;
   width: 100%;
 }
-.consulta-entrada-main .toast-fix .toast-div{
+.consulta-entrada-main .toast-fix .toast-div {
   width: 30rem;
   margin: 0 auto;
 }
@@ -176,14 +176,11 @@ img.imagen-comentarios {
 }
 
 @media (min-width: 375px) {
-  .consulta-entrada {
-    height: 66rem;
-  }
   .consulta-entrada-main .container {
     height: 42rem;
   }
   .consulta-entrada-texto {
-    height: 4rem;
+    height: 8rem;
   }
   .div-caja-comentarios {
     height: 11rem;
@@ -201,14 +198,8 @@ img.imagen-comentarios {
 }
 
 @media (min-width: 425px) {
-  .consulta-entrada {
-    height: 70rem;
-  }
-  .consulta-entrada-main .container {
-    height: 48rem;
-  }
   .consulta-entrada-texto {
-    height: 3.5rem;
+    height: 9rem;
   }
   .div-caja-comentarios {
     height: 10rem;
@@ -243,8 +234,8 @@ img.imagen-comentarios {
   }
 
   .consulta-entrada-texto {
-    margin-top: 5rem;
-    height: 17rem;
+    margin-top: 1rem;
+    height: 14rem;
   }
   .consulta-comentarios-desktop {
     display: flex;
@@ -266,6 +257,7 @@ img.imagen-comentarios {
     margin-left: 4rem;
     z-index: 4;
     margin-top: -4.6rem;
+    margin-left: 75%;
   }
 
   .consulta-comentarios-desktop ~ .div-boton-simple {
@@ -317,7 +309,7 @@ img.imagen-comentarios {
   }
   .comments {
     width: 100%;
-    height: 5rem;
+    height: 9rem;
     margin: 2rem auto;
     border: 1px solid var(--color-bordes);
     overflow: auto;
@@ -334,5 +326,8 @@ img.imagen-comentarios {
   }
   .consulta-entrada-main .container {
     height: 40rem;
+  }
+  .consulta-comentarios-desktop .oculto-busqueda {
+    margin-left: 80%;
   }
 }
