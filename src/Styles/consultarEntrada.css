@@ -42,6 +42,7 @@
   display: flex;
   gap: 1rem;
   justify-content: space-around;
+  margin: 0.3rem 0;
 }
 
 .consulta-entrada-likes {
@@ -72,10 +73,12 @@
 }
 .consulta-entrada-texto::-webkit-scrollbar {
   background-color: transparent;
-  width: 0.1rem;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 .consulta-entrada-texto::-webkit-scrollbar-thumb {
   background-color: var(--color-botones);
+  border-radius: 2rem;
 }
 
 .form-comentarios {
@@ -137,7 +140,7 @@
 
 .comments {
   width: 60%;
-  height: 4rem;
+  height: 3rem;
   margin: 0;
   border: 1px solid var(--color-bordes);
   overflow: auto;
