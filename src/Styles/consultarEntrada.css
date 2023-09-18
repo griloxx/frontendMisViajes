@@ -130,7 +130,7 @@ img.imagen-comentarios {
   }
 
   .consulta-comentarios {
-    display: ;
+    display: none;
   }
 
   .consulta-comentarios ~ div {
