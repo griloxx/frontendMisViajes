@@ -1,3 +1,7 @@
+.main-listar-entradas {
+  margin-top: 3rem;
+}
+
 .boton-busqueda {
   background-color: white;
   color: #b522e6;
@@ -19,12 +23,13 @@
 
 .entrada-lista {
   width: 90%;
-  margin: 3rem auto;
+  margin: 0 auto;
   border-radius: 2rem;
   padding: 1rem;
   background-color: var(--blanco);
   border: 0.1rem solid var(--color-botones);
   box-shadow: 0 0 1.2rem var(--color-sombras);
+  margin-bottom: 3rem;
   position: relative;
   z-index: 1;
 }
@@ -38,7 +43,14 @@
   font-size: 2rem;
   width: 100%;
   text-align: center;
+}
+
+.entrada-heading {
   color: var(--color-bordes);
+  text-decoration: none;
+}
+.entrada-heading:hover {
+  text-shadow: 0 0 2rem var(--color-bordes);
 }
 .entrada-avatar {
   width: 4rem;
@@ -77,6 +89,26 @@
 }
 .corazon-phone.votado .material-symbols-outlined {
   animation: votar 0.5s linear forwards;
+}
+.div-caja-resultado {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: relative;
+}
+.div-sin-resultado {
+  padding: 3rem;
+  background-color: white;
+  max-width: 40rem;
+  margin: 20rem auto;
+  border-radius: 2rem;
+  border: 1px solid var(--color-bordes);
+  box-shadow: 0 0 2rem var(--color-sombras);
+}
+.div-sin-resultado p {
+  font-size: 1.8rem;
 }
 
 @keyframes votar {
@@ -147,12 +179,20 @@
   border: 0.2rem solid var(--color-bordes);
   box-shadow: 0.5rem 0.5rem 1rem var(--color-sombras);
   color: black;
+  cursor: pointer;
+}
+.div-form-busqueda .oculto-busqueda:hover {
+  background-color: var(--color-botones-hover);
+  box-shadow: 0 0 0.8rem var(--color-bordes);
 }
 
 .div-radio {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+.div-radio input,label{
+  cursor: pointer;
 }
 .oculto {
   opacity: 0;
@@ -175,6 +215,9 @@
   .form-busqueda {
     font-size: 1.7rem;
   }
+  .div-sin-resultado p {
+    font-size: 2.2rem;
+  }
 }
 @media (min-width: 1024px) {
   .boton-busqueda {
@@ -182,7 +225,7 @@
   }
   .entrada-lista {
     margin-left: 35%;
-    width: 50%;
+    width: min(50%, 80rem);
     /* height: 40rem; */
   }
   .container {
@@ -226,6 +269,12 @@
   }
   .div-form-busqueda .input {
     max-width: 12rem;
+  }
+  .div-sin-resultado {
+    margin-left: 45%;
+  }
+  .div-sin-resultado p {
+    font-size: 2.8rem;
   }
 }
 

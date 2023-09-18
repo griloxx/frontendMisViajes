@@ -49,9 +49,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
         };
       });
     }
-
+    
     await onSubmit(formState.formValue);
-
+    
     setFormState((oldFormState) => {
       return {
         ...oldFormState,
@@ -63,6 +63,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
       const user = getToken();
       initialValue.avatar = user.avatar;
       initialValue.name = user.name;
+    }
+    if (formState.formValue.lugar || formState.formValue.categoria || formState.formValue.votos) {
+      initialValue = formState.formValue;
     }
     setFormState({
       isTouched: false,
@@ -76,7 +79,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
     <FormContext.Provider value={{ ...formState, errors, updateFormValue }}>
       <form onSubmit={onFormSubmit} className={clase}>
         {children}
-        <BotonSimple children={"Buscar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
+        <BotonSimple children={"Enviar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
       </form>
       <div>
         <BotonSimple onClick={onFormSubmit} clase={"boton-simple"}>

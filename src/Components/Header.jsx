@@ -9,12 +9,13 @@ import { NavLinks } from "./Nav";
 import { NavlinksAuth } from "./NavAuth";
 import { useLogout } from "../../Hooks/useLogout";
 import imgLogo from "../imagenes/LogoImg.png";
+import { HeaderContext } from "../context/HeaderContext";
 
 
 export function Header() {
   const { login } = useContext(LoginContext);
   const [ menu, setMenu ] = useState(false);
-  const [ header, setHeader ] = useState(true);
+  const { header, setHeader } = useContext( HeaderContext);
   const setLogout = useLogout();
 
   useEffect(() => {

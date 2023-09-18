@@ -35,6 +35,18 @@
   width: 50px;
 }
 
+.comentarios-phone {
+  display: flex;
+}
+html::-webkit-scrollbar {
+  background-color: transparent;
+  width: .8rem;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-botones); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
+  border-radius: 2rem;
+}
+
 /* zona toast */
 
 .toast-fix {
@@ -159,11 +171,15 @@
   .flechas button {
     background-color: transparent;
     border: none;
+    width: 20rem;
+    height: 20rem;
+    margin-top: -7rem;
+    cursor: pointer;
   }
   .flecha {
     cursor: pointer;
   }
-  .flecha:hover {
+  .flechas button:hover {
     filter: drop-shadow(0 0 1rem var(--color-bordes));
   }
 
