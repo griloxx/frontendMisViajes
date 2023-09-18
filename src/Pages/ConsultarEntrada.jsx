@@ -87,6 +87,7 @@ export function ConsultarEntrada() {
                 estadoComentarios={estadoComentarios}
                 showToast={showToast}
                 entrada={entrada}
+                alternarComentarios={alternarComentarios}
               />
             </footer>
           </article>
