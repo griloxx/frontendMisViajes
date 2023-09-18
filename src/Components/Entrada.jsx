@@ -34,7 +34,7 @@ export function Entrada({searchParams, lastSearch}) {
     return (
         <ul>
         {!isLoading && (
-            entradas.length > 0 ? (
+            entradas?.length > 0 ? (
                 entradas.map((entrada) => {
                 return (
                     <li key={entrada.id}>
@@ -61,7 +61,7 @@ export function Entrada({searchParams, lastSearch}) {
                 : (
                     <div className="div-caja-resultado">
                         <div className="div-sin-resultado">
-                            <p>No se ha encontrado nada...</p>
+                            <p>No se ha encontrado nada ningún post...</p>
                         </div>
                     </div>
                     
