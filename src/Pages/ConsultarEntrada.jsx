@@ -9,6 +9,7 @@ import { SliderImg } from "../Components/SliderImg";
 import { AñadirComentario } from "../Components/AñadirComentario";
 import { Toast } from "../Components/Toast";
 import { useToast } from "../../Hooks/useToast";
+import { BotonIconoLike } from "../Components/BotonIconoLike";
 
 export function ConsultarEntrada() {
   const { id } = useParams();
@@ -58,13 +59,8 @@ export function ConsultarEntrada() {
             <main>
               <SliderImg imagenes={entrada.fotos} />
               <div className="consulta-entrada-iconos">
-                <div className="consulta-entrada-likes">
-                  <BotonIcono
-                    icono={"Favorite"}
-                    onClick={() => onClickCorazon(entrada.id)}
-                    clase={"corazon-phone votado"}
-                  />
-                  <p>{entrada.votos}</p>
+                <div className="consulta-corazon">
+                    <BotonIconoLike icono={"Favorite"} entrada={entrada} />
                 </div>
                 <div className="consulta-entrada-comments">
                   <p>{entrada.comments.length}</p>

@@ -5,32 +5,19 @@ import { servicioModificarUsuario } from "../Api/servicioModificarUsuario";
 import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { FormularioImagenInput } from "../Components/CrearAvatar";
-import Joi from "joi";
 import { useLogin } from "../../Hooks/useLogin";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { useGetLogin } from "../../Hooks/useGetLogin";
+import {schemaModificarUsuario}  from "../../utils/schemas.js"
 
-const schema = Joi.object({
-  name: Joi.string().max(50).required().messages({
-    "string.base": "Nombre debe ser de tipo texto",
-    "string.max": "Password debe tener máximo 50 caracteres",
-    "string.empty": "Nombre no puede estar vacío",
-    "any.required": "Nombre es obligatorio"
-  }),
-  password: Joi.string().allow("").min(6).max(20).messages({
-    "string.base": "Password debe ser de tipo texto",
-    "string.min": "Password debe tener mínimo 6 caracteres",
-    "string.max": "Password debe tener máximo 20 caracteres"
-  }),
-  avatar: Joi.allow(""),
-});
 
 export function ModificarUsuario() {
   const setlogin = useLogin();
   const {login} = useContext(LoginContext);
   let {name, avatar} = login || {};
   const { toastData, showToast } = useToast();
+  const schema = schemaModificarUsuario;
 
   useGetLogin();
 
