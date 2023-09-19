@@ -7,6 +7,8 @@ import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { useLogin } from "../../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import App from "../Components/GoogleLogin"
 
 const schema = Joi.object({
   email: Joi.string().required(),
@@ -39,33 +41,35 @@ export function LoginPage() {
   }
 
   return (
-    <main className="log-u">
-      <section className="section-log-u">
-        <h2 className="heading2-log-u">Iniciar sesión</h2>
+    <GoogleOAuthProvider clientId="<688034065812-8gifiqs9opmc9uori870ubef2fhjoga1.apps.googleusercontent.com>">
+      <main className="log-u">
+        <section className="section-log-u">
+          <h2 className="heading2-log-u">Iniciar sesión</h2>
+          <div className="div-border-form">
+            <Forms schema={schema} onSubmit={onSubmit}>
+              <div className="div-form-log">
+                <Input
+                  name={"email"}
+                  clase={"input"}
+                  type={"email"}
+                  label={"Email:"}
+                  autocomplete={"on"}
+                />
 
-        <div className="div-border-form">
-          <Forms schema={schema} onSubmit={onSubmit}>
-            <div className="div-form-log">
-              <Input
-                name={"email"}
-                clase={"input"}
-                type={"email"}
-                label={"Email:"}
-                autocomplete={"on"}
-              />
-
-              <Input
-                name={"password"}
-                clase={"input"}
-                type={"password"}
-                label={"Password:"}
-                autocomplete={"off"}
-              />
-            </div>
-          </Forms>
-        </div>
-      </section>
-      <Toast toastData={toastData} />
-    </main>
+                <Input
+                  name={"password"}
+                  clase={"input"}
+                  type={"password"}
+                  label={"Password:"}
+                  autocomplete={"off"}
+                />
+              </div>
+            </Forms>
+          </div>
+          <App />
+        </section>
+        <Toast toastData={toastData} />
+      </main>
+    </GoogleOAuthProvider>
   );
 }
