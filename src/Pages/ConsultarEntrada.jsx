@@ -41,6 +41,7 @@ export function ConsultarEntrada() {
       {!isLoading && (
         <>
           <AñadirComentario
+            setEntradas={setEntrada}
             clase={"consulta-comentarios-desktop"}
             estadoComentarios={estadoComentarios}
             showToast={showToast}
@@ -60,7 +61,7 @@ export function ConsultarEntrada() {
               <SliderImg imagenes={entrada.fotos} />
               <div className="consulta-entrada-iconos">
                 <div className="consulta-corazon">
-                    <BotonIconoLike icono={"Favorite"} entrada={entrada} />
+                  <BotonIconoLike icono={"Favorite"} entrada={entrada} />
                 </div>
                 <div className="consulta-entrada-comments">
                   <p>{entrada.comments.length}</p>
@@ -78,6 +79,7 @@ export function ConsultarEntrada() {
             </main>
             <footer className="consulta-entrada-footer">
               <AñadirComentario
+                setEntradas={setEntrada}
                 clase={"consulta-comentarios"}
                 estadoComentarios={estadoComentarios}
                 showToast={showToast}

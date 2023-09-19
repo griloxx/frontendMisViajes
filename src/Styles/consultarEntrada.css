@@ -149,6 +149,8 @@
 .comentario {
   display: flex;
   width: 100%;
+  font-family: cursive;
+  font-size: 1.5rem;
 }
 
 img.imagen-comentarios {
@@ -284,6 +286,8 @@ img.imagen-comentarios {
 
   .caja-comentarios.ocultar-comentarios {
     display: block;
+    font-family: cursive;
+    font-size: 1.5rem;
   }
   .caja-comentarios-desktop {
     width: 95%;
@@ -306,6 +310,7 @@ img.imagen-comentarios {
   .caja-comentarios::-webkit-scrollbar {
     background-color: transparent;
     width: 0.8rem;
+    height: 0.8rem;
   }
   .caja-comentarios::-webkit-scrollbar-thumb {
     background-color: var(
