@@ -9,9 +9,9 @@ const Comentarios = ({ comentarios, estadoComentarios }) => {
           : "caja-comentarios"
       }
     >
-      <div className="comentarios">
+      <ul className="comentarios">
         {comentarios.map((comentario, index) => (
-          <div key={index} className="comentario">
+          <li key={index} className="comentario">
             <img
               className="imagen-comentarios"
               src={
@@ -19,13 +19,13 @@ const Comentarios = ({ comentarios, estadoComentarios }) => {
               }
               alt={`Foto de ${comentario.name}`}
             />
-            <div>
-              <p>{comentario.name}</p>
-              <p>{comentario.comentario}</p>
+            <div className="div-comentario">
+              <p className="nombre-comentario">{comentario.name}</p>
+              <p className="comentario-texto">{comentario.comentario}</p>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
