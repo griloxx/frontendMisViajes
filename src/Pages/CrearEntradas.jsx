@@ -14,7 +14,7 @@ const schema = Joi.object({
   categoria: Joi.string().required(),
   lugar: Joi.string().max(100).required(),
   texto: Joi.string().max(150).required(),
-  foto: Joi.array().min(1).required(),
+  foto: Joi.array().min(1).max(5).required(),
 });
 
 export function CrearEntrada() {

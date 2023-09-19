@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { FormContext } from "../context/FormContext";
 import { API_HOST } from "../../utils/constants";
+import { servicioBorrarFoto } from "../Api/servicioBorrarFoto";
 
 export function InputMultiFotos({ name, label, initialValue }) {
   //representa el estado de is se ha interactuado con input
@@ -9,8 +10,7 @@ export function InputMultiFotos({ name, label, initialValue }) {
   const [imageUrls, setImageUrls] = useState([]);
   const fileInputRef = useRef(null);
   const formContext = useContext(FormContext);
-  console.log(formContext.formValue)
-
+  
   useEffect(() => {
     if (formContext.resetImage) {
       setSelectFiles([]);
@@ -19,10 +19,18 @@ export function InputMultiFotos({ name, label, initialValue }) {
   
   useEffect(() => {
     let urls;
-     if(!initialValue) {
+    
+    if(selectFiles.some((file) => file instanceof File)) {
       urls = selectFiles.map((file) => {
-        return URL.createObjectURL(file);
+        
+        if (file instanceof File) {
+          return URL.createObjectURL(file);
+        } else if (file.id) {
+          // Manejar otros tipos de archivos si es necesario
+          return API_HOST + "/" + file.foto;
+        } 
       });
+      
       setImageUrls(urls);
     
     return () => {
@@ -39,7 +47,7 @@ export function InputMultiFotos({ name, label, initialValue }) {
         return API_HOST + "/" + foto.foto;
       })
       setImageUrls(urls)
-      setSelectFiles(urls)
+      setSelectFiles(initialValue)
     }
   }, [initialValue])
 
@@ -56,18 +64,35 @@ export function InputMultiFotos({ name, label, initialValue }) {
       });
     
   }
-  function onFileRemove(file) {
+  function onFileRemove(e, file) {
+    e.preventDefault()
+    let newFilesArray;
+    if(!(file instanceof File)) {
+      async function borrarFoto() {
+        const resultado = await servicioBorrarFoto(file.id, file)
+      }
+      borrarFoto()
+      newFilesArray = selectFiles.filter((sF) => {
+        return sF.id !== file.id;
+      })
+      setSelectFiles(newFilesArray);
+      const urls = newFilesArray.map((foto) => {
+        return API_HOST + "/" + foto.foto;
+      })
+      setImageUrls(urls)
+    } else {
     
-    const newFilesArray = selectFiles.filter((sF) => {
-      return sF !== file;
-    })
-    setSelectFiles(newFilesArray);
-
-    //se actiaza el estado del formulario
+      newFilesArray = selectFiles.filter((sF) => {
+        return sF !== file;
+      })
+      setSelectFiles(newFilesArray);
+      
+    }
     formContext.updateFormValue({
       [name]: newFilesArray,
     });
   }
+  
 
   function onAddFile(e) {
     e.preventDefault();
@@ -80,7 +105,7 @@ export function InputMultiFotos({ name, label, initialValue }) {
       {selectFiles.map((file,i) => (
         <li key={i}>
           <div className="div-multi-fotos">
-            <button type="button" className="delete" onClick={() => onFileRemove(file)}>
+            <button type="button" className="delete" onClick={(e) => onFileRemove(e, file)}>
               X
             </button>
             <img className="multi-fotos" src={imageUrls[i]} alt="viaje" />

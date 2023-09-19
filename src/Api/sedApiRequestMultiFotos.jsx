@@ -8,8 +8,12 @@ export async function sendApiRequestMultiFotos(metodo, url, formValue) {
     if (formValue.titulo) {
       formData.append("titulo", formValue.titulo);
     }
-    if (formValue.foto) {
-        formValue.foto.forEach((foto) => {
+    const foto = formValue.foto.filter((sF) => {
+      return sF instanceof File;
+    })
+    
+    if (foto) {
+        foto.forEach((foto) => {
             formData.append("foto", foto)
         })
     }

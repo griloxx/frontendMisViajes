@@ -11,13 +11,14 @@ import { Toast } from "../Components/Toast";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
+import { servicioModificarEntrada } from "../Api/servicioModificarEntrada";
 
 const schema = Joi.object({
   titulo: Joi.string().max(150).required(),
   categoria: Joi.string().required(),
   lugar: Joi.string().max(100).required(),
   texto: Joi.string().max(150).required(),
-  foto: Joi.array().min(1).required(),
+  foto: Joi.array().min(1).max(5).required(),
 });
 
 export function ModificarEntrada() {
@@ -27,7 +28,7 @@ export function ModificarEntrada() {
 
   useEffect(() => {
     async function consulta() {
-        
+
         const data = await servicioConsultaEntrada(id);
 
         setInitialValue({
@@ -43,8 +44,8 @@ export function ModificarEntrada() {
 
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
-
-    const resultado = await servicioCrearEntrada(formValue);
+    
+    const resultado = await servicioModificarEntrada(id, formValue);
 
     console.log(resultado)
     if (resultado.status == "ok") {
