@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { API_HOST } from "../../utils/constants";
+import { API_HOST, LOCAL_HOST } from "../../utils/constants";
 import { BotonIcono } from "./BotonIcono";
 import { SliderPhone } from "./SliderPhone";
 import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { LoginContext } from "../context/LoginContext";
 import { servicioConsultaBusqueda } from "../Api/servicioConsultaBusqueda";
 import { BotonIconoLike } from "./BotonIconoLike";
+import { Link } from "react-router-dom";
+import { Icon } from "./icons";
+import avatar from "../imagenes/avatar.jpg"
 
 
-export function Entrada({searchParams}) {
+export function Entrada({searchParams, lastSearch, listaEntradas}) {
     const {login} = useContext(LoginContext);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -20,52 +23,69 @@ export function Entrada({searchParams}) {
         } else {
             resultado = await servicioListarEntradas();
         } 
-        setIsLoading(false);
-        if (resultado.data > 0) {
         setEntradas(resultado.data);
-        } else {
-            resultado = await servicioListarEntradas();
-        }
+        setIsLoading(false);
+        
     }
 
     useEffect(() => {
 
-        consultarEntradas();
+        if(!listaEntradas) {
+            consultarEntradas();
+        } else {
+            setEntradas(listaEntradas);
+            setIsLoading(false);
+        }
 
-    }, [login, searchParams])
-
+    }, [login, lastSearch]);
+    
     return (
         <ul>
-        {!isLoading && entradas ? (
-            entradas.map((entrada) => {
-              return (
-                <li key={entrada.id}>
-                    <article className="entrada-lista">
-                        <header>
-                            <img className="entrada-avatar" src={API_HOST + "/" + entrada.avatar} alt="usuario" />
-                            <h2>{entrada.titulo}</h2>
-                        </header>
-                        <main>
-                            <SliderPhone imagenes={entrada.fotos} />
-                        </main>
-                        <footer>
-                            <div>
-                                <BotonIconoLike icono={"Favorite"} entrada={entrada} />
-                            </div>
-                            <div>
-                                <p>{entrada.total_comments}</p>
-                                <BotonIcono icono={"Chat"} clase={"comentarios-phone"}  />
-                            </div>
-                        </footer>
-                    </article>
-                </li>
-            )}))
-            : (
-                <div>
-                    <p></p>
-                </div>
+        {!isLoading && (
+            entradas?.length > 0 ? (
+                entradas.map((entrada) => {
+                return (
+                    <li key={entrada.id}>
+                        <article className="entrada-lista">
+                            <header>
+                                <img className="entrada-avatar" src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar} alt="usuario" />
+                                <h2>
+                                    <Link className="entrada-heading" to={`/entradas/${entrada.id}`}  >
+                                        {entrada.titulo}
+                                    </Link>
+                                </h2>
+                                {listaEntradas && (
+                                    <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
+                                        <Icon icono={"Edit"} />
+                                    </Link>
+                                )}
+                            </header>
+                            <main>
+                                <SliderPhone imagenes={entrada.fotos} />
+                            </main>
+                            <footer>
+                                <div>
+                                    <BotonIconoLike icono={"Favorite"} entrada={entrada} />
+                                </div>
+                                <div>
+                                    <p>{entrada.total_comments}</p>
+                                    <Link className="perfil-boton" to={`/entradas/${entrada.id}`}>
+                                        <BotonIcono icono={"Chat"} clase={"comentarios-phone"}  />
+                                    </Link>
+                                </div>
+                            </footer>
+                        </article>
+                    </li>
+                )}))
+                : (
+                    <div className="div-caja-resultado">
+                        <div className="div-sin-resultado">
+                            <p>No se ha encontrado nada ningún post...</p>
+                        </div>
+                    </div>
+                    
             )
-            }
+            )}
         </ul>
     )
 }

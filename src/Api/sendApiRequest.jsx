@@ -22,11 +22,11 @@ if(token) {
     headers["Authorization"] = token;
 }
 
-
 const response = await fetch(endpoint, {
     method,
     headers,
     body
 })
+
 return await response.json()
 }

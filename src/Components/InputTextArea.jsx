@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 
-export function Input({ label, type, name, clase, autocomplete, disabled }) {
+export function InputTextArea({ label, name, clase, disabled, maxChars }) {
   const [isTouched, setIsTouched] = useState(false);
   const formC = useContext(FormContext);
 
@@ -24,15 +24,19 @@ export function Input({ label, type, name, clase, autocomplete, disabled }) {
     <>
       <label htmlFor={name}>{label}</label>
       <div>
-        <input
+        <textarea
           disabled={formC.isLoading || disabled}
           className={clase}
-          type={type}
           id={name}
-          autoComplete={autocomplete ?? "on"}
+          name={name}
           value={formC.formValue[name] ?? ""}
           onChange={(e) => updateRequest(e.target.value)}
         />
+        {maxChars && (
+          <p>
+            {formC.formValue[name]?.length ?? 0} / {maxChars}
+          </p>
+        )}
         {(formC.isTouched || isTouched) &&
           formC.errors &&
           formC.errors[name] &&

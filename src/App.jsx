@@ -9,6 +9,9 @@ import { LoginPage } from "./Pages/LoginPage";
 import { PaginaNoEncontrada } from "./Pages/PaginaNoEncontrada";
 import { ConsultarEntrada } from "./Pages/ConsultarEntrada";
 import { HeaderProvider } from "./context/HeaderContext";
+import { Perfil } from "./Pages/Perfil";
+import { CrearEntrada } from "./Pages/CrearEntradas";
+import { ModificarEntrada } from "./Pages/ModificarEntrada";
 
 function App() {
   return (
@@ -19,14 +22,15 @@ function App() {
           <Routes>
             <Route path="/" element={<ListarEntradas />} />
             <Route path="/entradas/:id" element={<ConsultarEntrada />} />
-            {/*<Route path="/entradas/modificar" element={<ModificarEntrada />} />
-            <Route path="/entradas/crear" element={<CrearEntrada />} />*/}
+            <Route path="/entradas/modificar/:id" element={<ModificarEntrada />} />
+            <Route path="/entradas/crear" element={<CrearEntrada />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<RegistroUsuario />} />
             <Route
               path="/validar-registro/:codigo"
               element={<ValidarRegistro />}
             />
+            <Route path="/perfil" element={<Perfil />} />
             <Route path="/modificar-usuario" element={<ModificarUsuario />} />
             <Route path="/*" element={<PaginaNoEncontrada />} />
           </Routes>

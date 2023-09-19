@@ -1,6 +1,10 @@
+.connsulta-entrada-main {
+  display: flex;
+  justify-content: center;
+}
 .consulta-entrada {
   width: 90%;
-  height: auto;
+  height: 70rem;
   margin: 3rem auto;
   border-radius: 2rem;
   padding: 1rem;
@@ -30,10 +34,15 @@
   position: absolute;
 }
 
+.consulta-entrada-main .container {
+  height: 34rem;
+}
+
 .consulta-entrada-iconos {
   display: flex;
   gap: 1rem;
   justify-content: space-around;
+  margin: 0.3rem 0;
 }
 
 .consulta-entrada-likes {
@@ -50,30 +59,293 @@
 
 .consulta-entrada-texto {
   display: flex;
-  border: 0.3rem solid var(--color-botones);
-  margin: 3rem auto;
+  overflow: auto;
+  font-size: 1.6rem;
+  font-family: cursive;
+  border: 2px solid var(--color-botones);
+  border-radius: 2rem;
+  margin: 0;
   padding: 1rem;
+  height: 15rem;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+.consulta-entrada-texto::-webkit-scrollbar {
+  background-color: transparent;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.consulta-entrada-texto::-webkit-scrollbar-thumb {
+  background-color: var(--color-botones);
+  border-radius: 2rem;
 }
 
-.consulta-entrada-footer {
+.form-comentarios {
   display: flex;
   flex-direction: column;
+  font-size: small;
+  align-items: center;
+}
+.consulta-comentarios {
+  position: relative;
+}
+.div-caja-comentarios {
+  position: relative;
+  width: 100%;
+  height: 12rem;
+}
+
+.div-cierre-comentarios {
+  position: absolute;
+  background-color: transparent;
+  width: 104vw;
+  height: 100vh;
+  bottom: -6rem;
+  margin: -4rem;
+  overflow: hidden;
+  z-index: 3;
+}
+.caja-comentarios-desktop {
+  background-color: white;
+  border: 1px solid var(--color-bordes);
+  border-radius: 2rem;
+  padding: 2rem;
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+  z-index: 3;
+  margin-bottom: 1rem;
+}
+.caja-comentarios {
+  height: 30rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+.caja-comentarios-desktop label {
+  font-size: 1.8rem;
+  margin: 1rem;
+}
+
+.consulta-comentarios ~ div {
+  position: relative;
+}
+
+.consulta-comentarios ~ div .boton-simple {
+  z-index: 5;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 4rem;
 }
 
 .comments {
-  margin-bottom: 1rem;
-  border-color: var(--color-bordes);
-  padding: 1rem;
+  width: 60%;
+  height: 3rem;
+  margin: 0;
+  border: 1px solid var(--color-bordes);
+  overflow: auto;
+}
+.nombre-comentario {
+  font-weight: bold;
+}
+.comentario {
+  display: flex;
+  width: 100%;
+  font-family: cursive;
+  font-size: 1.5rem;
 }
 
-div.caja-comentarios label {
-  font-size: large;
+img.imagen-comentarios {
+  float: left;
+  max-width: 5rem;
+  max-height: 5rem;
+  border-radius: 100%;
+  border: 0.2rem solid var(--color-bordes);
+  margin: 1rem;
+}
+
+.caja-comentarios.ocultar-comentarios {
+  display: none;
+}
+
+.consulta-comentarios-desktop {
+  display: none;
+}
+
+.consulta-comentarios-desktop ~ .div-boton-simple {
+  display: none;
+}
+.consulta-entrada-main .toast-fix {
+  top: 12rem;
+  width: 100%;
+}
+.consulta-entrada-main .toast-fix .toast-div {
+  width: 30rem;
+  margin: 0 auto;
+}
+.consulta-corazon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 375px) {
+  .consulta-entrada-main .container {
+    height: 42rem;
+  }
+  .consulta-entrada-texto {
+    height: 8rem;
+  }
+  .div-caja-comentarios {
+    height: 11rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 1rem;
+  }
+
+  .caja-comentarios-desktop label {
+    margin: 2rem;
+  }
+  .comments {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .consulta-entrada-texto {
+    height: 9rem;
+  }
+  .div-caja-comentarios {
+    height: 10rem;
+  }
+  .caja-comentarios-desktop {
+    padding-top: 0;
+  }
+  .comments {
+    margin-left: 0.2rem;
+    width: 65%;
+  }
 }
 
 @media (min-width: 768px) {
   .consulta-entrada {
-    width: 40%;
-    margin: 5rem;
-    float: right;
+    height: 68rem;
+  }
+  .consulta-entrada-main .container {
+    height: 43rem;
+  }
+
+  .consulta-comentarios {
+    display: none;
+  }
+
+  .consulta-comentarios ~ div {
+    display: none;
+  }
+  .consulta-entrada-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .consulta-entrada-texto {
+    margin-top: 1rem;
+    height: 14rem;
+  }
+  .consulta-comentarios-desktop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .div-caja-comentarios {
+    position: static;
+    height: auto;
+  }
+
+  .consulta-comentarios-desktop .oculto-busqueda {
+    display: block;
+    background-color: var(--color-botones);
+    border: 0.2rem solid var(--color-bordes);
+    width: 7rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 2rem;
+    margin-left: 4rem;
+    z-index: 4;
+    margin-top: -4.6rem;
+    margin-left: 75%;
+  }
+
+  .consulta-comentarios-desktop ~ .div-boton-simple {
+    display: hidden;
+  }
+
+  .consulta-comentarios-desktop .comentarios {
+    display: block;
+    width: 100%;
+    height: 35vh;
+    position: initial;
+    margin-top: 0;
+  }
+
+  .caja-comentarios.ocultar-comentarios {
+    display: block;
+    font-family: cursive;
+    font-size: 1.5rem;
+  }
+  .caja-comentarios-desktop {
+    width: 95%;
+    background-color: white;
+    height: 68rem;
+    border: 1px solid var(--color-botones);
+    box-shadow: 0 0 1rem var(--color-sombras);
+    position: initial;
+    border-radius: 2rem;
+    margin: 3rem auto 0 auto;
+    padding: 2rem 1rem;
+    z-index: 3;
+  }
+  .caja-comentarios {
+    width: 100%;
+    overflow: auto;
+    height: 45rem;
+    margin-bottom: 1rem;
+  }
+  .caja-comentarios::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+  .caja-comentarios::-webkit-scrollbar-thumb {
+    background-color: var(
+      --color-botones
+    ); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
+    border-radius: 2rem;
+  }
+  .caja-comentarios-desktop label {
+    font-size: 2rem;
+    margin: 2rem;
+  }
+  .comments {
+    width: 100%;
+    height: 9rem;
+    margin: 2rem auto;
+    border: 1px solid var(--color-bordes);
+    border-radius: 2rem;
+    overflow: auto;
+  }
+  .comments:hover {
+    box-shadow: 0 0 0.5rem var(--color-botones);
+  }
+}
+
+@media (min-width: 1024px) {
+  .consulta-entrada-texto {
+    margin-top: 1rem;
+    height: 10rem;
+  }
+  .consulta-entrada-main .container {
+    height: 40rem;
+  }
+  .consulta-comentarios-desktop .oculto-busqueda {
+    margin-left: 80%;
   }
 }
