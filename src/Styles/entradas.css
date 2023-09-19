@@ -1,0 +1,74 @@
+.main-entradas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+.main-entradas h1 {
+    font-size: 2.5rem;
+}
+.form-entradas {
+    display: flex;
+    flex-direction: column;
+    width: min(80%, 80rem);
+    gap: 2rem;
+    padding: 2rem 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--color-sombras);
+    margin: 2rem auto;
+    position: relative;
+    background-color: white;
+    z-index: 3;
+    font-size: 1.5rem;
+}
+.div-entradas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.select {
+    border: .1rem solid var(--color-bordes);
+    width: 17rem;
+    text-align: center;
+    outline: none;
+}
+.select:hover {
+    box-shadow: 0 0 1rem var(--color-bordes);
+}
+.text-area {
+    border: .1rem solid var(--color-bordes);
+    outline: none;
+    resize: none;
+    height: 5rem;
+    border-radius: .5rem;
+}
+.text-area:hover {
+    box-shadow: 0 0 1rem var(--color-bordes);
+}
+.text-area ~ p {
+    display: flex;
+    justify-content: flex-end;
+}
+.div-fotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.lista-fotos {
+    margin: 1rem auto;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.input-fotos {
+    margin-top: rem;
+    display: flex;
+    justify-content: center;
+}
+.multi-fotos {
+    width: 15rem;
+    margin: 0 auto;
+}

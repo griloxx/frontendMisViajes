@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 
 
-export function InputSelect({label, name}) {
+export function InputSelect({label, name, clase}) {
 
     const [ isTouched, setIsTouched ] = useState(false);
     const formC = useContext(FormContext);
@@ -25,7 +25,7 @@ export function InputSelect({label, name}) {
     return (
         <>
         <label htmlFor={name}>{label}</label>
-        <select name={name} id={name} onChange={(e) => updateRequest(e.target.value) } value={formC.formValue[name] ?? ""}>
+        <select className={clase} name={name} id={name} onChange={(e) => updateRequest(e.target.value) } value={formC.formValue[name] ?? ""}>
           <option value="">-----------------</option>
           <option value="Aventura">Aventura</option>
           <option value="Single">Single</option>

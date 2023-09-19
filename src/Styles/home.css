@@ -11,7 +11,7 @@
   padding: 10px;
   box-shadow: 0 0 0.8rem var(--color-bordes);
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   bottom: 2rem;
   left: 2rem;
 }
