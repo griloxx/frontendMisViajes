@@ -15,53 +15,47 @@ export function ListarEntradas() {
   function handleClick() {
     setMenu(!menu);
     const actualScroll = window.scrollY;
-    if(actualScroll > 80) {
-      setHeader(true)
-      setMenu(!menu)
+    if (actualScroll > 80) {
+      setHeader(true);
+      setMenu(!menu);
     }
   }
-  
-  useEffect(() => {
 
+  useEffect(() => {
     let prevScroll = window.scrollY;
 
     function efectoScroll() {
       const actualScroll = window.scrollY;
 
       if (actualScroll < prevScroll) {
-        setMenu(false)
-
+        setMenu(false);
       } else {
-        if(actualScroll > 80) {
-          setMenu(false)
-
+        if (actualScroll > 80) {
+          setMenu(false);
         }
       }
-     prevScroll = actualScroll;
-    };
+      prevScroll = actualScroll;
+    }
 
     window.addEventListener("scroll", efectoScroll);
-    
+
     return () => {
       window.removeEventListener("scroll", efectoScroll);
     };
-      
-  }, [])
-  
+  }, []);
+
   // setSearchParams(new URLSearchParams({nombre}))
-  
+
   async function onSubmit(formValue) {
-    
-      setSearchParams(new URLSearchParams(formValue));
-      setLastSearch(!lastSearch);
-    
+    setSearchParams(new URLSearchParams(formValue));
+    setLastSearch(!lastSearch);
   }
 
   return (
     <main className="main-listar-entradas">
       <>
-        <MenuBusqueda  menu={menu} onSubmit={onSubmit}  />
-        <Entrada searchParams={searchParams} lastSearch={lastSearch}/>
+        <MenuBusqueda menu={menu} onSubmit={onSubmit} />
+        <Entrada searchParams={searchParams} lastSearch={lastSearch} />
         <BotonIcono
           clase={"boton-busqueda"}
           icono={"travel_explore"}
