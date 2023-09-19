@@ -12,8 +12,10 @@ export function InputMultiFotos({ name, label, initialValue }) {
   const formContext = useContext(FormContext);
   
   useEffect(() => {
-    if (formContext.resetImage) {
-      setSelectFiles([]);
+    if(!initialValue) {
+      if (formContext.resetImage) {
+        setSelectFiles([]);
+    }
     }
   }, [formContext.resetImage]);
   
@@ -22,23 +24,24 @@ export function InputMultiFotos({ name, label, initialValue }) {
     
     if(selectFiles.some((file) => file instanceof File)) {
       urls = selectFiles.map((file) => {
-        
+
         if (file instanceof File) {
           return URL.createObjectURL(file);
+
         } else if (file.id) {
-          // Manejar otros tipos de archivos si es necesario
+
           return API_HOST + "/" + file.foto;
         } 
       });
       
       setImageUrls(urls);
     
-    return () => {
-      urls.forEach((url) => {
-        URL.revokeObjectURL(url);
-      });
-    };
-  }
+      return () => {
+        urls.forEach((url) => {
+          URL.revokeObjectURL(url);
+        });
+      };
+    }
   }, [selectFiles]);
 
   useEffect(() => {
@@ -127,7 +130,15 @@ export function InputMultiFotos({ name, label, initialValue }) {
         <button className="boton-simple" onClick={onAddFile}>
           Seleccionar Archivo
         </button>
+        {(formContext.isTouched || isTouched) &&
+          formContext.errors &&
+          formContext.errors[name] &&
+          !formContext.isLoading && (
+            <p className="error-form">{formContext.errors[name]}</p>
+          )}
       </div>
+      
     </div>
+    
   );
 }

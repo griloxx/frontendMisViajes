@@ -10,9 +10,10 @@ import { Entrada } from "../Components/Entrada";
 
 export function Perfil() {
     const [ datos, setDatos ] = useState({});
-    useGetLogin();
-    const diferenciaTime = datos.create_date ? new Date() - new Date(datos.create_date) : 0;
+    const diferenciaTime = datos?.create_date ? new Date() - new Date(datos.create_date) : 0;
     const dias = Math.floor(diferenciaTime / (1000 * 60 * 60 * 24));
+
+    useGetLogin();
 
     useEffect(() => {
         
@@ -30,16 +31,16 @@ export function Perfil() {
             <div className="sup-contenedor-perfil">
                 <section className="contenedor-perfil">
                     <div>
-                        <img className="img-perfil" src={datos.avatar ? API_HOST + "/" + datos.avatar : avatar} alt="Usuario" />
+                        <img className="img-perfil" src={datos?.avatar ? API_HOST + "/" + datos.avatar : avatar} alt="Usuario" />
                     </div>
                     <div className="perfil-heading">
                         <h1>Datos Usuario</h1>
                     </div>
                     <div className="perfil-datos">
-                        <p>Nombre:<span className="perfil-texto">{datos.name}</span></p>
+                        <p>Nombre:<span className="perfil-texto">{datos?.name}</span></p>
                     </div>
                     <div className="perfil-datos">
-                        <p>Email:<span className="perfil-texto">{datos.email}</span></p>
+                        <p>Email:<span className="perfil-texto">{datos?.email}</span></p>
                     </div>
                     <div className="perfil-datos">
                         <p>Usuario desde hace:<span className="perfil-texto">{dias} días</span></p>
@@ -50,7 +51,7 @@ export function Perfil() {
                 </section>
             </div>
             {datos?.entradas && (
-                <Entrada listaEntradas={datos.entradas} />
+                <Entrada listaEntradas={datos?.entradas} />
             )}
         </main>
     )

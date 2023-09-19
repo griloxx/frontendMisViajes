@@ -24,6 +24,7 @@ export function ModificarUsuario() {
 
   async function onSubmit(formValue) {
     showToast(0, "", "");
+    
     const modificarUsuario = await servicioModificarUsuario(formValue);
 
     if (modificarUsuario.status == "ok") {

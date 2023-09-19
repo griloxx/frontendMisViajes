@@ -10,12 +10,40 @@ export function LoginAuthProvider({children}) {
     const [ login, setLogin ] = useState(user || null);
 
     useEffect(() => {
-        
-        setLogin(getToken());
+        const token = getToken();
+        if (token && token.exp) {
+            const expirationTimestamp = token.exp;
+            const currentTimestamp = Math.floor(Date.now() / 1000);
+      
+            if (currentTimestamp <= expirationTimestamp) {
+              setLogin(token);
+            } else {
+              // Si el token ha caducado, eliminarlo
+              localStorage.removeItem("userToken");
+              setLogin(null);
+            }
+        } else {
+        setLogin(null);
+        }
 
         window.addEventListener("storage", (e) => {
             if ( e.key == "userToken") {
-                setLogin(getToken());
+                const updatedToken = getToken();
+
+                if (updatedToken && updatedToken.exp) {
+                  const expirationTimestamp = updatedToken.exp;
+                  const currentTimestamp = Math.floor(Date.now() / 1000);
+        
+                  if (currentTimestamp <= expirationTimestamp) {
+                    setLogin(updatedToken);
+                  } else {
+                    localStorage.removeItem("userToken");
+                    setLogin(null);
+                  }
+                } else {
+                  localStorage.removeItem("userToken");
+                  setLogin(null);
+                }
             }
         })
     }, [])

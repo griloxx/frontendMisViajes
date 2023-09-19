@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { servicioModificarEntrada } from "../Api/servicioModificarEntrada";
+import { useGetLogin } from "../../Hooks/useGetLogin";
 
 const schema = Joi.object({
   titulo: Joi.string().max(150).required(),
@@ -25,6 +26,8 @@ export function ModificarEntrada() {
   const { toastData, showToast } = useToast();
   const [initialValue, setInitialValue] = useState({});
   const { id } = useParams();
+
+  useGetLogin();
 
   useEffect(() => {
     async function consulta() {

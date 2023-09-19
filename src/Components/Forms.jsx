@@ -74,6 +74,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue, busqued
     if (busqueda) {
       initialValue = formState.formValue;
     }
+    if(initialValue?.foto) {
+      initialValue = formState.formValue;
+    }
     setFormState({
       isTouched: false,
       isLoading: false,

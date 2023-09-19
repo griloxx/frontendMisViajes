@@ -25,6 +25,7 @@ export async function sendApiRequestAvatar(metodo, url, formValue) {
   if(token) {
     headers["Authorization"] = token;
   }
+  
   const respuesta = await fetch(url, {
     method: metodo,
     headers: headers,

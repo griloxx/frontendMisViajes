@@ -8,6 +8,7 @@ import { InputTextArea } from "../Components/InputTextArea";
 import "../Styles/entradas.css";
 import { InputMultiFotos } from "../Components/inputMultiFotos";
 import { Toast } from "../Components/Toast";
+import { useGetLogin } from "../../Hooks/useGetLogin";
 
 const schema = Joi.object({
   titulo: Joi.string().max(150).required(),
@@ -20,6 +21,7 @@ const schema = Joi.object({
 export function CrearEntrada() {
   const { toastData, showToast } = useToast();
 
+  useGetLogin();
 
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
