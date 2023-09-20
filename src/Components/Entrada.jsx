@@ -9,6 +9,7 @@ import { BotonIconoLike } from "./BotonIconoLike";
 import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg";
+import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
 
 export function Entrada({ searchParams, lastSearch, listaEntradas }) {
   const { login } = useContext(LoginContext);
@@ -17,7 +18,7 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
 
   async function consultarEntradas() {
     let resultado;
-    if (searchParams.size > 0) {
+    if (searchParams?.size > 0) {
       resultado = await servicioConsultaBusqueda(searchParams.toString());
     } else {
       resultado = await servicioListarEntradas();
@@ -76,7 +77,7 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
                         <Icon
                           clase={"papelera"}
                           icono={"delete_forever"}
-                          onClick={onClickDelete}
+                          onClick={() => onClickDelete(entrada.id)}
                         />
                       </>
                     )}
