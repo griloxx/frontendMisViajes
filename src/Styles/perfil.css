@@ -1,124 +1,120 @@
 .main-perfil {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8rem
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
 }
 .contenedor-perfil {
-    width: min(90%, 60rem);
-    margin:  auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-    background-color: white;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--color-sombras);
-    padding: 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
+  width: min(90%, 60rem);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem var(--color-sombras);
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
-.img-perfil{
-    border: .2rem solid var(--color-bordes);
-    border-radius: 50%;
-    object-fit: cover;
-    width: 10.4rem;
-    height: 10.4rem;
-    margin-top: -7rem;
-    box-shadow: 0 0 1rem var(--color-sombras);
+.img-perfil {
+  border: 0.2rem solid var(--color-bordes);
+  border-radius: 50%;
+  object-fit: cover;
+  width: 10.4rem;
+  height: 10.4rem;
+  margin-top: -7rem;
+  box-shadow: 0 0 1rem var(--color-sombras);
 }
 .perfil-heading {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 .perfil-datos {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--color-bordes);
-    display: flex;
-    
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-bordes);
+  display: flex;
 }
 .perfil-texto {
-    font-weight: 400;
-    margin-left: 1rem;
-    color: black;
-    display: block;
+  font-weight: 400;
+  margin-left: 1rem;
+  color: black;
+  display: block;
 }
-
 
 .perfil-editar {
-    color: var(--color-botones);
-    font-size: 1.8rem;
-    position: absolute;
-    right: 2rem;
-    display: flex;
-    text-decoration-line: none;
+  color: var(--color-botones);
+  font-size: 1.8rem;
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  text-decoration-line: none;
 }
 .perfil-editar:hover {
-    text-shadow: 0 0 1rem var(--color-botones);
-    transform: scale(1.2);
+  text-shadow: 0 0 1rem var(--color-botones);
+  transform: scale(1.2);
 }
 .perfil-boton {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
-    .main-perfil {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .contenedor-perfil {
-        margin: 0 3rem;
-        width: 33rem;
-        height: 60rem;
-        position: fixed;
-        gap: 3rem;
-    }
-    .perfil-heading {
-        font-size: 2.5rem;
-    }
-    .perfil-datos {
-        font-size: 2rem;
-    }
-    .main-perfil .entrada-lista {
-        margin: 0 auto 3rem auto;
-        width: min(90%, 60rem);
-    }
+  .main-perfil {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenedor-perfil {
+    margin: 0 3rem;
+    width: 33rem;
+    height: 60rem;
+    position: fixed;
+    gap: 3rem;
+  }
+  .perfil-heading {
+    font-size: 2.5rem;
+  }
+  .perfil-datos {
+    font-size: 2rem;
+  }
+  .main-perfil .entrada-lista {
+    margin: 0 auto 3rem auto;
+    width: min(90%, 60rem);
+  }
 }
 
 @media (min-width: 1024px) {
-    .main-perfil {
-        grid-template-columns: 45% 55%;
-    }
-    .contenedor-perfil {
-        width: 40rem;
-    }
-    .perfil-heading {
-        font-size: 2.5rem;
-    }
-    .perfil-datos {
-        font-size: 2.5rem;
-    }
-   
+  .main-perfil {
+    grid-template-columns: 45% 55%;
+  }
+  .contenedor-perfil {
+    width: 40rem;
+  }
+  .perfil-heading {
+    font-size: 2.5rem;
+  }
+  .perfil-datos {
+    font-size: 2.5rem;
+  }
 }
 @media (min-width: 1440px) {
-    
-    .main-perfil .sup-contenedor-perfil {
-        margin: 0 auto;
-        display: flex;
-        place-content: center;
-    }
-    .contenedor-perfil {
-        width: 50rem;
-    }
-    .main-perfil .entrada-lista {
-        margin: 0 auto 3rem auto;
-        width: min(70%, 80rem);
-    }
-    .perfil-heading {
-        font-size: 2.5rem;
-    }
-    .perfil-datos {
-        font-size: 2.5rem;
-    }
+  .main-perfil .sup-contenedor-perfil {
+    margin: 0 auto;
+    display: flex;
+    place-content: center;
+  }
+  .contenedor-perfil {
+    width: 50rem;
+  }
+  .main-perfil .entrada-lista {
+    margin: 0 auto 3rem auto;
+    width: min(70%, 80rem);
+  }
+  .perfil-heading {
+    font-size: 2.5rem;
+  }
+  .perfil-datos {
+    font-size: 2.5rem;
+  }
 }
