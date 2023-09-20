@@ -219,7 +219,6 @@ img.imagen-comentarios {
   .comments {
     margin-left: 1rem;
   }
-
 }
 
 @media (min-width: 425px) {
@@ -360,13 +359,6 @@ img.imagen-comentarios {
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
   }
-<<<<<<< HEAD
-=======
-  .caja-comentarios-desktop .div-error .error-form {
-    margin-top: -3rem;
-    margin-left: 1rem;
-  }
->>>>>>> c46b9ca0b1a19d51b654de556bf1240254b9adbd
 }
 
 @media (min-width: 1024px) {
@@ -380,6 +372,9 @@ img.imagen-comentarios {
   .consulta-comentarios-desktop .oculto-busqueda {
     margin-left: 80%;
     margin-top: -8rem;
+  }
+  .caja-comentarios {
+    height: 49.5rem;
   }
   .caja-comentarios-desktop label {
     margin-top: 2rem;
@@ -398,11 +393,7 @@ img.imagen-comentarios {
     height: 49.5rem;
   }
   .caja-comentarios-desktop .div-error .error-form {
-<<<<<<< HEAD
     margin-top: -1.8rem;
-=======
-    margin-top: -1.5rem;
->>>>>>> c46b9ca0b1a19d51b654de556bf1240254b9adbd
     margin-left: 2rem;
   }
 }
