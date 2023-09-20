@@ -359,6 +359,10 @@ img.imagen-comentarios {
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
   }
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: -3rem;
+    margin-left: 1rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -393,7 +397,7 @@ img.imagen-comentarios {
     height: 49.5rem;
   }
   .caja-comentarios-desktop .div-error .error-form {
-    margin-top: -1.8rem;
+    margin-top: -1.5rem;
     margin-left: 2rem;
   }
 }
