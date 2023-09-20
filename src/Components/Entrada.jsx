@@ -9,7 +9,6 @@ import { BotonIconoLike } from "./BotonIconoLike";
 import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg";
-import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
 
 export function Entrada({ searchParams, lastSearch, listaEntradas }) {
   const { login } = useContext(LoginContext);
@@ -31,7 +30,6 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
     const borrar = await servicioBorrarEntradas(id);
     consultarEntradas();
   }
-
   useEffect(() => {
     if (!listaEntradas) {
       consultarEntradas();
@@ -76,9 +74,9 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
                           <Icon icono={"Edit"} />
                         </Link>
                         <Icon
-                          icono={"delete_forever"}
-                          onClick={() => onClickDelete(entrada.id)}
                           clase={"papelera"}
+                          icono={"delete_forever"}
+                          onClick={onClickDelete}
                         />
                       </>
                     )}
