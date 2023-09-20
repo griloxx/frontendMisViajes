@@ -99,10 +99,10 @@
 .div-cierre-comentarios {
   position: absolute;
   background-color: transparent;
-  width: 104vw;
+  width: 100vw;
   height: 100vh;
   bottom: -6rem;
-  margin: -4rem;
+  margin: -10rem;
   overflow: hidden;
   z-index: 3;
 }
@@ -125,7 +125,7 @@
 .caja-comentarios {
   height: 30rem;
   overflow: auto;
-  margin-bottom: 1rem;
+  margin-bottom: -13rem;
 }
 .caja-comentarios-desktop label {
   font-size: 1.8rem;
