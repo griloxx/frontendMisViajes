@@ -71,18 +71,18 @@ export const schemaCrearEntradas = Joi.object({
   }),
 
   texto: Joi.string().min(15).max(65000).required().messages({
-    "string.base": "Lugar debe ser de tipo texto",
-    "string.min": "Lugar debe tener mínimo 15 caracteres",
-    "string.max": "Lugar debe tener máximo 65000 caracteres",
-    "any.required": "Lugar es obligatorio",
-    "string.empty": "Lugar no puede estar vacío",
+    "string.base": "Descripción debe ser de tipo texto",
+    "string.min": "Descripción debe tener mínimo 15 caracteres",
+    "string.max": "Descripción debe tener máximo 65000 caracteres",
+    "any.required": "Descripción es obligatorio",
+    "string.empty": "Descripción no puede estar vacío",
   }),
   foto: Joi.array().min(1).max(5).required().messages({
-    "array.base": "Lugar debe ser de tipo file",
-    "array.min": "Lugar debe tener mínimo 1 foto",
-    "array.max": "Lugar debe tener máximo 5 fotos",
-    "any.required": "Lugar es obligatorio",
-    "array.empty": "Lugar no puede estar vacío",
+    "array.base": "foto debe ser de tipo file",
+    "array.min": "foto debe tener mínimo 1 foto",
+    "array.max": "foto debe tener máximo 5 fotos",
+    "any.required": "foto es obligatorio",
+    "array.empty": "foto no puede estar vacío",
   }),
 });
 
