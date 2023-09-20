@@ -6,7 +6,7 @@ import { servicioListarEntradas } from "../Api/servicioListarEntradas";
 import { LoginContext } from "../context/LoginContext";
 import { servicioConsultaBusqueda } from "../Api/servicioConsultaBusqueda";
 import { BotonIconoLike } from "./BotonIconoLike";
-import { Await, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg";
 import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
@@ -28,7 +28,8 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
   }
 
   async function onClickDelete(id) {
-    const borrar = await servicioBorrarEntradas(entradas.id);
+    const borrar = await servicioBorrarEntradas(id);
+    consultarEntradas();
   }
 
   useEffect(() => {
@@ -77,7 +78,7 @@ export function Entrada({ searchParams, lastSearch, listaEntradas }) {
                         <Icon
                           icono={"delete_forever"}
                           onClick={() => onClickDelete(entrada.id)}
-                          clase={"delete"}
+                          clase={"papelera"}
                         />
                       </>
                     )}
