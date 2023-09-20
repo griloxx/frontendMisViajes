@@ -15,7 +15,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
     const {login} = useContext(LoginContext);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    
     async function consultarEntradas() {
         let resultado;
         if(searchParams.size > 0 ) {
@@ -55,9 +55,12 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                                     </Link>
                                 </h2>
                                 {listaEntradas && (
-                                    <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
-                                        <Icon icono={"Edit"} />
-                                    </Link>
+                                    <>
+                                        <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
+                                            <Icon icono={"Edit"} />
+                                        </Link>
+                                        <Icon clase={"papelera"} onClick={() => onClickDelete(entrada.id)} icono={"delete_forever"} />
+                                    </>
                                 )}
                             </header>
                             <main>
