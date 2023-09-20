@@ -23,7 +23,7 @@ export function Input({ label, type, name, clase, autocomplete, disabled }) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
-      <div>
+      <div className="caja-comentarios-input">
         <input
           disabled={formC.isLoading || disabled}
           className={clase}
