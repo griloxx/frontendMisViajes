@@ -112,9 +112,10 @@
   border-radius: 2rem;
   padding: 0.8rem 2rem 3.8rem 2rem;
   position: absolute;
+  bottom: 0;
   width: 100%;
   z-index: 3;
-  height: 12rem;
+  margin-bottom: 1.5rem;
 }
 .caja-comentarios-desktop .div-error {
   position: relative;
@@ -211,7 +212,7 @@ img.imagen-comentarios {
   }
   .caja-comentarios-desktop {
     padding-top: 1rem;
-    height: 10rem;
+    margin-bottom: .4rem;
   }
 
   .caja-comentarios-desktop label {
@@ -235,7 +236,7 @@ img.imagen-comentarios {
   }
 
   .caja-comentarios-desktop {
-    margin-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
   }
   .consulta-comentarios ~ div .boton-simple {
     bottom: 3.5rem;

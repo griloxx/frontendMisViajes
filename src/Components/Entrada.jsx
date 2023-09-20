@@ -9,6 +9,7 @@ import { BotonIconoLike } from "./BotonIconoLike";
 import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg"
+import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
 
 
 export function Entrada({searchParams, lastSearch, listaEntradas}) {
@@ -18,7 +19,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
     
     async function consultarEntradas() {
         let resultado;
-        if(searchParams.size > 0 ) {
+        if(searchParams?.size > 0 ) {
             resultado = await servicioConsultaBusqueda(searchParams.toString())
         } else {
             resultado = await servicioListarEntradas();
@@ -26,6 +27,12 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
         setEntradas(resultado.data);
         setIsLoading(false);
         
+    }
+
+    async function onClickDelete(id) {
+        const borrar = await servicioBorrarEntradas(id);
+        //crear toast
+        consultarEntradas();
     }
 
     useEffect(() => {
@@ -55,9 +62,12 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                                     </Link>
                                 </h2>
                                 {listaEntradas && (
-                                    <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
-                                        <Icon icono={"Edit"} />
-                                    </Link>
+                                    <>
+                                        <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
+                                            <Icon icono={"Edit"} />
+                                        </Link>
+                                        <Icon clase={"papelera"} onClick={() => onClickDelete(entrada.id)} icono={"delete_forever"} />
+                                    </>
                                 )}
                             </header>
                             <main>
