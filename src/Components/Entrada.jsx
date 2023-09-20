@@ -15,7 +15,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
     const {login} = useContext(LoginContext);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    
     async function consultarEntradas() {
         let resultado;
         if(searchParams.size > 0 ) {
