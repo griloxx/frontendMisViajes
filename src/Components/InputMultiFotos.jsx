@@ -134,7 +134,9 @@ export function InputMultiFotos({ name, label, initialValue }) {
           formContext.errors &&
           formContext.errors[name] &&
           !formContext.isLoading && (
-            <p className="error-form">{formContext.errors[name]}</p>
+            <div className="div-error">
+              <p className="error-form">{formContext.errors[name]}</p>
+            </div>
           )}
       </div>
       

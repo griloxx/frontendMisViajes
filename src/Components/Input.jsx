@@ -37,7 +37,9 @@ export function Input({ label, type, name, clase, autocomplete, disabled }) {
           formC.errors &&
           formC.errors[name] &&
           !formC.isLoading && (
-            <p className="error-form">{formC.errors[name]}</p>
+            <div className="div-error">
+              <p className="error-form">{formC.errors[name]}</p>
+            </div>
           )}
       </div>
     </>

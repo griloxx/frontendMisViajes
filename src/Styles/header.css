@@ -5,13 +5,13 @@
   opacity: 1;
   top: 0;
   z-index: 5;
-  background-color: var(--blanco);
+  background-color: #ffffff;
   justify-content: space-between;
   width: 100%;
   font-family: var(--fuente-titulos);
   padding: 1rem 2rem 1rem 2rem;
-  border-bottom: 0.1rem solid #000;
-  box-shadow: 0 0 1.2rem var(--negro);
+  border-bottom: 0.1rem solid var(--color-bordes-menus);
+  box-shadow: 0 0 1.2rem var(--color-sombras);
   transition: opacity 0.2s linear;
 }
 .header.header-fix {
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0.5rem 0.5rem 1rem var(--negro);
+  box-shadow: 0.5rem 0.5rem 1rem gray;
   padding: 0;
 }
 

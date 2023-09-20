@@ -9,7 +9,7 @@ import "../Styles/entradas.css";
 import { InputMultiFotos } from "../Components/inputMultiFotos";
 import { Toast } from "../Components/Toast";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
 import { servicioModificarEntrada } from "../Api/servicioModificarEntrada";
 import { useGetLogin } from "../../Hooks/useGetLogin";
@@ -26,6 +26,7 @@ export function ModificarEntrada() {
   const { toastData, showToast } = useToast();
   const [initialValue, setInitialValue] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useGetLogin();
 
@@ -53,6 +54,9 @@ export function ModificarEntrada() {
     console.log(resultado)
     if (resultado.status == "ok") {
       showToast(3000, "exito", resultado.message);
+      setTimeout(() => {
+        navigate(`/entradas/${id}`)
+      }, 3000);
     } else {
       showToast(3000, "error", resultado.message);
     }

@@ -10,6 +10,7 @@ import { NavlinksAuth } from "./NavAuth";
 import { useLogout } from "../../Hooks/useLogout";
 import imgLogo from "../imagenes/LogoImg.png";
 import { HeaderContext } from "../context/HeaderContext";
+import { Link } from "react-router-dom";
 
 
 export function Header() {
@@ -54,7 +55,9 @@ export function Header() {
       <header className={header ? "header" : "header header-fix"}>
         <BotonMenu menuOpen={{menu, setMenu}} />
         <div className="div-logo">
-        <img className="logo-img" src={imgLogo} alt="Mis Viajes" />
+          <Link to={"/"} >
+            <img className="logo-img" src={imgLogo} alt="Mis Viajes" />
+          </Link>
         </div>
         {!login && <NavLinks />}
         {login && <NavlinksAuth onClick={onClick} />}

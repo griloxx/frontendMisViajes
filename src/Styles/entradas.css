@@ -33,6 +33,7 @@
   width: 17rem;
   text-align: center;
   outline: none;
+  border-radius: .5rem;
 }
 .select:hover {
   box-shadow: 0 0 1rem var(--color-bordes);
@@ -43,6 +44,14 @@
   resize: none;
   height: 5rem;
   border-radius: 0.5rem;
+}
+.text-area::-webkit-scrollbar {
+  background-color: transparent;
+  width: .4rem;
+}
+.text-area::-webkit-scrollbar-thumb {
+  background-color: var(--color-botones); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
+  border-radius: 2rem;
 }
 .text-area:hover {
   box-shadow: 0 0 1rem var(--color-bordes);
@@ -68,11 +77,13 @@
 .input-fotos {
   margin-top: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-.input-fotos .boton-simple{
-  margin-top: 5rem;
+.input-fotos .div-error {
+  margin-top: 1rem;
 }
+
 .multi-fotos {
   width: 15rem;
   margin: 0 auto;
