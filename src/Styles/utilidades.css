@@ -46,6 +46,18 @@ html::-webkit-scrollbar-thumb {
   background-color: var(--color-botones); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
   border-radius: 2rem;
 }
+.div-error {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.error-form {
+  color: red;
+  font-size: 1.5rem;
+}
+.oculto-busqueda {
+  display: none;
+}
 
 /* zona toast */
 

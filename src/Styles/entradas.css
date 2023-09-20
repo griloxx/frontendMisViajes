@@ -1,0 +1,95 @@
+.main-entradas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.main-entradas h1 {
+  font-size: 2.5rem;
+}
+.form-entradas {
+  display: flex;
+  flex-direction: column;
+  width: min(80%, 80rem);
+  gap: 2rem;
+  padding: 2rem 3rem 6rem 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem var(--color-sombras);
+  margin: 2rem auto;
+  position: relative;
+  background-color: white;
+  z-index: 3;
+  font-size: 1.5rem;
+}
+.div-entradas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+}
+.select {
+  border: 0.1rem solid var(--color-bordes);
+  width: 17rem;
+  text-align: center;
+  outline: none;
+  border-radius: .5rem;
+}
+.select:hover {
+  box-shadow: 0 0 1rem var(--color-bordes);
+}
+.text-area {
+  border: 0.1rem solid var(--color-bordes);
+  outline: none;
+  resize: none;
+  height: 5rem;
+  border-radius: 0.5rem;
+}
+.text-area::-webkit-scrollbar {
+  background-color: transparent;
+  width: .4rem;
+}
+.text-area::-webkit-scrollbar-thumb {
+  background-color: var(--color-botones); /* Cambia el color del pulgar (la parte que puedes arrastrar) */
+  border-radius: 2rem;
+}
+.text-area:hover {
+  box-shadow: 0 0 1rem var(--color-bordes);
+}
+.text-area ~ p {
+  display: flex;
+  justify-content: flex-end;
+}
+.div-fotos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.lista-fotos {
+  margin: 1rem auto;
+  min-height: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.input-fotos {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.input-fotos .div-error {
+  margin-top: 1rem;
+}
+
+.multi-fotos {
+  width: 15rem;
+  margin: 0 auto;
+}
+.error-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

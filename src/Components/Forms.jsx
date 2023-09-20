@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BotonSimple } from "./BotonSimple";
 import { validate } from "../../utils/validations";
 import { FormContext } from "../context/FormContext";
 import { getToken } from "../../utils/getToken";
 
-export function Forms({ clase, children, onSubmit, schema, initialValue }) {
+export function Forms({ clase, children, onSubmit, schema, initialValue, busqueda }) {
   const [formState, setFormState] = useState({
     isTouched: false,
     isLoading: false,
     resetImage: false,
     formValue: initialValue || {},
   });
-  
+
   const [, errors] = validate(schema, formState.formValue);
+
+  useEffect(() => {
+    setFormState((oldFormState) => ({
+      ...oldFormState,
+      formValue: initialValue || {},
+    }));
+  }, [initialValue]);
 
   function updateFormValue(newFormValue) {
     setFormState((oldFormState) => {
@@ -59,12 +66,15 @@ export function Forms({ clase, children, onSubmit, schema, initialValue }) {
       };
     });
 
-    if(initialValue) {
+    if(initialValue?.name) {
       const user = getToken();
       initialValue.avatar = user.avatar;
       initialValue.name = user.name;
     }
-    if (formState.formValue.lugar || formState.formValue.categoria || formState.formValue.votos) {
+    if (busqueda) {
+      initialValue = formState.formValue;
+    }
+    if(initialValue?.foto) {
       initialValue = formState.formValue;
     }
     setFormState({

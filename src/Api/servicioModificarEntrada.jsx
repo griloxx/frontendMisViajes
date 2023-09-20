@@ -2,10 +2,10 @@ import { API_HOST } from "../../utils/constants";
 import { sendApiRequestMultiFotos } from "./sedApiRequestMultiFotos";
 import { METHOD } from "./sendApiRequest";
 
-export const servicioCrearEntrada = async (formValue) => {
+export const servicioModificarEntrada = async (id, formValue) => {
   return sendApiRequestMultiFotos (
-    METHOD.POST,
-    API_HOST + `/entradas/crearentrada`,
+    METHOD.PUT,
+    API_HOST + `/entradas/modificarentrada/${id}`,
     formValue
   );
 };

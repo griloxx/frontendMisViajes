@@ -11,6 +11,7 @@ import { ConsultarEntrada } from "./Pages/ConsultarEntrada";
 import { HeaderProvider } from "./context/HeaderContext";
 import { Perfil } from "./Pages/Perfil";
 import { CrearEntrada } from "./Pages/CrearEntradas";
+import { ModificarEntrada } from "./Pages/ModificarEntrada";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ListarEntradas />} />
             <Route path="/entradas/:id" element={<ConsultarEntrada />} />
-            {/*<Route path="/entradas/modificar" element={<ModificarEntrada />} /> */}
+            <Route path="/entradas/modificar/:id" element={<ModificarEntrada />} />
             <Route path="/entradas/crear" element={<CrearEntrada />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registro" element={<RegistroUsuario />} />

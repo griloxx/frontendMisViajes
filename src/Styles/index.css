@@ -10,6 +10,7 @@
   --color-bg-detras: #00000093;
   --blanco: #fff;
   --negro: #212121;
+  --color-bordes-menus: #cacaca;
 }
 
 html {
@@ -151,11 +152,3 @@ li {
   }
 }
 
-.error-form {
-  color: red;
-  font-size: 1.5rem;
-  position: absolute;
-}
-.oculto-busqueda {
-  display: none;
-}

@@ -5,33 +5,40 @@ import { Forms } from "../Components/Forms";
 import { Input } from "../Components/Input";
 import { InputSelect } from "../Components/InputSelect";
 import { InputTextArea } from "../Components/InputTextArea";
-import { FormularioMultiFotos } from "../Components/MultiFotos";
+import "../Styles/entradas.css";
+import { InputMultiFotos } from "../Components/inputMultiFotos";
+import { Toast } from "../Components/Toast";
+import { useGetLogin } from "../../Hooks/useGetLogin";
 
 const schema = Joi.object({
   titulo: Joi.string().max(150).required(),
   categoria: Joi.string().required(),
-  lugar: Joi.string().max(100).required.apply.apply,
-  texto: Joi.string().min(150).required(),
-  foto: Joi.array().required().min(1),
+  lugar: Joi.string().max(100).required(),
+  texto: Joi.string().max(150).required(),
+  foto: Joi.array().min(1).max(5).required(),
 });
 
 export function CrearEntrada() {
   const { toastData, showToast } = useToast();
+
+  useGetLogin();
+
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
 
     const resultado = await servicioCrearEntrada(formValue);
+
     if (resultado.status == "ok") {
-      showToast(6000, "exito", resultado.message);
+      showToast(3000, "exito", resultado.message);
     } else {
-      showToast(6000, "error", resultado.message);
+      showToast(3000, "error", resultado.message);
     }
   };
 
   return (
     <main className="main-entradas">
-      <h1>Crear Entradas</h1>
-      <Forms clase={toastData} onSubmit={onSubmit} schema={schema}>
+      <h1>Crear Entrada</h1>
+      <Forms clase={"form-entradas"} onSubmit={onSubmit} schema={schema}>
         <div className="div-entradas">
           <Input
             name={"titulo"}
@@ -40,7 +47,7 @@ export function CrearEntrada() {
             label={"Titulo:"}
             autocomplete={"off"}
           />
-          <InputSelect label={"Categoria:"} name={"categoria"} />
+          <InputSelect clase={"select"} label={"Categoria:"} name={"categoria"} />
           <Input
             name={"lugar"}
             clase={"input"}
@@ -56,9 +63,10 @@ export function CrearEntrada() {
           />
         </div>
         <div className="div-fotos">
-          <FormularioMultiFotos label={"Fotos Del Viaje"} name={"foto"} />
+          <InputMultiFotos label={"Fotos Del Viaje"} name={"foto"} />
         </div>
       </Forms>
+      <Toast  toastData={toastData}/>
     </main>
   );
 }

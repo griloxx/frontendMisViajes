@@ -7,7 +7,7 @@ export function MenuBusqueda({menu, onSubmit }) {
  
   return (
     <div className={`div-form-busqueda ${!menu && "oculto"} `}>
-      <Forms clase={"form-busqueda"} onSubmit={onSubmit} >
+      <Forms clase={"form-busqueda"} onSubmit={onSubmit} busqueda={true} >
         <Input
           name={"lugar"}
           clase={"input"}

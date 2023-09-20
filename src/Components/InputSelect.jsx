@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { FormContext } from "../context/FormContext";
 
 
-export function InputSelect({label, name}) {
+export function InputSelect({label, name, clase}) {
 
     const [ isTouched, setIsTouched ] = useState(false);
     const formC = useContext(FormContext);
@@ -24,19 +24,27 @@ export function InputSelect({label, name}) {
 
     return (
         <>
-        <label htmlFor={name}>{label}</label>
-        <select name={name} id={name} onChange={(e) => updateRequest(e.target.value) } value={formC.formValue[name] ?? ""}>
-          <option value="">-----------------</option>
-          <option value="Aventura">Aventura</option>
-          <option value="Single">Single</option>
-          <option value="Parejas">Parejas</option>
-          <option value="Familia">Familia</option>
-          <option value="Cultura">Cultura</option>
-          <option value="Gastronomía">Gastronomia</option>
-          <option value="Playa">Playa</option>
-          <option value="Montaña">Montaña</option>
-          <option value="Naturaleza">Naturaleza</option>
-        </select>
+          <label htmlFor={name}>{label}</label>
+          <select className={clase} name={name} id={name} onChange={(e) => updateRequest(e.target.value) } value={formC.formValue[name] ?? ""}>
+            <option value="">-----------------</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Single">Single</option>
+            <option value="Parejas">Parejas</option>
+            <option value="Familia">Familia</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Gastronomía">Gastronomia</option>
+            <option value="Playa">Playa</option>
+            <option value="Montaña">Montaña</option>
+            <option value="Naturaleza">Naturaleza</option>
+          </select>
+          <div className="error-select">
+          {(formC.isTouched || isTouched) &&
+          formC.errors &&
+          formC.errors[name] &&
+          !formC.isLoading && (
+            <p className="error-form">{formC.errors[name]}</p>
+          )}
+          </div>
         </>
     )
 }

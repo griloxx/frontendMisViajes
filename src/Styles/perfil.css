@@ -82,13 +82,16 @@
     }
     .main-perfil .entrada-lista {
         margin: 0 auto 3rem auto;
-        width: min(90%, 100rem);
+        width: min(90%, 60rem);
     }
 }
 
 @media (min-width: 1024px) {
+    .main-perfil {
+        grid-template-columns: 45% 55%;
+    }
     .contenedor-perfil {
-        width: 47rem;
+        width: 40rem;
     }
     .perfil-heading {
         font-size: 2.5rem;
@@ -96,11 +99,10 @@
     .perfil-datos {
         font-size: 2.5rem;
     }
+   
 }
 @media (min-width: 1440px) {
-    .main-perfil {
-        grid-template-columns: 45% 55%;
-    }
+    
     .main-perfil .sup-contenedor-perfil {
         margin: 0 auto;
         display: flex;
