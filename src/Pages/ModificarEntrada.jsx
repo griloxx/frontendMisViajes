@@ -51,7 +51,6 @@ export function ModificarEntrada() {
     
     const resultado = await servicioModificarEntrada(id, formValue);
 
-    console.log(resultado)
     if (resultado.status == "ok") {
       showToast(3000, "exito", resultado.message);
       setTimeout(() => {

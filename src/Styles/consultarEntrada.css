@@ -219,9 +219,7 @@ img.imagen-comentarios {
   .comments {
     margin-left: 1rem;
   }
-  .error-form {
-    margin-left: 2rem;
-  }
+
 }
 
 @media (min-width: 425px) {
@@ -360,7 +358,7 @@ img.imagen-comentarios {
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
   }
-  .error-form {
+  .caja-comentarios-desktop .div-error .error-form {
     margin-top: -3rem;
     margin-left: 1rem;
   }
@@ -394,7 +392,7 @@ img.imagen-comentarios {
   .caja-comentarios.ocultar-comentarios {
     height: 49.5rem;
   }
-  .error-form {
+  .caja-comentarios-desktop .div-error .error-form {
     margin-top: -1.5rem;
     margin-left: 2rem;
   }
