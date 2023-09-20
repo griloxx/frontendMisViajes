@@ -110,7 +110,7 @@
   background-color: white;
   border: 1px solid var(--color-bordes);
   border-radius: 2rem;
-  padding: 1.2rem 2rem 2.5rem 2rem;
+  padding: 0.8rem 2rem 3.8rem 2rem;
   position: absolute;
   bottom: 0rem;
   width: 100%;
@@ -141,7 +141,7 @@
   z-index: 5;
   position: absolute;
   right: 1.5rem;
-  bottom: 4rem;
+  bottom: 5.5rem;
 }
 
 .comments {
@@ -218,9 +218,6 @@ img.imagen-comentarios {
   }
   .comments {
     margin-left: 1rem;
-  }
-  .error-form {
-    margin-left: 2rem;
   }
 }
 
@@ -306,8 +303,6 @@ img.imagen-comentarios {
     display: block;
     font-family: cursive;
     font-size: 1.5rem;
-    border: 0.2rem solid var(--color-bordes);
-    border-radius: 2rem;
   }
   .caja-comentarios-desktop {
     width: 95%;
@@ -342,7 +337,11 @@ img.imagen-comentarios {
     font-size: 2rem;
     margin: 2rem;
   }
-  .caja-comentarios-input {
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: -3rem;
+    padding-left: 1rem;
+  }
+  .caja-comentarios-desktop .caja-comentarios-input {
     width: 100%;
     height: 14rem;
     border: 2px solid var(--color-bordes);
@@ -360,7 +359,7 @@ img.imagen-comentarios {
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
   }
-  .error-form {
+  .caja-comentarios-desktop .div-error .error-form {
     margin-top: -3rem;
     margin-left: 1rem;
   }
@@ -378,10 +377,13 @@ img.imagen-comentarios {
     margin-left: 80%;
     margin-top: -8rem;
   }
+  .caja-comentarios {
+    height: 49.5rem;
+  }
   .caja-comentarios-desktop label {
     margin-top: 2rem;
   }
-  .caja-comentarios-input {
+  .caja-comentarios-desktop .caja-comentarios-input {
     height: 10rem;
     margin: 1rem auto 1rem auto;
     padding: 0;
@@ -394,7 +396,7 @@ img.imagen-comentarios {
   .caja-comentarios.ocultar-comentarios {
     height: 49.5rem;
   }
-  .error-form {
+  .caja-comentarios-desktop .div-error .error-form {
     margin-top: -1.5rem;
     margin-left: 2rem;
   }

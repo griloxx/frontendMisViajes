@@ -7,10 +7,8 @@ import { Input } from "./Input";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { servicioConsultaEntrada } from "../Api/servicioConsultaEntrada";
+import { schemaAñadirCometnario } from "../../utils/schemas";
 
-const schema = Joi.object({
-  comentario: Joi.string().required(),
-});
 export function AñadirComentario({
   entrada,
   showToast,
@@ -21,7 +19,7 @@ export function AñadirComentario({
 }) {
   const { id } = useParams();
   const { login } = useContext(LoginContext);
-
+  const schema = schemaAñadirCometnario;
   async function onSubmit(formValue) {
     showToast(0, "", "");
     if (!login) {

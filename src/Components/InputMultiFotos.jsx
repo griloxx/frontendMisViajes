@@ -70,7 +70,8 @@ export function InputMultiFotos({ name, label, initialValue }) {
   function onFileRemove(e, file) {
     e.preventDefault()
     let newFilesArray;
-    if(!(file instanceof File)) {
+    if(!(file instanceof File) && selectFiles.length > 1) {
+      console.log("aki")
       async function borrarFoto() {
         const resultado = await servicioBorrarFoto(file.id, file)
       }
@@ -83,14 +84,14 @@ export function InputMultiFotos({ name, label, initialValue }) {
         return API_HOST + "/" + foto.foto;
       })
       setImageUrls(urls)
-    } else {
+    } else if(selectFiles.length > 1 ){
     
       newFilesArray = selectFiles.filter((sF) => {
         return sF !== file;
       })
       setSelectFiles(newFilesArray);
       
-    }
+    } 
     formContext.updateFormValue({
       [name]: newFilesArray,
     });
@@ -130,8 +131,7 @@ export function InputMultiFotos({ name, label, initialValue }) {
         <button className="boton-simple" onClick={onAddFile}>
           Seleccionar Archivo
         </button>
-        {(formContext.isTouched || isTouched) &&
-          formContext.errors &&
+        {formContext.errors &&
           formContext.errors[name] &&
           !formContext.isLoading && (
             <div className="div-error">

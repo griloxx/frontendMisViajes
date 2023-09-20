@@ -8,6 +8,7 @@
 }
 
 .section-log-u {
+  width: 100%;
   text-align: center;
   font-size: 2rem;
   display: flex;
@@ -20,6 +21,7 @@
 }
 
 .div-border-form {
+  width: min(90%, 30rem);
   border-radius: 2rem;
   padding: 2rem 0;
   box-shadow: 0 .3rem 1rem var(--color-sombras);
