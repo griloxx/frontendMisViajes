@@ -1,4 +1,3 @@
-import Joi from "joi";
 import { servicioRegistroUsuario } from "../Api/servicioRegistroUsuario";
 import { Input } from "../Components/Input.jsx";
 import "../Styles/crearUsuario.css";
@@ -6,16 +5,11 @@ import { FormularioImagenInput } from "../Components/CrearAvatar";
 import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { Forms } from "../Components/Forms";
-
-const schema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().required(),
-  password: Joi.string().min(6).max(20).required(),
-  avatar: Joi.allow(""),
-});
+import { schemaRegistroUsuario } from "../../utils/schemas.js";
 
 export const RegistroUsuario = () => {
   const { toastData, showToast } = useToast();
+  const schema = schemaRegistroUsuario;
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
 
