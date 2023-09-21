@@ -10,8 +10,10 @@ import { schemaRegistroUsuario } from "../../utils/schemas.js";
 export const RegistroUsuario = () => {
   const { toastData, showToast } = useToast();
   const schema = schemaRegistroUsuario;
+
   const onSubmit = async (formValue) => {
     showToast(0, "", "");
+    
 
     const resultado = await servicioRegistroUsuario(formValue);
 

@@ -43,6 +43,7 @@
   text-decoration: none;
   color: var(--color-botones);
   font-family: var(--fuente-titulos);
+  letter-spacing: 0px;
   display: flex;
   flex-direction: row-reverse;
   gap: 2rem;
