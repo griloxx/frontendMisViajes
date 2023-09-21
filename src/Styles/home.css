@@ -215,7 +215,11 @@
     gap: 2rem;
   }
 }
+
 @media (min-width: 768px) {
+  .div-form-busqueda .div-sub-loader{
+    margin-left: 22rem;
+  }
   .entrada-lista {
     width: 45%;
   }

@@ -18,7 +18,6 @@ export function Forms({
     resetImage: false,
     formValue: initialValue || {},
   });
-  console.log(formState.isLoading);
   const [, errors] = validate(schema, formState.formValue);
 
   useEffect(() => {

@@ -11,8 +11,13 @@ export function FormularioImagenInput({ name, label }) {
   const fileInputRef = useRef(null);
   //Obtiene el estado del formulario
   const formContext = useContext(FormContext);
+  let rutaImagen;
+  if(formContext.formValue?.avatar && formContext.formValue.avatar[0] + formContext.formValue.avatar[1] === "ht") {
+    rutaImagen = formContext.formValue.avatar;
+  } else {
+    rutaImagen = API_HOST + "/" + formContext.formValue.avatar ;
+  }
 
-  const { login } = useContext(LoginContext);
 
   useEffect(() => {
     if (formContext.resetImage) {
@@ -26,7 +31,7 @@ export function FormularioImagenInput({ name, label }) {
     } else {
       return formContext.formValue?.avatar &&
         formContext.formValue?.avatar !== "sinAvatar"
-        ? /*API_HOST + "/" +*/ formContext.formValue.avatar
+        ? rutaImagen
         : avatar;
     }
   }, [selectFiles, formContext.formValue?.avatar]);

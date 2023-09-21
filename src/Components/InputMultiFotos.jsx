@@ -11,6 +11,7 @@ export function InputMultiFotos({ name, label, initialValue }) {
   const fileInputRef = useRef(null);
   const formContext = useContext(FormContext);
   
+  
   useEffect(() => {
     if(!initialValue) {
       if (formContext.resetImage) {
@@ -71,7 +72,6 @@ export function InputMultiFotos({ name, label, initialValue }) {
     e.preventDefault()
     let newFilesArray;
     if(!(file instanceof File) && selectFiles.length > 1) {
-      console.log("aki")
       async function borrarFoto() {
         const resultado = await servicioBorrarFoto(file.id, file)
       }

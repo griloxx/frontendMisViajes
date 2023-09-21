@@ -18,7 +18,6 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     
-    
     async function consultarEntradas() {
         let resultado;
         if(searchParams?.size > 0 ) {
@@ -32,8 +31,10 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
     }
 
     async function onClickDelete(id) {
+        setIsLoading(true);
         const borrar = await servicioBorrarEntradas(id);
         const consulta = await servicioConsultaEntrada();
+        setIsLoading(false);
         setEntradas(consulta.data.entradas);
 
         if(borrar.status === "ok") {
@@ -47,6 +48,7 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
 
         if(!listaEntradas) {
             consultarEntradas();
+            setIsLoading(false)
         } else {
             setEntradas(listaEntradas);
             setIsLoading(false);
@@ -56,6 +58,13 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
     
     return (
         <ul>
+        {isLoading && (
+        <div className="div-loader">
+          <div className="div-sub-loader">
+            <div className="loader"></div>
+          </div>
+        </div>
+      )}
         {!isLoading && (
             entradas?.length > 0 ? (
                 entradas.map((entrada) => {

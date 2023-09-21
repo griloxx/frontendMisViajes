@@ -1,5 +1,6 @@
 import Joi from "joi";
 
+
 export const schemaModificarUsuario = Joi.object({
   name: Joi.string().min(2).max(50).required().messages({
     "string.base": "Nombre debe ser de tipo texto",

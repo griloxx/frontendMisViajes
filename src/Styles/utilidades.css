@@ -77,7 +77,7 @@ html::-webkit-scrollbar-thumb {
   place-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   top: 10rem;
   border: 0.2rem solid var(--color-bordes);
   box-shadow: 0 0 2rem var(--color-sombras);
@@ -96,6 +96,12 @@ html::-webkit-scrollbar-thumb {
   background: radial-gradient(farthest-side, #000 95%, #0000) 35% 35%/6px 6px
     no-repeat #fff;
   animation: l5 3s infinite;
+}
+.consulta-entrada-main .div-loader {
+  position: absolute;
+}
+.consulta-entrada-footer .div-sub-loader{
+  display: none;
 }
 @keyframes l5 {
   0%,

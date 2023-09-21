@@ -9,12 +9,15 @@ export function ValidarRegistro() {
   });
   const { codigo } = useParams();
   const navigate = useNavigate();
+
+
   useEffect(() => {
     if (!codigo) {
       navigate("/");
     }
     const peticionApi = async (codigo) => {
       const validarUsuario = await servicioValidarUsuario(codigo);
+      
       if (validarUsuario.status === "ok") {
         setIsValid((oldState) => {
           return {
@@ -32,8 +35,18 @@ export function ValidarRegistro() {
       };
     });
   }, []);
+
+
   return (
     <main className="main-validar">
+      {isValid.isLoading && (
+        <div className="div-loader">
+          <div className="div-sub-loader">
+            <div className="loader"></div>
+          </div>
+        </div>
+      )}
+      {!isValid.isLoading && (
       <div className="div-caja">
         <h1 className="h1-validar">Validar registro</h1>
         {isValid.valid ? (
@@ -42,6 +55,7 @@ export function ValidarRegistro() {
           <p className="validar-error">Error en la validación.</p>
         )}
       </div>
+      )}
     </main>
   );
 }

@@ -43,6 +43,13 @@ export function ConsultarEntrada() {
 
   return (
     <main className="consulta-entrada-main">
+      {isLoading && (
+        <div className="div-loader">
+          <div className="div-sub-loader">
+            <div className="loader"></div>
+          </div>
+        </div>
+      )}
       {!isLoading && (
         <>
           <AñadirComentario

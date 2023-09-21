@@ -4,7 +4,6 @@ import "../Styles/home.css";
 import { MenuBusqueda } from "../Components/MenuBusqueda";
 import { useContext, useEffect, useState } from "react";
 import { HeaderContext } from "../context/HeaderContext";
-// import { useSearchParams } from "react-router-dom";
 import { useResetSearch } from "../../Hooks/useResetSearch";
 import { SearchContext } from "../context/searchContext";
 

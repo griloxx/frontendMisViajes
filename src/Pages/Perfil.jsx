@@ -13,6 +13,8 @@ import { useToast } from "../../Hooks/useToast";
 export function Perfil() {
   const [datos, setDatos] = useState({});
   const { toastData, showToast } = useToast();
+  const [isLoading, setIsLoading] = useState(true);
+  
   let rutaImagen;
   if(datos?.avatar && datos.avatar[0] + datos.avatar[1] === "ht") {
     rutaImagen = datos.avatar;
@@ -31,6 +33,7 @@ export function Perfil() {
     async function consulta() {
       const consulta = await servicioConsultaEntrada();
       setDatos(consulta.data);
+      setIsLoading(false);
     }
     consulta();
   }, []);
@@ -38,6 +41,14 @@ export function Perfil() {
   return (
     <main className="main-perfil">
       <div className="sup-contenedor-perfil">
+      {isLoading && (
+        <div className="div-loader">
+          <div className="div-sub-loader">
+            <div className="loader"></div>
+          </div>
+        </div>
+      )}
+      {!isLoading && (
         <section className="contenedor-perfil">
           <div>
             <img
@@ -70,6 +81,7 @@ export function Perfil() {
             <Icon icono={"Edit"} />
           </Link>
         </section>
+      )}
       </div>
       {datos?.entradas && (
         <Entrada listaEntradas={datos?.entradas} showToast={showToast} />
