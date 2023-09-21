@@ -21,6 +21,10 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
+/* html.oscuro{
+  --color-modo-oscuro: #ee0505;
+  --color-modo-oscuro-botones: #ea5858;
+} */
 
 *,
 *:before,
