@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg"
 import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
+import { servicioConsultaEntrada } from "../Api/servicioConsultarPerfil";
 
 
 export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
@@ -31,7 +32,9 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
 
     async function onClickDelete(id) {
         const borrar = await servicioBorrarEntradas(id);
-        consultarEntradas();
+        const consulta = await servicioConsultaEntrada();
+        setEntradas(consulta.data.entradas);
+
         if(borrar.status === "ok") {
             showToast(3000, "exito", borrar.message);
         }else {

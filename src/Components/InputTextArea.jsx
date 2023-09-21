@@ -23,7 +23,7 @@ export function InputTextArea({ label, name, clase, disabled, maxChars }) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
-      <div>
+      <div className="div-text-area">
         <textarea
           disabled={formC.isLoading || disabled}
           className={clase}

@@ -4,13 +4,16 @@ import "../Styles/home.css";
 import { MenuBusqueda } from "../Components/MenuBusqueda";
 import { useContext, useEffect, useState } from "react";
 import { HeaderContext } from "../context/HeaderContext";
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
+import { useResetSearch } from "../../Hooks/useResetSearch";
+import { SearchContext } from "../context/searchContext";
 
 export function ListarEntradas() {
   const [menu, setMenu] = useState(false);
   const { setHeader } = useContext(HeaderContext);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [lastSearch, setLastSearch] = useState(false);
+  const search = useResetSearch();
+  const {searchParams, lastSearch} = useContext(SearchContext);
+
 
   function handleClick() {
     setMenu(!menu);
@@ -44,17 +47,11 @@ export function ListarEntradas() {
     };
   }, []);
 
-  // setSearchParams(new URLSearchParams({nombre}))
-
-  async function onSubmit(formValue) {
-    setSearchParams(new URLSearchParams(formValue));
-    setLastSearch(!lastSearch);
-  }
 
   return (
     <main className="main-listar-entradas">
       <>
-        <MenuBusqueda menu={menu} onSubmit={onSubmit} />
+        <MenuBusqueda menu={menu} onSubmit={search} />
         <Entrada searchParams={searchParams} lastSearch={lastSearch} />
         <BotonIcono
           clase={"boton-busqueda"}
