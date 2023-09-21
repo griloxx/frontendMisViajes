@@ -11,13 +11,20 @@ const Comentarios = ({ comentarios, estadoComentarios }) => {
     >
       <ul className="comentarios">
         {comentarios.length > 0 ? (
-          comentarios.map((comentario, index) => (
+          comentarios.map((comentario, index) =>{
+            let rutaImagen;
+            if(comentario?.avatar && comentario.avatar[0] + comentario.avatar[1] === "ht") {
+              rutaImagen = comentario.avatar;
+            } else {
+              rutaImagen = API_HOST + "/" + comentario.avatar ;
+            }
+            return(
             <li key={index} className="comentario">
               <img
                 className="imagen-comentarios"
                 src={
                   comentario.avatar
-                    ? API_HOST + "/" + comentario.avatar
+                    ? rutaImagen
                     : avatar
                 }
                 alt={`Foto de ${comentario.name}`}
@@ -27,7 +34,7 @@ const Comentarios = ({ comentarios, estadoComentarios }) => {
                 <p className="comentario-texto">{comentario.comentario}</p>
               </div>
             </li>
-          ))
+          )})
         ) : (
           <p className="mensaje-sin-comentarios">
             No hay comentarios para mostrar

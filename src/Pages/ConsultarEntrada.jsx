@@ -16,7 +16,12 @@ export function ConsultarEntrada() {
   const [entrada, setEntrada] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { toastData, showToast } = useToast();
-
+  let rutaImagen;
+    if(entrada?.avatar && entrada.avatar[0] + entrada.avatar[1] === "ht") {
+      rutaImagen = entrada.avatar;
+    } else {
+      rutaImagen = API_HOST + "/" + entrada.avatar ;
+    }
   const [estadoComentarios, setEstadoComentarios] = useState(true);
 
   function alternarComentarios() {
@@ -52,7 +57,7 @@ export function ConsultarEntrada() {
             <header className="consulta-entrada-h">
               <img
                 className="consulta-entrada-avatar"
-                src={entrada.avatar ? API_HOST + "/" + entrada.avatar : avatar}
+                src={entrada.avatar ? rutaImagen : avatar}
                 alt="consulta-entrada-entrada"
               />
               <h2 className="consulta-entrada-titulo">{entrada.titulo}</h2>

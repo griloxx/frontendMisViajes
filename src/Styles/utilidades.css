@@ -162,6 +162,19 @@ html::-webkit-scrollbar-thumb {
 .div-small-img {
   display: none;
 }
+
+.div-loader {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  position: absolute;
+  width: 5rem;
+  background-color: black;
+  height: 1rem;
+}
 @media (min-width: 1024px) {
   .foto {
     padding: 3rem;

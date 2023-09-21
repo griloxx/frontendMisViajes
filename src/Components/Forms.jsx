@@ -11,7 +11,7 @@ export function Forms({ clase, children, onSubmit, schema, initialValue, busqued
     resetImage: false,
     formValue: initialValue || {},
   });
-
+console.log(formState.isLoading)
   const [, errors] = validate(schema, formState.formValue);
 
   useEffect(() => {
@@ -34,8 +34,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue, busqued
   }
 
   async function onFormSubmit(e) {
+    
     e.preventDefault();
-
+    
     setFormState((oldFormState) => {
       return {
         ...oldFormState,
@@ -44,9 +45,9 @@ export function Forms({ clase, children, onSubmit, schema, initialValue, busqued
         resetImage: false
       };
     });
-
+    
     const [isValid] = validate(schema, formState.formValue);
-
+    
     if (!isValid) {
       return setFormState((oldFormState) => {
         return {
@@ -86,8 +87,13 @@ export function Forms({ clase, children, onSubmit, schema, initialValue, busqued
   }
 
   return (
-    <FormContext.Provider value={{ ...formState, errors, updateFormValue }}>
+    <FormContext.Provider value={{ ...formState, errors, updateFormValue, onFormSubmit }}>
+       {formState.isLoading &&
+      <div className="div-loader">
+        <div className="loader"></div>
+      </div>}
       <form onSubmit={onFormSubmit} className={clase}>
+     
         {children}
         <BotonSimple children={"Enviar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
       </form>

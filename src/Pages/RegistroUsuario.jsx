@@ -6,6 +6,7 @@ import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { Forms } from "../Components/Forms";
 import { schemaRegistroUsuario } from "../../utils/schemas.js";
+import App from "../Components/GoogleLogin";
 
 export const RegistroUsuario = () => {
   const { toastData, showToast } = useToast();
@@ -50,6 +51,7 @@ export const RegistroUsuario = () => {
               clase={"input"}
               autocomplete={"off"}
             />
+            
           </div>
 
           <div className="div-form-imguser">
@@ -58,8 +60,11 @@ export const RegistroUsuario = () => {
               name={"avatar"}
             />
           </div>
+          
         </Forms>
+        
       </section>
+      <App showToast={showToast} />
       <Toast toastData={toastData} />
     </main>
   );

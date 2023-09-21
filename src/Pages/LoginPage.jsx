@@ -61,7 +61,7 @@ export function LoginPage() {
             </Forms>
           </div>
         </section>
-        <App />
+        <App showToast={showToast} />
         <Toast toastData={toastData} />
       </main>
   );

@@ -26,7 +26,7 @@ export function FormularioImagenInput({ name, label }) {
     } else {
       return formContext.formValue?.avatar &&
         formContext.formValue?.avatar !== "sinAvatar"
-        ? API_HOST + "/" + formContext.formValue.avatar
+        ? /*API_HOST + "/" +*/ formContext.formValue.avatar
         : avatar;
     }
   }, [selectFiles, formContext.formValue?.avatar]);
