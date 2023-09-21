@@ -126,7 +126,7 @@
 .caja-comentarios {
   height: 30rem;
   overflow: auto;
-  margin-bottom: -13rem;
+  margin-bottom: 1rem;
 }
 .caja-comentarios-desktop label {
   font-size: 1.8rem;
@@ -136,7 +136,10 @@
 .consulta-comentarios ~ div {
   position: relative;
 }
-
+.mensaje-sin-comentarios {
+  font-size: 1.7rem;
+  padding: 2rem;
+}
 .consulta-comentarios ~ div .boton-simple {
   z-index: 5;
   position: absolute;
@@ -212,7 +215,7 @@ img.imagen-comentarios {
   }
   .caja-comentarios-desktop {
     padding-top: 1rem;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
   }
 
   .caja-comentarios-desktop label {
@@ -312,9 +315,9 @@ img.imagen-comentarios {
 
   .caja-comentarios.ocultar-comentarios {
     display: block;
-    font-family: cursive;
     font-size: 1.5rem;
   }
+
   .caja-comentarios-desktop {
     width: 95%;
     background-color: white;
@@ -359,6 +362,7 @@ img.imagen-comentarios {
     border-radius: 2rem;
     margin: 2rem auto;
   }
+
   .comments {
     width: 70%;
     height: 6rem;
@@ -367,6 +371,7 @@ img.imagen-comentarios {
     border-radius: 2rem;
     overflow: auto;
   }
+
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
   }

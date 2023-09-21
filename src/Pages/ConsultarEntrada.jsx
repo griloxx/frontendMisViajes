@@ -21,9 +21,6 @@ export function ConsultarEntrada() {
 
   function alternarComentarios() {
     setEstadoComentarios(!estadoComentarios);
-    if (!alternarComentarios) {
-      return "No hay comentarios para mostrar";
-    }
   }
 
   useEffect(() => {
