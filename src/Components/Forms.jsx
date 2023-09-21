@@ -4,14 +4,21 @@ import { validate } from "../../utils/validations";
 import { FormContext } from "../context/FormContext";
 import { getToken } from "../../utils/getToken";
 
-export function Forms({ clase, children, onSubmit, schema, initialValue, busqueda }) {
+export function Forms({
+  clase,
+  children,
+  onSubmit,
+  schema,
+  initialValue,
+  busqueda,
+}) {
   const [formState, setFormState] = useState({
     isTouched: false,
     isLoading: false,
     resetImage: false,
     formValue: initialValue || {},
   });
-console.log(formState.isLoading)
+  console.log(formState.isLoading);
   const [, errors] = validate(schema, formState.formValue);
 
   useEffect(() => {
@@ -34,20 +41,19 @@ console.log(formState.isLoading)
   }
 
   async function onFormSubmit(e) {
-    
     e.preventDefault();
-    
+
     setFormState((oldFormState) => {
       return {
         ...oldFormState,
         isTouched: true,
         isLoading: true,
-        resetImage: false
+        resetImage: false,
       };
     });
-    
+
     const [isValid] = validate(schema, formState.formValue);
-    
+
     if (!isValid) {
       return setFormState((oldFormState) => {
         return {
@@ -57,17 +63,17 @@ console.log(formState.isLoading)
         };
       });
     }
-    
+
     await onSubmit(formState.formValue);
-    
+
     setFormState((oldFormState) => {
       return {
         ...oldFormState,
-        resetImage: true
+        resetImage: true,
       };
     });
 
-    if(initialValue?.name) {
+    if (initialValue?.name) {
       const user = getToken();
       initialValue.avatar = user.avatar;
       initialValue.name = user.name;
@@ -75,7 +81,7 @@ console.log(formState.isLoading)
     if (busqueda) {
       initialValue = formState.formValue;
     }
-    if(initialValue?.foto) {
+    if (initialValue?.foto) {
       initialValue = formState.formValue;
     }
     setFormState({
@@ -87,15 +93,23 @@ console.log(formState.isLoading)
   }
 
   return (
-    <FormContext.Provider value={{ ...formState, errors, updateFormValue, onFormSubmit }}>
-       {formState.isLoading &&
-      <div className="div-loader">
-        <div className="loader"></div>
-      </div>}
+    <FormContext.Provider
+      value={{ ...formState, errors, updateFormValue, onFormSubmit }}
+    >
+      {formState.isLoading && (
+        <div className="div-loader">
+          <div className="div-sub-loader">
+            <div className="loader"></div>
+          </div>
+        </div>
+      )}
       <form onSubmit={onFormSubmit} className={clase}>
-     
         {children}
-        <BotonSimple children={"Enviar"} onClick={onFormSubmit} clase={"oculto-busqueda"} />
+        <BotonSimple
+          children={"Enviar"}
+          onClick={onFormSubmit}
+          clase={"oculto-busqueda"}
+        />
       </form>
       <div className="div-boton-simple">
         <BotonSimple onClick={onFormSubmit} clase={"boton-simple"}>
