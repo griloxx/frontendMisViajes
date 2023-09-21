@@ -146,7 +146,7 @@
   border-radius: 2rem;
   cursor: pointer;
   z-index: 5;
-  margin-left: 25%;
+  margin-left: 29%;
 }
 
 .modos {
@@ -177,17 +177,13 @@
   .div-logo {
     gap: 0;
   }
+  .boton-modos-noche {
+    margin-left: 26%;
+  }
 }
-@media (max-width: 1024px) {
-  .boton-modo-noche {
-    display: none;
-  }
-
-  .modo {
-    display: none;
-  }
-  .modo-oscuro {
-    display: none;
+@media (min-width: 425px) {
+  .boton-modos-noche {
+    margin-left: 24%;
   }
 }
 @media (min-width: 768px) {
@@ -196,9 +192,12 @@
     font-size: 3rem;
     text-align: center;
   }
-}
-.logo {
-  margin-left: 0;
+  .logo {
+    margin-left: 0;
+  }
+  .boton-modos-noche {
+    margin-left: 13%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -239,6 +238,21 @@
     display: none;
   }
   .modos-oscuros {
+    display: none;
+  }
+  .boton-modo-noche {
+    margin-right: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .boton-modo-noche {
+    display: none;
+  }
+
+  .modo {
+    display: none;
+  }
+  .modo-oscuro {
     display: none;
   }
 }
