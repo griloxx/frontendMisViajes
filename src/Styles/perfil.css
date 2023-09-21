@@ -62,6 +62,19 @@
   color: gray;
   cursor: pointer;
 }
+
+.main-perfil .toast-fix {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.main-perfil .toast-fix .toast-div {
+  width: 30rem;
+}
+.main-perfil .div-sin-resultado {
+  margin: 10rem auto;
+  width: min(90%, 40rem);
+}
 @media (min-width: 768px) {
   .main-perfil {
     display: grid;

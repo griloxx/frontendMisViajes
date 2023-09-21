@@ -295,7 +295,7 @@ img.imagen-comentarios {
     width: 7rem;
     padding: 0.5rem 0.5rem;
     border-radius: 2rem;
-
+    cursor: pointer;
     z-index: 4;
     margin-top: -9rem;
     margin-left: 75%;
@@ -324,7 +324,7 @@ img.imagen-comentarios {
     height: 68rem;
     border: 1px solid var(--color-bordes);
     box-shadow: 0 0 1rem var(--color-sombras);
-    position: initial;
+    position: relative;
     border-radius: 2rem;
     margin: 3rem auto 0 auto;
     padding: 2rem 1rem;

@@ -7,11 +7,16 @@ import { Icon } from "../Components/icons";
 import { Link } from "react-router-dom";
 import { useGetLogin } from "../../Hooks/useGetLogin";
 import { Entrada } from "../Components/Entrada";
+import { Toast } from "../Components/Toast";
+import { useToast } from "../../Hooks/useToast";
 
 export function Perfil() {
     const [ datos, setDatos ] = useState({});
+    const { toastData, showToast } = useToast();
+
     const diferenciaTime = datos?.create_date ? new Date() - new Date(datos.create_date) : 0;
     const dias = Math.floor(diferenciaTime / (1000 * 60 * 60 * 24));
+    
 
     useGetLogin();
 
@@ -51,8 +56,9 @@ export function Perfil() {
                 </section>
             </div>
             {datos?.entradas && (
-                <Entrada listaEntradas={datos?.entradas} />
+                <Entrada listaEntradas={datos?.entradas} showToast={showToast} />
             )}
+            <Toast toastData={toastData} />
         </main>
     )
 }

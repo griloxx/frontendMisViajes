@@ -131,14 +131,21 @@ export function InputMultiFotos({ name, label, initialValue }) {
         <button className="boton-simple" onClick={onAddFile}>
           Seleccionar Archivo
         </button>
-        {formContext.errors &&
+        {!initialValue ? (formContext.isTouched || isTouched) &&
+          formContext.errors &&
           formContext.errors[name] &&
           !formContext.isLoading && (
             <div className="div-error">
               <p className="error-form">{formContext.errors[name]}</p>
             </div>
-          )}
+          ) : formContext.errors &&
+          formContext.errors[name] &&
+          !formContext.isLoading && (
+            <div className="div-error">
+              <p className="error-form">{formContext.errors[name]}</p>
+            </div>)}
       </div>
+      
       
     </div>
     

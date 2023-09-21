@@ -10,9 +10,11 @@ import { InputMultiFotos } from "../Components/inputMultiFotos";
 import { Toast } from "../Components/Toast";
 import { useGetLogin } from "../../Hooks/useGetLogin";
 import { schemaCrearEntradas } from "../../utils/schemas.js";
+import { useNavigate } from "react-router-dom";
 
 export function CrearEntrada() {
   const { toastData, showToast } = useToast();
+  const navigate = useNavigate();
   const schema = schemaCrearEntradas;
   useGetLogin();
 
@@ -23,6 +25,9 @@ export function CrearEntrada() {
 
     if (resultado.status == "ok") {
       showToast(3000, "exito", resultado.message);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } else {
       showToast(3000, "error", resultado.message);
     }

@@ -10,9 +10,10 @@ import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg"
 import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
+import { servicioConsultaEntrada } from "../Api/servicioConsultarPerfil";
 
 
-export function Entrada({searchParams, lastSearch, listaEntradas}) {
+export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
     const {login} = useContext(LoginContext);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,8 +32,14 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
 
     async function onClickDelete(id) {
         const borrar = await servicioBorrarEntradas(id);
-        //crear toast
-        consultarEntradas();
+        const consulta = await servicioConsultaEntrada();
+        setEntradas(consulta.data.entradas);
+
+        if(borrar.status === "ok") {
+            showToast(3000, "exito", borrar.message);
+        }else {
+            showToast(3000, "exito", borrar.message);
+        }
     }
 
     useEffect(() => {
@@ -88,12 +95,13 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                     </li>
                 )}))
                 : (
-                    <div className="div-caja-resultado">
-                        <div className="div-sin-resultado">
-                            <p>No se ha encontrado nada ningún post...</p>
+                    <li>
+                        <div className="div-caja-resultado">
+                            <div className="div-sin-resultado">
+                                <p>No se ha encontrado nada ningún post...</p>
+                            </div>
                         </div>
-                    </div>
-                    
+                    </li>
             )
             )}
         </ul>

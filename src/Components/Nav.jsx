@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import ListaLinks  from "../data/nav-links.json"
 
 
-export function NavLinks() {
+export function NavLinks({onClick}) {
 
 
     return (
@@ -11,7 +11,7 @@ export function NavLinks() {
                 {ListaLinks.map((link, i) => {
                     return (
                         <li className="li-link" key={link.name+i}>
-                            <Link className="link" to={link.url}>{link.name}</Link>
+                            <Link onClick={onClick} id={link.id} className="link" to={link.url}>{link.name}</Link>
                         </li>
                     )
                 })}

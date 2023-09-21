@@ -10,14 +10,19 @@ import { NavlinksAuth } from "./NavAuth";
 import { useLogout } from "../../Hooks/useLogout";
 import imgLogo from "../imagenes/LogoImg.png";
 import { HeaderContext } from "../context/HeaderContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { SearchContext } from "../context/searchContext";
+
 
 
 export function Header() {
   const { login } = useContext(LoginContext);
   const [ menu, setMenu ] = useState(false);
   const { header, setHeader } = useContext( HeaderContext);
+  const navigate = useNavigate("/");
   const setLogout = useLogout();
+  const {setSearchParams, lastSearch, setLastSearch} = useContext(SearchContext);
+
 
   useEffect(() => {
     let prevScroll = window.scrollY;
@@ -42,11 +47,17 @@ export function Header() {
   }, [])
 
   function onClick(e) {
-    if(e.target.id == "logout") {
+    if(e.target.id === "logout") {
       e.preventDefault();
       setLogout(null);
-      setMenu(false)
     }
+    if(e.target.id === "home" || e.target.id === "logo"){
+      e.preventDefault();
+      setSearchParams({});
+      setLastSearch(!lastSearch);
+      navigate("/");
+    }
+    
     setMenu(false);
   }
 
@@ -55,11 +66,11 @@ export function Header() {
       <header className={header ? "header" : "header header-fix"}>
         <BotonMenu menuOpen={{menu, setMenu}} />
         <div className="div-logo">
-          <Link to={"/"} >
-            <img className="logo-img" src={imgLogo} alt="Mis Viajes" />
+          <Link onClick={onClick} to={"/"} >
+            <img id="logo" className="logo-img" src={imgLogo} alt="Mis Viajes" />
           </Link>
         </div>
-        {!login && <NavLinks />}
+        {!login && <NavLinks onClick={onClick} />}
         {login && <NavlinksAuth onClick={onClick} />}
         <BotonPerfil onClick={onClick} avatarImg={login?.avatar && login.avatar} />
       </header>

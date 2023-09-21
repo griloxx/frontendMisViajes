@@ -15,7 +15,7 @@ export function MenuBusqueda({menu, onSubmit }) {
           label={"Lugar :"}
           autocomplete={"off"}
         />
-        <InputSelect label={"Categoria"} name={"categoria"} />
+        <InputSelect label={"Categoria"} clase={"select-busqueda"} name={"categoria"} />
         
         <InputRadio label={"Ordenar Por:"} label2={"Votos"} label3={"Fecha"} clase={"radio"} name={"votos"} value1={"votos"} value2={"entradilla"} />
       </Forms>

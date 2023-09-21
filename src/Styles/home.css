@@ -198,6 +198,12 @@
   opacity: 0;
   pointer-events: none;
 }
+.select-busqueda {
+  border: .1rem solid var(--color-bordes);
+}
+.select-busqueda:hover {
+  box-shadow: 0 0 .3rem var(--color-bordes);
+}
 
 @media (min-width: 425px) {
   .entrada-lista {

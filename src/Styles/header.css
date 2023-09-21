@@ -42,6 +42,7 @@
 .link {
   text-decoration: none;
   color: var(--color-botones);
+  font-family: var(--fuente-titulos);
   display: flex;
   flex-direction: row-reverse;
   gap: 2rem;
@@ -51,6 +52,7 @@
   border-radius: 1.5rem;
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
+
 
 .boton-menu .material-symbols-outlined {
   margin: 0;
