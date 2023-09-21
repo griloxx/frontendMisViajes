@@ -54,7 +54,6 @@
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
-
 .boton-menu .material-symbols-outlined {
   margin: 0;
   padding: 5px;
@@ -112,6 +111,60 @@
 .no-overflow {
   overflow: hidden;
 }
+.boton-modo-noche {
+  position: relative;
+  width: 6rem;
+  height: 2.1rem;
+  background-color: whitesmoke;
+  border: 1px solid var(--color-bordes);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.modo {
+  width: 2rem;
+  height: 2rem;
+  background-color: #d3e324;
+  box-shadow: 0 0 1rem rgb(227, 163, 36);
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: margin-left 0.5s linear, background-color 0.5s linear,
+    box-shadow 0.5s linear;
+}
+.modo-oscuro {
+  margin-left: 3.2rem;
+  background-color: rgb(170, 171, 208);
+  box-shadow: 0 0 0.5rem rgb(145, 174, 228);
+}
+
+.boton-modos-noche {
+  position: relative;
+  width: 6rem;
+  height: 2.1rem;
+  background-color: whitesmoke;
+  border: 1px solid var(--color-bordes);
+  border-radius: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  margin-left: 25%;
+}
+
+.modos {
+  width: 2rem;
+  height: 2rem;
+  background-color: #d3e324;
+  box-shadow: 0 0 1rem rgb(227, 163, 36);
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: margin-left 0.5s linear, background-color 0.5s linear,
+    box-shadow 0.5s linear;
+}
+.modos-oscuros {
+  margin-left: 3.9rem;
+  background-color: rgb(170, 171, 208);
+  box-shadow: 0 0 0.5rem rgb(145, 174, 228);
+}
+
 @media (min-width: 375px) {
   .logo {
     width: 6rem;
@@ -123,6 +176,18 @@
   }
   .div-logo {
     gap: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .boton-modo-noche {
+    display: none;
+  }
+
+  .modo {
+    display: none;
+  }
+  .modo-oscuro {
+    display: none;
   }
 }
 @media (min-width: 768px) {
@@ -166,6 +231,15 @@
     color: var(--color-link);
     border: none;
     box-shadow: none;
+  }
+  .boton-modos-noche {
+    display: none;
+  }
+  .modos {
+    display: none;
+  }
+  .modos-oscuros {
+    display: none;
   }
 }
 @media (min-width: 1440px) {
