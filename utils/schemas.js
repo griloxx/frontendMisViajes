@@ -29,7 +29,7 @@ export const schemaRegistroUsuario = Joi.object({
     "string.empty": "Email no puede estar vacío",
     "any.required": "Email es obligatorio",
   }),
-  password: Joi.string().min(6).max(20).required().messages({
+  password: Joi.string().min(6).max(50).required().messages({
     "string.base": "Password debe ser de tipo texto",
     "string.min": "Password debe tener mínimo 6 caracteres",
     "string.max": "Password debe tener máximo 20 caracteres",

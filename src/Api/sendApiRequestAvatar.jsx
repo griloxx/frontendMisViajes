@@ -7,10 +7,12 @@ export async function sendApiRequestAvatar(metodo, url, formValue) {
   }
   if (formValue.avatar instanceof FileList) {
     formData.append("avatar", formValue.avatar[0]);
-  }
-  if (formValue.avatar === "sinAvatar") {
+  } else if (formValue.avatar === "sinAvatar") {
+    formData.append("avatar", formValue.avatar);
+  } else {
     formData.append("avatar", formValue.avatar);
   }
+  
   if (formValue.password) {
     formData.append("password", formValue.password);
   }

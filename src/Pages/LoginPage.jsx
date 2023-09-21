@@ -36,7 +36,6 @@ export function LoginPage() {
   }
 
   return (
-    <GoogleOAuthProvider clientId="<688034065812-8gifiqs9opmc9uori870ubef2fhjoga1.apps.googleusercontent.com>">
       <main className="log-u">
         <section className="section-log-u">
           <h2 className="heading2-log-u">Iniciar sesión</h2>
@@ -61,10 +60,9 @@ export function LoginPage() {
               </div>
             </Forms>
           </div>
-          <App />
         </section>
+        <App showToast={showToast} />
         <Toast toastData={toastData} />
       </main>
-    </GoogleOAuthProvider>
   );
 }

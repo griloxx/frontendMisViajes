@@ -13,6 +13,12 @@ import { useToast } from "../../Hooks/useToast";
 export function Perfil() {
   const [datos, setDatos] = useState({});
   const { toastData, showToast } = useToast();
+  let rutaImagen;
+  if(datos?.avatar && datos.avatar[0] + datos.avatar[1] === "ht") {
+    rutaImagen = datos.avatar;
+  } else {
+    rutaImagen = API_HOST + "/" + datos.avatar ;
+  }
 
   const diferenciaTime = datos?.create_date
     ? new Date() - new Date(datos.create_date)
@@ -36,7 +42,7 @@ export function Perfil() {
           <div>
             <img
               className="img-perfil"
-              src={datos?.avatar ? API_HOST + "/" + datos.avatar : avatar}
+              src={datos?.avatar ? rutaImagen : avatar}
               alt="Usuario"
             />
           </div>
