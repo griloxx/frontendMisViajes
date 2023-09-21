@@ -7,8 +7,7 @@ import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { useLogin } from "../../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import App from "../Components/GoogleLogin"
+import App from "../Components/GoogleLogin";
 
 const schema = Joi.object({
   email: Joi.string().required(),
@@ -19,8 +18,6 @@ export function LoginPage() {
   const setlogin = useLogin();
   const { toastData, showToast } = useToast();
   const navigate = useNavigate();
-
-  
   async function onSubmit(formValue) {
     showToast(0, "", "");
 
@@ -41,7 +38,6 @@ export function LoginPage() {
   }
 
   return (
-    <GoogleOAuthProvider clientId="<688034065812-8gifiqs9opmc9uori870ubef2fhjoga1.apps.googleusercontent.com>">
       <main className="log-u">
         <section className="section-log-u">
           <h2 className="heading2-log-u">Iniciar sesión</h2>
@@ -66,10 +62,9 @@ export function LoginPage() {
               </div>
             </Forms>
           </div>
-          <App />
         </section>
+        <App />
         <Toast toastData={toastData} />
       </main>
-    </GoogleOAuthProvider>
   );
 }
