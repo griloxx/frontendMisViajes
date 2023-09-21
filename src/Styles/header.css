@@ -139,7 +139,7 @@
 }
 
 .boton-modos-noche {
-  position: relative;
+  position: fixed;
   width: 6rem;
   height: 2.1rem;
   background-color: whitesmoke;

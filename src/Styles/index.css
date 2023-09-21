@@ -396,6 +396,7 @@ li {
 }
 .oscuro .boton-busqueda {
   box-shadow: 0 0 1rem var(--color-modo-oscuro);
+  background-color: var(--color-fondo-medio);
 }
 .oscuro .mark {
   background-color: var(--color-modo-oscuro-botones);
