@@ -1,11 +1,11 @@
 import Joi from "joi";
 
 export const schemaModificarUsuario = Joi.object({
-  name: Joi.string().max(50).required().messages({
+  name: Joi.string().min(2).max(50).required().messages({
     "string.base": "Nombre debe ser de tipo texto",
+    "string.min": "Nombre debe tener mínimo 2 caracteres",
     "string.max": "Nombre debe tener máximo 50 caracteres",
     "string.empty": "Nombre no puede estar vacío",
-    "any.required": "Nombre es obligatorio",
   }),
   password: Joi.string().allow("").min(6).max(20).messages({
     "string.base": "Password debe ser de tipo texto",
@@ -22,8 +22,10 @@ export const schemaRegistroUsuario = Joi.object({
     "string.empty": "Nombre no puede estar vacío",
     "any.required": "Nombre es obligatorio",
   }),
-  email: Joi.string().required().messages({
+  email: Joi.string().min(5).max(80).required().messages({
     "string.base": "Email debe ser de tipo email",
+    "string.min": "Email debe tener mínimo 5 caracteres",
+    "string.max": "Email debe tener máximo 80 caracteres",
     "string.empty": "Email no puede estar vacío",
     "any.required": "Email es obligatorio",
   }),
