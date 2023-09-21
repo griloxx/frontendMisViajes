@@ -10,8 +10,9 @@ import { NavlinksAuth } from "./NavAuth";
 import { useLogout } from "../../Hooks/useLogout";
 import imgLogo from "../imagenes/LogoImg.png";
 import { HeaderContext } from "../context/HeaderContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, matchPath, useNavigate } from "react-router-dom";
 import { SearchContext } from "../context/searchContext";
+import { ModoOscuroContext } from "../context/ModoOscuroContext";
 
 export function Header() {
   const { login } = useContext(LoginContext);
@@ -19,9 +20,9 @@ export function Header() {
   const { header, setHeader } = useContext(HeaderContext);
   const navigate = useNavigate("/");
   const setLogout = useLogout();
+  const { modoOscuro, setModoOscuro } = useContext(ModoOscuroContext);
   const { setSearchParams, lastSearch, setLastSearch } =
     useContext(SearchContext);
-  const [modoOscuro, setModoOscuro] = useState(false);
 
   const manejarElCambioModo = () => {
     setModoOscuro(!modoOscuro);
@@ -79,12 +80,8 @@ export function Header() {
         </div>
         {!login && <NavLinks onClick={onClick} />}
         {login && <NavlinksAuth onClick={onClick} />}
-        <div className="boton-modo-noche">
-          <div className={`Header ${modoOscuro ? "modo-oscuro" : ""}`}>
-            <button onClick={manejarElCambioModo}>
-              {/*{modoOscuro ? "modo-claro" : "modo-oscuro"}{" "}*/}
-            </button>
-          </div>
+        <div className="boton-modo-noche" onClick={manejarElCambioModo}>
+          <div className={modoOscuro ? "modo" : "modo modo-oscuro"}></div>
         </div>
         <BotonPerfil
           onClick={onClick}
@@ -93,8 +90,20 @@ export function Header() {
       </header>
       {menu && <div onClick={onClick} className="bg-black"></div>}
 
-      {menu && !login && <NavLinksMenu onClick={onClick} />}
-      {menu && login && <NavLinksMenuAuth onClick={onClick} />}
+      {menu && !login && (
+        <NavLinksMenu
+          onClick={onClick}
+          manejarElCambioModo={manejarElCambioModo}
+          modoOscuro={modoOscuro}
+        />
+      )}
+      {menu && login && (
+        <NavLinksMenuAuth
+          onClick={onClick}
+          manejarElCambioModo={manejarElCambioModo}
+          modoOscuro={modoOscuro}
+        />
+      )}
     </>
   );
 }

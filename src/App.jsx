@@ -13,6 +13,7 @@ import { Perfil } from "./Pages/Perfil";
 import { CrearEntrada } from "./Pages/CrearEntradas";
 import { ModificarEntrada } from "./Pages/ModificarEntrada";
 import { SearchProvider } from "./context/searchContext";
+import { ModoOscuroProvider } from "./context/ModoOscuroContext";
 
 function App() {
   return (
@@ -20,23 +21,31 @@ function App() {
       <LoginAuthProvider>
         <HeaderProvider>
           <SearchProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<ListarEntradas />} />
-            <Route path="/entradas/:id" element={<ConsultarEntrada />} />
-            <Route path="/entradas/modificar/:id" element={<ModificarEntrada />} />
-            <Route path="/entradas/crear" element={<CrearEntrada />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/registro" element={<RegistroUsuario />} />
-            <Route
-              path="/validar-registro/:codigo"
-              element={<ValidarRegistro />}
-            />
-            <Route path="/perfil" element={<Perfil />} />
-            <Route path="/modificar-usuario" element={<ModificarUsuario />} />
-            <Route path="/*" element={<PaginaNoEncontrada />} />
-          </Routes>
-          {/* <Footer /> */}
+            <ModoOscuroProvider>
+              <Header />
+              <Routes>
+                <Route path="/" element={<ListarEntradas />} />
+                <Route path="/entradas/:id" element={<ConsultarEntrada />} />
+                <Route
+                  path="/entradas/modificar/:id"
+                  element={<ModificarEntrada />}
+                />
+                <Route path="/entradas/crear" element={<CrearEntrada />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/registro" element={<RegistroUsuario />} />
+                <Route
+                  path="/validar-registro/:codigo"
+                  element={<ValidarRegistro />}
+                />
+                <Route path="/perfil" element={<Perfil />} />
+                <Route
+                  path="/modificar-usuario"
+                  element={<ModificarUsuario />}
+                />
+                <Route path="/*" element={<PaginaNoEncontrada />} />
+              </Routes>
+              {/* <Footer /> */}
+            </ModoOscuroProvider>
           </SearchProvider>
         </HeaderProvider>
       </LoginAuthProvider>

@@ -11,6 +11,8 @@
   --blanco: #fff;
   --negro: #212121;
   --color-bordes-menus: #cacaca;
+  --color-fondo-oscuro: rgb(64, 64, 64);
+  --color-fondo-medio: rgb(64, 64, 64);
 }
 
 html {
@@ -151,4 +153,76 @@ li {
     animation-delay: 2s;
   }
 }
+body.oscuro {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
 
+.oscuro main {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+
+.oscuro header {
+  background-color: var(--color-fondo-oscuro);
+  color: white;
+}
+
+.oscuro ul {
+  background-color: var(--color-fondo-oscuro);
+  color: white;
+}
+.oscuro form {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro .div-border-form {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro article {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro .caja-comentarios-desktop {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro .corazon-phone {
+  background-color: var(--color-fondo-medio);
+}
+.oscuro .comentarios-phone {
+  background-color: var(--color-fondo-medio);
+}
+.oscuro .contenedor-perfil {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro .perfil-texto {
+  color: white;
+}
+.oscuro .papelera.material-symbols-outlined {
+  color: white;
+}
+.oscuro .toast-div {
+  background-color: var(--color-fondo-medio);
+  color: white;
+}
+.oscuro .link {
+  color: white;
+}
+.oscuro p {
+  color: white;
+}
+.oscuro h1 {
+  color: white;
+}
+.oscuro h2 {
+  color: white;
+}
+.oscuro .small-img {
+  background-color: var(--color-fondo-medio);
+}
+.oscuro a {
+  color: white;
+}
