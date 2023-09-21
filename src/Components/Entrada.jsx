@@ -9,16 +9,18 @@ import { BotonIconoLike } from "./BotonIconoLike";
 import { Link } from "react-router-dom";
 import { Icon } from "./icons";
 import avatar from "../imagenes/avatar.jpg"
+import { servicioBorrarEntradas } from "../Api/servicioBorrarEntradas";
+import { servicioConsultaEntrada } from "../Api/servicioConsultarPerfil";
 
 
-export function Entrada({searchParams, lastSearch, listaEntradas}) {
+export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
     const {login} = useContext(LoginContext);
     const [entradas, setEntradas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    
     async function consultarEntradas() {
         let resultado;
-        if(searchParams.size > 0 ) {
+        if(searchParams?.size > 0 ) {
             resultado = await servicioConsultaBusqueda(searchParams.toString())
         } else {
             resultado = await servicioListarEntradas();
@@ -26,6 +28,18 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
         setEntradas(resultado.data);
         setIsLoading(false);
         
+    }
+
+    async function onClickDelete(id) {
+        const borrar = await servicioBorrarEntradas(id);
+        const consulta = await servicioConsultaEntrada();
+        setEntradas(consulta.data.entradas);
+
+        if(borrar.status === "ok") {
+            showToast(3000, "exito", borrar.message);
+        }else {
+            showToast(3000, "exito", borrar.message);
+        }
     }
 
     useEffect(() => {
@@ -55,9 +69,12 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                                     </Link>
                                 </h2>
                                 {listaEntradas && (
-                                    <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
-                                        <Icon icono={"Edit"} />
-                                    </Link>
+                                    <>
+                                        <Link className="perfil-editar" to={`/entradas/modificar/${entrada.id}`}>
+                                            <Icon icono={"Edit"} />
+                                        </Link>
+                                        <Icon clase={"papelera"} onClick={() => onClickDelete(entrada.id)} icono={"delete_forever"} />
+                                    </>
                                 )}
                             </header>
                             <main>
@@ -78,12 +95,13 @@ export function Entrada({searchParams, lastSearch, listaEntradas}) {
                     </li>
                 )}))
                 : (
-                    <div className="div-caja-resultado">
-                        <div className="div-sin-resultado">
-                            <p>No se ha encontrado nada ningún post...</p>
+                    <li>
+                        <div className="div-caja-resultado">
+                            <div className="div-sin-resultado">
+                                <p>No se ha encontrado nada ningún post...</p>
+                            </div>
                         </div>
-                    </div>
-                    
+                    </li>
             )
             )}
         </ul>

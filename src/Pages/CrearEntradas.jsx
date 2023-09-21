@@ -9,18 +9,13 @@ import "../Styles/entradas.css";
 import { InputMultiFotos } from "../Components/inputMultiFotos";
 import { Toast } from "../Components/Toast";
 import { useGetLogin } from "../../Hooks/useGetLogin";
-
-const schema = Joi.object({
-  titulo: Joi.string().max(150).required(),
-  categoria: Joi.string().required(),
-  lugar: Joi.string().max(100).required(),
-  texto: Joi.string().max(150).required(),
-  foto: Joi.array().min(1).max(5).required(),
-});
+import { schemaCrearEntradas } from "../../utils/schemas.js";
+import { useNavigate } from "react-router-dom";
 
 export function CrearEntrada() {
   const { toastData, showToast } = useToast();
-
+  const navigate = useNavigate();
+  const schema = schemaCrearEntradas;
   useGetLogin();
 
   const onSubmit = async (formValue) => {
@@ -30,6 +25,9 @@ export function CrearEntrada() {
 
     if (resultado.status == "ok") {
       showToast(3000, "exito", resultado.message);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } else {
       showToast(3000, "error", resultado.message);
     }
@@ -47,7 +45,11 @@ export function CrearEntrada() {
             label={"Titulo:"}
             autocomplete={"off"}
           />
-          <InputSelect clase={"select"} label={"Categoria:"} name={"categoria"} />
+          <InputSelect
+            clase={"select"}
+            label={"Categoria:"}
+            name={"categoria"}
+          />
           <Input
             name={"lugar"}
             clase={"input"}
@@ -66,7 +68,7 @@ export function CrearEntrada() {
           <InputMultiFotos label={"Fotos Del Viaje"} name={"foto"} />
         </div>
       </Forms>
-      <Toast  toastData={toastData}/>
+      <Toast toastData={toastData} />
     </main>
   );
 }

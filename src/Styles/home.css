@@ -54,6 +54,7 @@
 }
 .entrada-avatar {
   width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   border: 0.2rem solid var(--color-bordes);
   position: absolute;
@@ -154,7 +155,7 @@
   align-items: center;
   font-family: var(fuente-principal);
   border-radius: 0 0 2rem 2rem;
-  box-shadow: .5rem .5rem 1rem var(--color-sombras);
+  box-shadow: .3rem .3rem .8rem var(--color-sombras);
   background-color: white;
   font-size: 1.3rem;
   padding: 2rem 1rem 2rem 1rem;
@@ -197,6 +198,12 @@
 .oculto {
   opacity: 0;
   pointer-events: none;
+}
+.select-busqueda {
+  border: .1rem solid var(--color-bordes);
+}
+.select-busqueda:hover {
+  box-shadow: 0 0 .3rem var(--color-bordes);
 }
 
 @media (min-width: 425px) {

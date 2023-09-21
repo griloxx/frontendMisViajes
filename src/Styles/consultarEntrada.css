@@ -29,6 +29,7 @@
 }
 .consulta-entrada-avatar {
   width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   border: 0.2rem solid var(--color-bordes);
   position: absolute;
@@ -62,11 +63,11 @@
   overflow: auto;
   font-size: 1.6rem;
   font-family: cursive;
-  border: 2px solid var(--color-botones);
+  border: 2px solid var(--color-bordes);
   border-radius: 2rem;
-  margin: 0;
+  margin-bottom: 1rem;
   padding: 1rem;
-  height: 15rem;
+  height: 13rem;
   position: relative;
   z-index: 3;
   width: 100%;
@@ -99,20 +100,20 @@
 .div-cierre-comentarios {
   position: absolute;
   background-color: transparent;
-  width: 104vw;
+  width: 100vw;
   height: 100vh;
   bottom: -6rem;
-  margin: -4rem;
+  margin: -10rem;
   overflow: hidden;
   z-index: 3;
 }
 .caja-comentarios-desktop {
   background-color: white;
-  border: 1px solid var(--color-bordes);
+  border: 2px solid var(--color-bordes);
   border-radius: 2rem;
-  padding: 1.2rem 2rem 2.5rem 2rem;
+  padding: 0.8rem 2rem 3.8rem 2rem;
   position: absolute;
-  bottom: 0rem;
+  bottom: 0;
   width: 100%;
   z-index: 3;
   margin-bottom: 1.5rem;
@@ -120,7 +121,7 @@
 .caja-comentarios-desktop .div-error {
   position: relative;
 }
-.caja-comentarios-desktop .div-error .error-form{
+.caja-comentarios-desktop .div-error .error-form {
   position: absolute;
 }
 .caja-comentarios {
@@ -136,12 +137,15 @@
 .consulta-comentarios ~ div {
   position: relative;
 }
-
+.mensaje-sin-comentarios {
+  font-size: 1.7rem;
+  padding: 2rem;
+}
 .consulta-comentarios ~ div .boton-simple {
   z-index: 5;
   position: absolute;
   right: 1.5rem;
-  bottom: 4rem;
+  bottom: 5.5rem;
 }
 
 .comments {
@@ -163,8 +167,8 @@
 
 img.imagen-comentarios {
   float: left;
-  max-width: 5rem;
-  max-height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 100%;
   border: 0.2rem solid var(--color-bordes);
   margin: 1rem;
@@ -199,11 +203,12 @@ img.imagen-comentarios {
   .consulta-entrada {
     height: 73rem;
   }
+
   .consulta-entrada-main .container {
     height: 42rem;
   }
   .consulta-entrada-texto {
-    height: 10rem;
+    height: 9rem;
     margin-bottom: 1rem;
   }
   .div-caja-comentarios {
@@ -211,25 +216,35 @@ img.imagen-comentarios {
   }
   .caja-comentarios-desktop {
     padding-top: 1rem;
+    margin-bottom: 0.4rem;
   }
 
   .caja-comentarios-desktop label {
     margin: 2rem;
   }
+
+  .consulta-comentarios ~ div .boton-simple {
+    bottom: 4.5rem;
+  }
+
   .comments {
     margin-left: 1rem;
   }
-}
-
-@media (min-width: 425px) {
-  .consulta-entrada-texto {
-    margin-bottom: 2rem;
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: 0.5rem;
   }
-
+}
+@media (min-width: 425px) {
   .div-caja-comentarios {
     height: 10rem;
   }
- 
+
+  .caja-comentarios-desktop {
+    margin-bottom: -0.5rem;
+  }
+  .consulta-comentarios ~ div .boton-simple {
+    bottom: 3.5rem;
+  }
   .comments {
     margin-left: 0.2rem;
     width: 65%;
@@ -281,9 +296,9 @@ img.imagen-comentarios {
     width: 7rem;
     padding: 0.5rem 0.5rem;
     border-radius: 2rem;
-    margin-left: 4rem;
+    cursor: pointer;
     z-index: 4;
-    margin-top: -4.6rem;
+    margin-top: -9rem;
     margin-left: 75%;
   }
 
@@ -301,16 +316,16 @@ img.imagen-comentarios {
 
   .caja-comentarios.ocultar-comentarios {
     display: block;
-    font-family: cursive;
     font-size: 1.5rem;
   }
+
   .caja-comentarios-desktop {
     width: 95%;
     background-color: white;
     height: 68rem;
-    border: 1px solid var(--color-botones);
+    border: 1px solid var(--color-bordes);
     box-shadow: 0 0 1rem var(--color-sombras);
-    position: initial;
+    position: relative;
     border-radius: 2rem;
     margin: 3rem auto 0 auto;
     padding: 2rem 1rem;
@@ -337,16 +352,33 @@ img.imagen-comentarios {
     font-size: 2rem;
     margin: 2rem;
   }
-  .comments {
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: -3rem;
+    padding-left: 1rem;
+  }
+  .caja-comentarios-desktop .caja-comentarios-input {
     width: 100%;
-    height: 9rem;
+    height: 14rem;
+    border: 2px solid var(--color-bordes);
+    border-radius: 2rem;
     margin: 2rem auto;
-    border: 1px solid var(--color-bordes);
+  }
+
+  .comments {
+    width: 70%;
+    height: 6rem;
+    margin: 4rem 1rem;
+    border: 1px solid var(--color-botones);
     border-radius: 2rem;
     overflow: auto;
   }
+
   .comments:hover {
     box-shadow: 0 0 0.5rem var(--color-botones);
+  }
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: -3rem;
+    margin-left: 1rem;
   }
 }
 
@@ -360,5 +392,29 @@ img.imagen-comentarios {
   }
   .consulta-comentarios-desktop .oculto-busqueda {
     margin-left: 80%;
+    margin-top: -8rem;
+  }
+  .caja-comentarios {
+    height: 49.5rem;
+  }
+  .caja-comentarios-desktop label {
+    margin-top: 2rem;
+  }
+  .caja-comentarios-desktop .caja-comentarios-input {
+    height: 10rem;
+    margin: 1rem auto 1rem auto;
+    padding: 0;
+  }
+  .comments {
+    height: 4rem;
+    margin: 2.5rem 1rem;
+    overflow: auto;
+  }
+  .caja-comentarios.ocultar-comentarios {
+    height: 49.5rem;
+  }
+  .caja-comentarios-desktop .div-error .error-form {
+    margin-top: -1.5rem;
+    margin-left: 2rem;
   }
 }

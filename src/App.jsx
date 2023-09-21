@@ -12,12 +12,14 @@ import { HeaderProvider } from "./context/HeaderContext";
 import { Perfil } from "./Pages/Perfil";
 import { CrearEntrada } from "./Pages/CrearEntradas";
 import { ModificarEntrada } from "./Pages/ModificarEntrada";
+import { SearchProvider } from "./context/searchContext";
 
 function App() {
   return (
     <>
       <LoginAuthProvider>
         <HeaderProvider>
+          <SearchProvider>
           <Header />
           <Routes>
             <Route path="/" element={<ListarEntradas />} />
@@ -34,7 +36,9 @@ function App() {
             <Route path="/modificar-usuario" element={<ModificarUsuario />} />
             <Route path="/*" element={<PaginaNoEncontrada />} />
           </Routes>
-          </HeaderProvider>
+          {/* <Footer /> */}
+          </SearchProvider>
+        </HeaderProvider>
       </LoginAuthProvider>
     </>
   );

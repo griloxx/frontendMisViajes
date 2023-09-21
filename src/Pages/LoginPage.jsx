@@ -7,24 +7,22 @@ import { useToast } from "../../Hooks/useToast";
 import { Toast } from "../Components/Toast";
 import { useLogin } from "../../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import App from "../Components/GoogleLogin";
-
-const schema = Joi.object({
-  email: Joi.string().required(),
-  password: Joi.string().min(6).max(20).required(),
-});
+import { schemaLogin } from "../../utils/schemas";
 
 export function LoginPage() {
   const setlogin = useLogin();
   const { toastData, showToast } = useToast();
   const navigate = useNavigate();
+  const schema = schemaLogin;
+
   async function onSubmit(formValue) {
     showToast(0, "", "");
 
     const loginUsuario = await servicioLoginUsuario(formValue);
 
     if (loginUsuario.status == "ok") {
-
       setlogin(loginUsuario.data.token);
 
       showToast(1500, "exito", loginUsuario.message);

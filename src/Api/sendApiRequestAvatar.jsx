@@ -1,7 +1,4 @@
-
-
 export async function sendApiRequestAvatar(metodo, url, formValue) {
-
   const headers = {};
 
   const formData = new FormData();
@@ -22,16 +19,15 @@ export async function sendApiRequestAvatar(metodo, url, formValue) {
   }
 
   const token = localStorage.getItem("userToken");
-  if(token) {
+  if (token) {
     headers["Authorization"] = token;
   }
-  
+
   const respuesta = await fetch(url, {
     method: metodo,
     headers: headers,
     body: formData,
   });
-  
 
   return await respuesta.json();
 }

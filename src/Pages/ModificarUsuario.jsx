@@ -9,34 +9,28 @@ import { useLogin } from "../../Hooks/useLogin";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { useGetLogin } from "../../Hooks/useGetLogin";
-import {schemaModificarUsuario}  from "../../utils/schemas.js"
-
+import { schemaModificarUsuario } from "../../utils/schemas.js";
 
 export function ModificarUsuario() {
   const setlogin = useLogin();
-  const {login} = useContext(LoginContext);
-  let {name, avatar} = login || {};
+  const { login } = useContext(LoginContext);
+  let { name, avatar } = login || {};
   const { toastData, showToast } = useToast();
   const schema = schemaModificarUsuario;
 
   useGetLogin();
 
-
   async function onSubmit(formValue) {
     showToast(0, "", "");
-    
+
     const modificarUsuario = await servicioModificarUsuario(formValue);
 
     if (modificarUsuario.status == "ok") {
-
       setlogin(modificarUsuario.data);
-      
+
       showToast(3000, "exito", modificarUsuario.message);
-
     } else {
-
       showToast(3000, "error", modificarUsuario.message);
-
     }
   }
 
@@ -44,13 +38,18 @@ export function ModificarUsuario() {
     <main className="main mod-u">
       <h2 className="heading2-mod-u">Modificar Perfil</h2>
 
-      <Forms clase={"form-mod-u"} onSubmit={onSubmit} initialValue={{name, avatar}} schema={schema}>
+      <Forms
+        clase={"form-mod-u"}
+        onSubmit={onSubmit}
+        initialValue={{ name, avatar }}
+        schema={schema}
+      >
         <div className="div-form-inp">
           <Input
             name={"name"}
             clase={"input"}
             type={"text"}
-            label={"Nombre:"}
+            label={"Nombre de Usuario:"}
             autocomplete={"off"}
           />
           <Input

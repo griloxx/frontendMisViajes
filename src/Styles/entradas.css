@@ -38,6 +38,12 @@
 .select:hover {
   box-shadow: 0 0 1rem var(--color-bordes);
 }
+.div-text-area {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  text-align: center;
+}
 .text-area {
   border: 0.1rem solid var(--color-bordes);
   outline: none;
