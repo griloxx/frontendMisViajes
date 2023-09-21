@@ -54,7 +54,6 @@
   box-shadow: 0 0 1.3rem var(--color-botones);
 }
 
-
 .boton-menu .material-symbols-outlined {
   margin: 0;
   padding: 5px;
@@ -112,6 +111,29 @@
 .no-overflow {
   overflow: hidden;
 }
+.boton-modo-noche {
+  position: relative;
+  background-color: black;
+  border: 1px solid var(--color-bordes);
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+
+.Header button {
+  position: absolute;
+  background-color: blueviolet;
+  border: 1px solid black;
+  border-radius: 50%;
+  color: blue;
+  padding: 1rem;
+  transform: scale(0.7);
+}
+
+.Header button:hover {
+  background-color: aqua;
+}
+
 @media (min-width: 375px) {
   .logo {
     width: 6rem;
