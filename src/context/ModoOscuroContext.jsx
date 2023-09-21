@@ -2,12 +2,12 @@ import { createContext, useEffect, useState } from "react";
 
 export const ModoOscuroContext = createContext();
 export function ModoOscuroProvider({ children }) {
-  const [modoOscuro, setModoOscuro] = useState(false);
+  const [modoOscuro, setModoOscuro] = useState(true);
   useEffect(() => {
-    const body = document.getElementById("body");
+    const html = document.getElementById("html");
     !modoOscuro
-      ? body.classList.add("oscuro")
-      : body.classList.remove("oscuro");
+      ? html.classList.add("oscuro")
+      : html.classList.remove("oscuro");
   }, [modoOscuro]);
   return (
     <ModoOscuroContext.Provider value={{ modoOscuro, setModoOscuro }}>

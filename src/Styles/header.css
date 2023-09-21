@@ -93,6 +93,7 @@
 }
 .logo-img {
   width: 10rem;
+  filter: hue-rotate(45deg);
 }
 .logo {
   width: 0;
@@ -124,7 +125,7 @@
 .modo {
   width: 2rem;
   height: 2rem;
-  background-color: #d3e324;
+  background-color: #f9f10f;
   box-shadow: 0 0 1rem rgb(227, 163, 36);
   border: 1px solid black;
   border-radius: 50%;
@@ -132,7 +133,7 @@
     box-shadow 0.5s linear;
 }
 .modo-oscuro {
-  margin-left: 3.2rem;
+  margin-left: 2rem;
   background-color: rgb(170, 171, 208);
   box-shadow: 0 0 0.5rem rgb(145, 174, 228);
 }
@@ -244,7 +245,7 @@
     margin-right: 2rem;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 769px) {
   .boton-modo-noche {
     display: none;
   }
@@ -259,5 +260,14 @@
 @media (min-width: 1440px) {
   .li-link {
     font-size: 2.7rem;
+  }
+  .modo-oscuro {
+    margin-left: 2.5rem;
+  }
+}
+@media (min-width: 1560px) {
+
+  .modo-oscuro {
+    margin-left: 2.8rem;
   }
 }

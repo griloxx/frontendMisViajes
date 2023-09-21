@@ -11,8 +11,8 @@
   --blanco: #fff;
   --negro: #212121;
   --color-bordes-menus: #cacaca;
-  --color-fondo-oscuro: rgb(64, 64, 64);
-  --color-fondo-medio: rgb(64, 64, 64);
+  --color-fondo-oscuro: #0c1317;
+  --color-fondo-medio: #0c1317;
   --color-modo-oscuro: #72e0d9;
   --color-modo-oscuro-botones: #a6e3df;
 }
@@ -43,6 +43,26 @@ li {
 
 .main {
   padding: 2rem 5rem 2rem 5rem;
+}
+.boton-google {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  border: .2rem solid var(--color-bordes);
+  border-radius: 1.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--fuente-principal);
+  font-size: 2rem;
+}
+.boton-google:hover {
+ box-shadow: 0 0 1rem var(--color-bordes);
+}
+.boton-google img {
+  width: 3rem;
 }
 
 .vuelo,
@@ -155,7 +175,7 @@ li {
     animation-delay: 2s;
   }
 }
-body.oscuro {
+.oscuro body {
   background-color: var(--color-fondo-medio);
   color: white;
 }
@@ -290,6 +310,9 @@ body.oscuro {
   filter: drop-shadow(0 0 1rem var(--color-modo-oscuro));
 
 }
+.oscuro .logo-img {
+  filter: invert() hue-rotate(119deg);
+}
 
 .oscuro .flecha:hover {
   box-shadow: 0 0 2rem var(--color-modo-oscuro);
@@ -326,6 +349,13 @@ body.oscuro {
 }
 .oscuro .entrada-lista footer div p {
   color: var(--color-modo-oscuro);
+}
+.oscuro .boton-google {
+  color: white;
+  border-color: var(--color-modo-oscuro);
+}
+.oscuro .boton-google:hover {
+  box-shadow: 0 0 1rem var(--color-modo-oscuro);
 }
 
 @keyframes votar2 {
@@ -386,25 +416,31 @@ body.oscuro {
   border-color: var(--color-modo-oscuro);
 }
 .oscuro .vuelo{
-  color: var(--color-modo-oscuro);
   animation-name: volaroscuro;
+  color: transparent;
 }
 .oscuro .vuelo2{
-  color: var(--color-modo-oscuro);
   animation-name: volaroscuro2;
+  color: transparent;
 }
 .oscuro .vuelo3{
-  color: var(--color-modo-oscuro);
   animation-name: volaroscuro3;
+  color: transparent;
 }
 .oscuro .vuelo4{
-  color: var(--color-modo-oscuro);
   animation-name: volaroscuro4;
+  color: transparent;
 }
 .oscuro .div-sub-loader{
   background-color: var(--color-modo-oscuro-botones);
   border-color: var(--color-modo-oscuro);
   box-shadow: 0 0 1rem var(--color-modo-oscuro);
+}
+.oscuro::-webkit-scrollbar {
+  background-color: transparent;
+}
+.oscuro::-webkit-scrollbar-thumb {
+  background-color: var(--color-modo-oscuro); /
 }
 
 @keyframes volaroscuro {

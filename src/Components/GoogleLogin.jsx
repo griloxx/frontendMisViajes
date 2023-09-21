@@ -5,6 +5,7 @@ import { servicioLoginUsuario } from '../Api/servicioLoginUsuario';
 import { servicioRegistroUsuario } from '../Api/servicioRegistroUsuario';
 import { useNavigate } from 'react-router';
 import { useLogin } from '../../Hooks/useLogin';
+import googleImg from '../imagenes/google.png';
 
 function App({showToast}) {
     const [ user, setUser ] = useState([]);
@@ -89,7 +90,7 @@ function App({showToast}) {
 
     return (
         <div>
-            <button onClick={() => login()}>Sign in with Google 🚀 </button>
+            <button className='boton-google' onClick={() => login()}>Inicia con <img src={googleImg} alt='Google'/> </button>
         </div>
     );
 }
