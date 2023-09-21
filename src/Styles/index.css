@@ -358,6 +358,12 @@ li {
   box-shadow: 0 0 1rem var(--color-modo-oscuro);
 }
 
+.oscuro .consulta-entrada-texto::-webkit-scrollbar-thumb {
+  background-color: var(--color-modo-oscuro);
+}
+.oscuro .caja-comentarios::-webkit-scrollbar-thumb {
+  background-color: var(--color-modo-oscuro);
+}
 @keyframes votar2 {
   0% {
     font-variation-settings: "FILL" 0;
