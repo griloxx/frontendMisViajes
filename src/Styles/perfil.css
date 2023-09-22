@@ -81,9 +81,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .papelera {
-    margin-right: 1rem;
-  }
+  
   .contenedor-perfil {
     margin: 0 3rem;
     width: 33rem;
@@ -106,6 +104,9 @@
 @media (min-width: 1024px) {
   .main-perfil {
     grid-template-columns: 45% 55%;
+  }
+  .papelera {
+    margin-right: 1rem;
   }
   .contenedor-perfil {
     width: 40rem;

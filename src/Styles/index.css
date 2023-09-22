@@ -333,6 +333,7 @@ li {
 .oscuro .oculto-busqueda{
   border-color: var(--color-modo-oscuro);
   background-color: var(--color-modo-oscuro-botones);
+  box-shadow: 0 0 1rem var(--color-sombras);
 }
 .oscuro .oculto-busqueda:hover{
   background-color: var(--color-modo-oscuro-botones);
