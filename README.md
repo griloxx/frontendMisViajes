@@ -44,10 +44,10 @@ Puedes encontrar más detalles sobre la API y los endpoints en [GitHub - API de 
 
 ## 📝 Contribución
 
-- [David Grilo](https://www.linkedin.com/in/davidgrilo/)
-- [Raquel Montenegro](https://www.linkedin.com/in/raquel-montenegro-moreno/)
-- [Oscar Ramírez](https://www.linkedin.com/in/oscar-ram%C3%ADrez-espejo/)
-- [Raúl Lara](https://www.linkedin.com/in/ra%C3%BAl-lara-g%C3%B3mez-5b2832280/)
+- [David Grilo](https://github.com/griloxx)
+- [Raquel Montenegro](https://github.com/Raquel1974)
+- [Oscar Ramírez](https://github.com/SoyOscarRamirez)
+- [Raúl Lara](https://github.com/rakalito)
 
 ## 📞 Contacto
 
