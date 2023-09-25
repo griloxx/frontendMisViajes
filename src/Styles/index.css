@@ -219,6 +219,10 @@ li {
 .oscuro .caja-comentarios-input {
   border-color: var(--color-modo-oscuro);
 }
+.oscuro .main-perfil .div-sin-resultado {
+  background-color: (var(--color-fondo-medio));
+  border-color: var(--color-modo-oscuro);
+}
 .oscuro .consulta-entrada-texto {
   border-color: var(--color-modo-oscuro);
 }
