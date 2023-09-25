@@ -333,9 +333,4 @@ html::-webkit-scrollbar-thumb {
     filter: none;
   }
 }
-@media (min-width: 375px) {
-  .ojo, .ojo-abierto {
-
-  }
-}
 
