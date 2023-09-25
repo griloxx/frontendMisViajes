@@ -16,9 +16,7 @@ export function Perfil() {
   const [isLoading, setIsLoading] = useState(true);
   
   let rutaImagen;
-  if(datos?.avatar && datos.avatar[0] + datos.avatar[1] === "ht") {
-    rutaImagen = datos.avatar;
-  } else {
+  if(datos?.avatar) {
     rutaImagen = API_HOST + "/" + datos.avatar ;
   }
 

@@ -69,16 +69,14 @@ export function Entrada({searchParams, lastSearch, listaEntradas, showToast}) {
             entradas?.length > 0 ? (
                 entradas.map((entrada) => {
                     let rutaImagen;
-                        if(entrada?.avatar && entrada.avatar[0] + entrada.avatar[1] === "ht") {
-                            rutaImagen = entrada.avatar;
-                        } else {
+                        if(entrada?.avatar) {
                             rutaImagen = API_HOST + "/" + entrada.avatar ;
-                        }
+                        } 
                 return (
                     <li key={entrada.id}>
                         <article className="entrada-lista">
                             <header>
-                                <img className="entrada-avatar" src={entrada.avatar ? rutaImagen : avatar} alt="usuario" />
+                                <img className="entrada-avatar" src={entrada?.avatar ? rutaImagen : avatar} alt="usuario" />
                                 <h2>
                                     <Link className="entrada-heading" to={`/entradas/${entrada.id}`}  >
                                         {entrada.titulo}

@@ -1,4 +1,5 @@
 import { API_HOST } from "../../utils/constants";
+import avatar from "../imagenes/avatar.jpg";
 
 const Comentarios = ({ comentarios, estadoComentarios }) => {
   return (
@@ -12,18 +13,13 @@ const Comentarios = ({ comentarios, estadoComentarios }) => {
       <ul className="comentarios">
         {comentarios.length > 0 ? (
           comentarios.map((comentario, index) =>{
-            let rutaImagen;
-            if(comentario?.avatar && comentario.avatar[0] + comentario.avatar[1] === "ht") {
-              rutaImagen = comentario.avatar;
-            } else {
-              rutaImagen = API_HOST + "/" + comentario.avatar ;
-            }
+              const rutaImagen = API_HOST + "/" + comentario.avatar ;
             return(
             <li key={index} className="comentario">
               <img
                 className="imagen-comentarios"
                 src={
-                  comentario.avatar
+                  comentario?.avatar
                     ? rutaImagen
                     : avatar
                 }

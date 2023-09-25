@@ -103,6 +103,40 @@ html::-webkit-scrollbar-thumb {
 .consulta-entrada-footer .div-sub-loader{
   display: none;
 }
+.caja-comentarios-input {
+  position: relative;
+}
+
+.ojo, .ojo-abierto {
+  display: inline-flex;
+  gap: 10px;
+  position: absolute;
+  top: .8rem;
+  margin-left: -4.2rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.ojo::before, .ojo::after,
+.ojo-abierto::before, .ojo-abierto::after {
+  content: "";
+  height: 13px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.ojo:before, .ojo:after {
+  background: linear-gradient(to bottom, #222 0%, #222 85%, white 80%, white 100%);
+
+}
+.ojo-abierto:before, .ojo-abierto::after{
+
+  background:
+    radial-gradient(farthest-side,#000 90%,#0000) 30%/6px 6px no-repeat
+    #fff;
+}
+
 @keyframes l5 {
   0%,
   11% {
@@ -220,6 +254,7 @@ html::-webkit-scrollbar-thumb {
 
 .mark {
   background-color: var(--color-botones);
+
   border-color: white;
 }
 .flechas {
@@ -286,6 +321,7 @@ html::-webkit-scrollbar-thumb {
     cursor: pointer;
   }
   .small-img .mark {
+    background-color: unset;
     filter: none;
   }
   .small-img img {
@@ -297,3 +333,9 @@ html::-webkit-scrollbar-thumb {
     filter: none;
   }
 }
+@media (min-width: 375px) {
+  .ojo, .ojo-abierto {
+
+  }
+}
+

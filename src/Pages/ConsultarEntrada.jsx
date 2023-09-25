@@ -17,9 +17,7 @@ export function ConsultarEntrada() {
   const [isLoading, setIsLoading] = useState(true);
   const { toastData, showToast } = useToast();
   let rutaImagen;
-    if(entrada?.avatar && entrada.avatar[0] + entrada.avatar[1] === "ht") {
-      rutaImagen = entrada.avatar;
-    } else {
+    if(entrada?.avatar) {
       rutaImagen = API_HOST + "/" + entrada.avatar ;
     }
   const [estadoComentarios, setEstadoComentarios] = useState(true);
